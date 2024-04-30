@@ -5,7 +5,12 @@ import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 import LandingPage from "./Components/LandingPage";
 import "./App.css";
+
+import "./fonts/XB Tabriz.ttf"
+
+
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
 function App() {
   let router = createBrowserRouter([
     {
