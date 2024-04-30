@@ -1,30 +1,35 @@
 import React from "react";
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
+import Login from "./Components/Login";
+import SignUp from "./Components/SignUp";
+import LandingPage from "./Components/LandingPage";
 import "./App.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 function App() {
+  let router = createBrowserRouter([
+    {
+      path: "/login",
+      element: <Login />,
+    },
+    {
+      path: "/",
+      element: <LandingPage />,
+    },
+    {
+      path: "/signup",
+      element: <SignUp />,
+    },
+  ]);
+
   return (
     <>
-      <>
-        <>
-          <div className="app">
-            <Navbar />
-            <Footer />
-          </div>
-          <div className="centered-text">
-            <h1>ہر مشکل کام اب ہوگا آسان</h1>
-          </div>
-        </>
-        <div className="centered-text2">
-          <h1>آسانی</h1>
-        </div>
-      </>
-      <div className="auth-buttons">
-        <button className="login-btn">Login</button>
-        <button className="signup-btn">Signup</button>
+      <div className="app">
+        <Navbar />
+      <RouterProvider router={router} />
+        <Footer />
       </div>
     </>
   );
 }
-
 export default App;
