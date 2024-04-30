@@ -1,0 +1,79 @@
+.navbar {
+  background-color: #9748FF; 
+  color: black; 
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 20px; 
+}
+
+.navbar-heading {
+  font-size: xx-large;
+
+}
+
+.navbar-nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-item {
+  display: inline-block;
+  margin-left: 20px; 
+}
+
+.nav-item a {
+  color: white; 
+  text-decoration: none;
+}
+body{
+  background-color: #9748FF;
+}
+.centered-text {
+  position: absolute;
+  left: 25%;
+  top: 50%; 
+  transform: translate(-50%, -50%);
+  text-align: left;
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+.centered-text2 {
+  position: absolute;
+  right: 25%;
+  top: 50%;
+  transform: translate(50%, -50%);
+  text-align: right;
+  font-weight: bolder;
+  color: white;
+  font-size: xx-large;
+}
+.container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.auth-buttons {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+.login-btn,
+.signup-btn {
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 50px;
+  padding: 10px 20px;
+  margin-left: 10px;
+  margin-bottom: 30px;
+}
+
+.login-btn:hover,
+.signup-btn:hover {
+  background-color: #f0f0f0;
+}
+
+
+
