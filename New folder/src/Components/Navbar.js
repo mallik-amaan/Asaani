@@ -7,16 +7,16 @@ const Navbar = () => {
       <div className="navbar-heading">Asaani</div>
       <ul className="navbar-nav">
         <li className="nav-item">
-          <a href="#">Home</a>
+          <a href="/">Home</a>
         </li>
         <li className="nav-item">
-          <a href="#">About</a>
+          <a href="/">About</a>
         </li>
         <li className="nav-item">
-          <a href="#">Services</a>
+          <a href="/">Services</a>
         </li>
         <li className="nav-item">
-          <a href="#">Contact</a>
+          <a href="/">Contact</a>
         </li>
       </ul>
     </nav>

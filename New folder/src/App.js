@@ -31,7 +31,7 @@ function App() {
     <>
       <div className="app">
         <Navbar />
-      <RouterProvider router={router} />
+        <RouterProvider router={router} />
         <Footer />
       </div>
     </>

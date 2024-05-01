@@ -111,6 +111,8 @@ body{
 }
 form{
   width: 70%;
+  display: flex;
+  flex-direction: column;
 }
 .form-group {
   margin-bottom: 10px;
@@ -123,7 +125,7 @@ form{
   border-radius: 5px;
 }
 
-.SignUpButton {
+.signUpButton {
   width: 60%;
   padding: 10px;
   align-self:center;
@@ -131,5 +133,6 @@ form{
   color: black;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
 
 }
