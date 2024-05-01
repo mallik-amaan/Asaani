@@ -12,7 +12,9 @@
   color: black; 
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 10px 20px; 
+  box-shadow: 0 1px 10px #000;
 }
 
 .navbar-heading {
@@ -24,6 +26,7 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
+  font-size: 20px;
 }
 
 .nav-item {
@@ -86,8 +89,6 @@ body{
 
 }
 
-
-
 .FormContainer {
   display: flex;
   justify-content: center;
@@ -121,8 +122,9 @@ form{
 .form-group input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
   border-radius: 5px;
+  border:  none;
+  font-size: 15px;
 }
 
 .signUpButton {
@@ -134,5 +136,6 @@ form{
   border: none;
   border-radius: 5px;
   cursor: pointer;
-
+  font-size: 15px;
 }
+
