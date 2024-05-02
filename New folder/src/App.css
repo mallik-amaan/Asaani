@@ -24,6 +24,9 @@
   display: flex;
   justify-content: space-between;
   padding: 10px 20px;
+  align-items: center;
+  padding: 10px 20px; 
+  box-shadow: 0 1px 10px #000;
 }
 
 .navbar-heading {
@@ -34,6 +37,7 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
+  font-size: 20px;
 }
 
 .nav-items {
@@ -85,11 +89,18 @@
   padding: 10px 20px;
   margin-left: 10px;
   margin-bottom: 30px;
+  color: #6815d5;
+  font-size: 15px;
+  transition: all 0.2s ease-in;
 }
 
 .login-btn:hover,
 .signup-btn:hover {
   background-color: #f0f0f0;
+.signup-btn:hover{
+  background-color: #5a13b7;
+  border: 2px white solid;
+  color: white;
 }
 
 .FormContainer {
@@ -115,6 +126,8 @@
 }
 form {
   width: 70%;
+  display: flex;
+  flex-direction: column;
 }
 .form-group {
   margin-bottom: 10px;
@@ -123,11 +136,12 @@ form {
 .form-group input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
   border-radius: 5px;
+  border:  none;
+  font-size: 15px;
 }
 
-.SignUpButton {
+.signUpButton {
   width: 60%;
   padding: 10px;
   align-self: center;
@@ -157,3 +171,7 @@ form {
   border-radius: 50px;
   margin-top: 15px;
 }
+  cursor: pointer;
+  font-size: 15px;
+}
+
