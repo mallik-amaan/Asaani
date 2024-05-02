@@ -4,6 +4,7 @@ import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 import LandingPage from "./Components/LandingPage";
 import Footer from "./Components/Footer";
+import Cards from "./Components/card";
 import "./App.css";
 
 import "./fonts/XB Tabriz.ttf";

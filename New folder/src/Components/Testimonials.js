@@ -22,15 +22,16 @@ function Testimonials() {
         padding: "10px",
       }}
     >
-      <div className="h5">
-        Testimonials
-      </div>
+      <h3 style={{ fontFamily: "Roboto ", marginTop: "3%" }}>Testimonials</h3>
+
       <div className="row">
         {items.map((item) => (
-          <div className="container-fluid rev-card">
-            <img src={item.img} alt="" height={100} width={100} />
+          <div className="col-6">
+          <div className="container-fluid rev-card" style={{borderWidth: "15px",}}>
+            <img style={{borderRadius: "50px", marginBottom:"15px"}} src={item.img} alt="" height={100} width={100} />
             <h5>{item.name}</h5>
             <p>{item.review}</p>
+          </div>
           </div>
         ))}
       </div>
