@@ -1,13 +1,11 @@
 import React from "react";
 import Navbar from "./Components/Navbar";
-import Footer from "./Components/Footer";
 import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 import LandingPage from "./Components/LandingPage";
 import "./App.css";
 
-import "./fonts/XB Tabriz.ttf"
-
+import "./fonts/XB Tabriz.ttf";
 
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -31,8 +29,7 @@ function App() {
     <>
       <div className="app">
         <Navbar />
-      <RouterProvider router={router} />
-        <Footer />
+        <RouterProvider router={router} />
       </div>
     </>
   );
