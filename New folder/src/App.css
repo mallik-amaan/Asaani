@@ -6,46 +6,66 @@
   font-family: urdu2;
   src: url(./fonts/XB\ Tabriz.ttf);
 }
+@import url('https://fonts.googleapis.com/css2?family=Briem+Hand:wght@100..900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+.custom-container {
+  background-color: #9748ff;
+  padding-right: 0;
+  padding-left: 0;
+  margin-left: 0;
+  margin-right: 0;
+  padding-bottom: 10px;
+  height: 90vh;
+  width: 100%;
+  border-radius: 0px 0px 30px 30px  ;
+}
+.landing {
+  background-color: white;
+}
 .navbar {
-  background-color: #9748ff; 
-  color: black; 
+  background-color: #9748ff;
+  color: black;
   display: flex;
   justify-content: space-between;
+  padding: 10px 20px;
+  align-items: center;
   padding: 10px 20px; 
+  box-shadow: 0 1px 10px #000;
 }
 
 .navbar-heading {
   font-size: xx-large;
-
+  font-family: "Briem Hand", cursive;
+  color: #ffffff;
 }
 
 .navbar-nav {
   list-style-type: none;
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: row;
+  font-size: 20px;
 }
 
 .nav-item {
   display: inline-block;
-  margin-left: 20px; 
+  margin-left: 20px;
 }
 
-.nav-item a {
-  color: white; 
+.nav-item > a {
+  color: white;
   text-decoration: none;
 }
-body{
-  background-color: #9748FF;
-}
-.centered-text {
+
+.centered-text1 {
   position: absolute;
-  left: 25%;
-  top: 50%; 
-  transform: translate(-50%, -50%);
+  right: 25%;
+  top: 50%;
+  width: 50%;
   text-align: left;
   font-weight: bolder;
-  font-size: x-large;
+  font-size: xx-large;
   font-family: urdu2;
 }
 
@@ -53,11 +73,11 @@ body{
   position: absolute;
   right: 25%;
   top: 50%;
-  transform: translate(50%, -50%);
   text-align: right;
   color: white;
-  font-size: 500%;
+  font-size: 500px;
   font-family: urdu2;
+  font-size:xx-large;
 }
 .container {
   position: relative;
@@ -78,15 +98,19 @@ body{
   padding: 10px 20px;
   margin-left: 10px;
   margin-bottom: 30px;
+  color: #6815d5;
+  font-size: 15px;
+  transition: all 0.2s ease-in;
 }
 
 .login-btn:hover,
 .signup-btn:hover {
   background-color: #f0f0f0;
-
+.signup-btn:hover{
+  background-color: #5a13b7;
+  border: 2px white solid;
+  color: white;
 }
-
-
 
 .FormContainer {
   display: flex;
@@ -97,9 +121,9 @@ body{
 
 .signup-box {
   display: flex;
-  flex-direction: column ;
+  flex-direction: column;
   align-items: center;
-  background-color: #FFAEBC;
+  background-color: #ffaebc;
   padding: 20px;
   width: 40%;
   height: 60%;
@@ -109,8 +133,10 @@ body{
 .signup-box h2 {
   text-align: center;
 }
-form{
+form {
   width: 70%;
+  display: flex;
+  flex-direction: column;
 }
 .form-group {
   margin-bottom: 10px;
@@ -119,17 +145,65 @@ form{
 .form-group input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
   border-radius: 5px;
+  border:  none;
+  font-size: 15px;
 }
 
-.SignUpButton {
+.signUpButton {
   width: 60%;
   padding: 10px;
-  align-self:center;
+  align-self: center;
   background-color: white;
   color: black;
   border: none;
   border-radius: 5px;
+}
+
+.card {
+  margin: 10px;
+}
+
+
+
+.rev-card {
+  width: 40%;
+  height: 50%;
+  margin: 10px;
+  background-color: #9748ff;
+  border-radius: 40px;
+}
+
+.rev-card > img{
+  border-radius: 50px;
+  margin-top: 15px;
+}
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.ser-card{
+  width: 50%;
+  height: 50%;
+  padding: 10px;
+  border-color: #fefefe;
+  border-width: 5px;
+  background-color:#2c9070a6;
+  font-family: Roboto , sans-serif;
+  font-size: larger;
+  font-weight: bolder;
+  align-self: center;
+  border-radius: 15px;
+}
+.ser-card:hover{
+  border-color: #ae70ff;
+  color: black;
+  width: 52%;
+  height: 52%;
+}
+
+.services-card {
+  background-color: white;
+  height: 100%;
 
 }
