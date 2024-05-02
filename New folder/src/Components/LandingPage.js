@@ -7,7 +7,7 @@ function LandingPage() {
       <div className="container-fluid custom-container">
         <div className="row" style={{justifyItems:"space-between"}}>
           {/* Slogan */}
-          <div className="col-md centered-text1">
+          <div className="col-sm centered-text1">
             <h1>ہر مشکل کام اب ہوگا آسان</h1>
           </div>
 
