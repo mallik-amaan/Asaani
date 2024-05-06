@@ -164,6 +164,9 @@ form {
   margin: 10px;
 }
 
+.loginbtn:hover{
+  background-color: #5a13b7;
+}
 
 
 .rev-card {
