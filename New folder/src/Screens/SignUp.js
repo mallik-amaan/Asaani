@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import "../css/signup.css";
 
 function Signup() {
@@ -6,7 +6,7 @@ function Signup() {
     <div className="FormContainer">
       <div className="signup-box">
         <h2>Sign Up</h2>
-        <form method='POST'>
+        <form method="POST">
           <div className="form-group">
             <input type="text" name="name" placeholder="Name" />
           </div>
@@ -22,7 +22,9 @@ function Signup() {
           <div className="form-group">
             <input type="text" name="cnic" placeholder="CNIC" />
           </div>
-          <button className="signUpButton" type="submit">Sign Up</button>
+          <button className="signUpButton" type="submit">
+            Sign Up
+          </button>
         </form>
       </div>
     </div>

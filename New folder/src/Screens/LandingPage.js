@@ -1,7 +1,7 @@
 import React from "react";
-import ServicesCards from "./ServicesCards";
-import Testimonials from "./Testimonials";
-import Intro from "./Intro";
+import ServicesCards from "../Components/ServicesCards";
+import Testimonials from "../Components/Testimonials";
+import Intro from "../Components/Intro";
 function LandingPage() {
   return (
     <div className="Landing">

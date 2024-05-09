@@ -1,8 +1,8 @@
 import React from "react";
 import Navbar from "./Components/Navbar";
-import Login from "./Components/Login";
-import SignUp from "./Components/SignUp";
-import LandingPage from "./Components/LandingPage";
+import Login from "./Screens/Login";
+import SignUp from "./Screens/SignUp";
+import LandingPage from "./Screens/LandingPage";
 import Footer from "./Components/Footer";
 import Cards from "./Components/card";
 import "./App.css";
