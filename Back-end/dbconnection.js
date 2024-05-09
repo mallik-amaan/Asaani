@@ -1,3 +1,5 @@
+// import { createConnection } from 'net';
+
 const mysql = require('mysql');
 const fs = require('fs'); // Node.js built-in module for file system operations
 
@@ -30,6 +32,8 @@ connection.query('SELECT * FROM users', (error, results, ) => {
 
   }
 });
+module.exports={connection,};
+
 
 
 
