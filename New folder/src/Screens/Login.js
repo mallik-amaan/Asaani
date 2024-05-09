@@ -1,9 +1,10 @@
 import React from "react";
+import "../css/signup.css";
 
 function Login() {
   return (
     <div className="FormContainer">
-      <div className="signup-box">
+      <div className="login-box">
         <h2>Login</h2>
         <form action="" method="POST">
           <div className="form-group">
