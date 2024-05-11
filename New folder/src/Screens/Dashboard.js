@@ -10,7 +10,6 @@ function Dashboard() {
         <SearchCard className="col-lg-10"/>
         <OngoingOrders className="col-lg-2"/>
       </div>
-
       <PopServices />
     </div>
   );
