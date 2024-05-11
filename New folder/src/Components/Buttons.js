@@ -1,10 +1,8 @@
 import * as React from "react";
 import Button from "@mui/material/Button";
 
-function Button() {
-  return (
-      <Button variant="contained">Contained</Button>
-  );
+function Buttons({value,varient}) {
+  return <Button variant={varient}>{value}</Button>;
 }
 
-export default Button
+export default Buttons
