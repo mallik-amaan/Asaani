@@ -6,6 +6,7 @@ import LandingPage from "./Screens/LandingPage";
 import Dashboard from "./Screens/Dashboard";
 import Footer from "./Components/Footer";
 import Menu from "./Components/Menu";
+import Searchpage from "./Components/Searchpage";
 import "./App.css";
 import "./fonts/XB Tabriz.ttf";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -41,6 +42,10 @@ function App() {
       path: "/ongoingorders",
       element: <OngoingOrdersScreen />,
     },
+    {
+      path: "/search",
+      element: <Searchpage/>
+    }
     
   ]);
 
