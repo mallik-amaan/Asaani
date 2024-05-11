@@ -38,6 +38,14 @@ function App() {
           <Dashboard /> 
       ),
     },
+    {
+      path: "/ongoingorders",
+      element: <OngoingOrdersScreen />,
+    },
+    {
+      path: "/payment-billing",
+      element: <PaymentBilling />,
+    },
   ]);
 
   return (
