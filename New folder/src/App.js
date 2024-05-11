@@ -7,7 +7,8 @@ import Dashboard from "./Screens/Dashboard";
 import Footer from "./Components/Footer";
 import Menu from "./Components/Menu";
 import Searchpage from "./Components/Searchpage";
-import "./App.css";
+import Contact from "./Components/Contact";
+import "./App.css"; 
 import "./fonts/XB Tabriz.ttf";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import OngoingOrdersScreen from "./Screens/OngoingOrdersScreen";
@@ -45,6 +46,10 @@ function App() {
     {
       path: "/search",
       element: <Searchpage/>
+    },
+    {
+      path: "/contactus",
+      element: <Contact />
     }
     
   ]);
