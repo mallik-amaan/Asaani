@@ -23,7 +23,7 @@ function App() {
       element: <Login />,
     },
     {
-      path: "/landing",
+      path: "/",
       element: <LandingPage />,
     },
     {
@@ -31,10 +31,9 @@ function App() {
       element: <SignUp />,
     },
     {
-      path: "/",
+      path: "/dashboard",
       element: (
         <>
-          <Menu/>          {/* Menu integrated here */}
           <Dashboard /> {/* Assuming Dashboard renders the main content */}
         </>
       ),
