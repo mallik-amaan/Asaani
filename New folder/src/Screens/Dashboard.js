@@ -6,9 +6,9 @@ import PopServices from "../Components/PopServices";
 function Dashboard() {
   return (
     <div>
-      <div className="row">
-        <SearchCard className="col" align="start"/>
-        <OngoingOrders className="col" align="end"/>
+      <div className=" d-flex justify-content-center">
+        <SearchCard className="col-lg-10"/>
+        <OngoingOrders className="col-lg-2"/>
       </div>
       <PopServices/>
     </div>

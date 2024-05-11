@@ -6,9 +6,9 @@ const GigCard = ({ title, description, price, imageUrl }) => {
     <StyledGigCard>
       <img src={imageUrl} alt={title} className="gig-image" />
       <div className="gig-details">
-        <h2 className="gig-title">{title}</h2>
-        <p className="gig-description">{description}</p>
-        <p className="gig-price">${price}</p>
+        <h2 className="gig-title">Title</h2>
+        <p className="gig-description">Description</p>
+        <p className="gig-price">$Price</p>
         <button className="order-button">Order Now</button>
       </div>
     </StyledGigCard>
@@ -22,15 +22,12 @@ const StyledGigCard = styled.div`
   overflow: hidden;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  padding: 20px;
 
   .gig-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
-  }
-
-  .gig-details {
-    padding: 20px;
   }
 
   .gig-title {
@@ -55,6 +52,7 @@ const StyledGigCard = styled.div`
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 100%;
   }
 
   .order-button:hover {
