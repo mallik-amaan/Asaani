@@ -11,7 +11,19 @@ import ListItemText from "@mui/material/ListItemText";
 import menuicon from "../menu.svg";
 import Buttons from "./Buttons";
 import { Home, Payment, ManageAccounts, Logout } from "@mui/icons-material";
-
+const menuItems = [
+  { text: "Dashboard", icon: <Home style={{ color: "white" }} /> },
+  {
+    text: "Payment Methods",
+    icon: <Payment style={{ color: "white" }} />,
+  },
+  {
+    text: "Account Settings",
+    icon: <ManageAccounts style={{ color: "white" }} />,
+  },
+  { text: "Ongoing Orders", icon: <Home style={{ color: "white" }} /> },
+  { text: "Logout", icon: <Logout style={{ color: "white" }} /> },
+];
 const Menu = ({ isOpen, onClose }) => {
   return (
     <div className={`side-menu ${isOpen ? "open" : ""} bg-success text-white`}>
