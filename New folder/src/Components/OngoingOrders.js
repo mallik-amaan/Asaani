@@ -2,7 +2,7 @@ import React from 'react'
 import ProgressBar from './ProgressBar'
 function OngoingOrders() {
   return (
-<div className='container-fluid dashboard-card' style={{width:"30%"}}>
+<div className='container-fluid dashboard-card' style={{width:"30%",marginLeft:"15%",padding:"2%"}}>
     <h3>Ongoing Orders</h3>
     <h5>Cleaning</h5>
 <ProgressBar/>

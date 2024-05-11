@@ -1,4 +1,5 @@
 import * as React from "react";
+import logo from "../logo.svg";
 import Box from "@mui/material/Box";
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
 import Button from "@mui/material/Button";
@@ -6,15 +7,30 @@ import List from "@mui/material/List";
 import Divider from "@mui/material/Divider";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
-import InboxIcon from "@mui/icons-material/MoveToInbox";
-import MailIcon from "@mui/icons-material/Mail";
+import ListItemText from "@mui/material/ListItemText";
 import menuicon from "../menu.svg";
+import Buttons from "./Buttons";
+import { Home, Payment, ManageAccounts, Logout } from "@mui/icons-material";
 
 export default function SwipeableTemporaryDrawer() {
   const [state, setState] = React.useState({
     left: false, // Only left
   });
-
+  const menuItems = [
+    { text: "Dashboard", icon: <Home style={{ color: "white" }} /> },
+    {
+      text: "Payment Methods",
+      icon: <Payment style={{ color: "white" }} />,
+    },
+    {
+      text: "Account Settings",
+      icon: <ManageAccounts style={{ color: "white" }} />,
+    },
+    { text: "Ongoing Orders", icon: <Home style={{ color: "white" }} /> },
+    { text: "Logout", icon: <Logout style={{ color: "white" }} /> },
+  ];
+  const name="Username"
+  const email="abc@gmail.com"
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event &&
@@ -29,27 +45,50 @@ export default function SwipeableTemporaryDrawer() {
 
   const list = (anchor) => (
     <Box
-      sx={{ width: 250 }}
+      sx={{ width: 310 }}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
     >
+      <img src={logo} alt="" height={100} width={100} />
       <List>
-        {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItemButton key={text} disablePadding>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
+        {[name, email].map((text, index) => (
+          <ListItemButton
+            style={{ backgroundColor: "#9748ff", color: "white" }}
+            key={text}
+            disablePadding
+          >
+            <ListItemText primary={text} />{" "}
           </ListItemButton>
         ))}
       </List>
       <Divider />
+      <div
+        className="container-fluid"
+        style={{
+          height: "150px",
+          width: "300px",
+          backgroundColor: "#9748ff",
+          padding: "10px",
+          borderRadius: "20px",
+        }}
+      >
+        <h5>Wallet Balance</h5>
+        <h5>2550$</h5>
+        <div className="row">
+          <Buttons btsize="small" value="Deposit" varient="contained" />
+          <Buttons btsize="small" value="Withdraw" varient="contained" />
+        </div>
+      </div>
       <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
-          <ListItemButton key={text} disablePadding>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
+        {menuItems.map((item, index) => (
+          <ListItemButton
+            key={index}
+            style={{ backgroundColor: "#9748ff" }}
+            disablePadding
+          >
+            <ListItemIcon>{item.icon}</ListItemIcon>
+            <ListItemText primary={item.text} />
           </ListItemButton>
         ))}
       </List>
@@ -61,7 +100,8 @@ export default function SwipeableTemporaryDrawer() {
       {["left"].map((anchor) => (
         <React.Fragment key={anchor}>
           <Button onClick={toggleDrawer(anchor, true)}>
-            <img src={menuicon}  height={30} width={30}/> {/* Add the icon here */}
+            <img src={menuicon} height={30} width={30} />{" "}
+            {/* Add the icon here */}
           </Button>
           <SwipeableDrawer
             anchor={anchor}

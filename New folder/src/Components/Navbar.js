@@ -1,10 +1,11 @@
 import React from "react";
 import "../App.css";
-
+import Menu from "./Menu";
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <div className="navbar-heading">Asaani</div>
+      <Menu />
+      {/*<div className="navbar-heading">Asaani</div>*/}
       <ul className="navbar-nav">
         <li className="nav-item">
           <a href="/">Home</a>
