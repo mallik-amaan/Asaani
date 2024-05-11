@@ -39,7 +39,7 @@ const Menu = ({ isOpen, onClose }) => {
         <ul className="my-5">
           <li>Add Money</li>
           <li>Withdraw</li>
-          <li>Add Payment Method</li>
+  }        <li>Add Payment Method</li>
           <li>Services</li>
           <li>Ongoing Orders</li>
           <li>Order History</li>
@@ -65,24 +65,3 @@ const Menu = ({ isOpen, onClose }) => {
 
 export default Menu;
 
-//   return (
-//     <div>
-//       {["left"].map((anchor) => (
-//         <React.Fragment key={anchor}>
-//           <Button onClick={toggleDrawer(anchor, true)}>
-//             <img src={menuicon} height={30} width={30} />{" "}
-//             {/* Add the icon here */}
-//           </Button>
-//           <SwipeableDrawer
-//             anchor={anchor}
-//             open={state[anchor]}
-//             onClose={toggleDrawer(anchor, false)}
-//             onOpen={toggleDrawer(anchor, true)}
-//           >
-//             {list(anchor)}
-//           </SwipeableDrawer>
-//         </React.Fragment>
-//       ))}
-//     </div>
-//   );
-// }
