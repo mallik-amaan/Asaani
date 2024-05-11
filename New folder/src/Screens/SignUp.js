@@ -78,9 +78,7 @@ function Signup() {
           <div className="form-group">
             <input type="text" name="cnic" placeholder="CNIC" value={formData.cnic} onChange={handleChange} />
           </div>
-
           <button className="signUpButton" type="submit">Sign Up</button>
-        </form>
       </div>
     </div>
   );
