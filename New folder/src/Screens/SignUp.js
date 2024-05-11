@@ -80,7 +80,6 @@ function Signup() {
           </div>
 
           <button className="signUpButton" type="submit">Sign Up</button>
-        </form>
       </div>
     </div>
   );

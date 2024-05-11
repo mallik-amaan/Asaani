@@ -5,6 +5,7 @@ import SignUp from "./Screens/SignUp";
 import LandingPage from "./Screens/LandingPage";
 import Dashboard from "./Screens/Dashboard";
 import Footer from "./Components/Footer";
+import PaymentBilling from "./Screens/Payment&Billing";
 import Menu from "./Components/Menu";
 import "./App.css";
 import "./fonts/XB Tabriz.ttf";
@@ -37,6 +38,10 @@ function App() {
           <Dashboard /> {/* Assuming Dashboard renders the main content */}
         </>
       ),
+    },
+    {
+      path: "/payment-billing",
+      element: <PaymentBilling />,
     },
   ]);
 
