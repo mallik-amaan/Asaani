@@ -1,9 +1,7 @@
-<<<<<<< Updated upstream
-import React from 'react';
-=======
+
 import React, { useState } from 'react';
 import bcrypt from 'bcryptjs'; // Import bcrypt.js library
->>>>>>> Stashed changes
+
 import "../App.css";
 
 function Signup() {
@@ -62,11 +60,6 @@ function Signup() {
     <div className="FormContainer">
       <div className="signup-box">
         <h2>Sign Up</h2>
-<<<<<<< Updated upstream
-        <form method='POST'>
-=======
-        <form onSubmit={handleSubmit}>
->>>>>>> Stashed changes
           <div className="form-group">
             <input type="text" name="fname" placeholder="First Name" value={formData.fname} onChange={handleChange} />
           </div>
@@ -82,12 +75,10 @@ function Signup() {
           <div className="form-group">
             <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
           </div>
-<<<<<<< Updated upstream
-=======
           <div className="form-group">
             <input type="text" name="cnic" placeholder="CNIC" value={formData.cnic} onChange={handleChange} />
           </div>
->>>>>>> Stashed changes
+
           <button className="signUpButton" type="submit">Sign Up</button>
         </form>
       </div>
