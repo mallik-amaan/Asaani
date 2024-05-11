@@ -19,7 +19,7 @@ const ProgressBar = () => {
 //   }, [progress]);
 
   return (
-    <div className="progress">
+    <div className="progress my-2">
       <div
         className="progress-bar"
         role="progressbar"

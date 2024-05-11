@@ -10,6 +10,7 @@ import Menu from "./Components/Menu";
 import "./App.css";
 import "./fonts/XB Tabriz.ttf";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import OngoingOrdersScreen from "./Screens/OngoingOrdersScreen";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false); // State for Menu visibility
@@ -34,14 +35,8 @@ function App() {
     {
       path: "/dashboard",
       element: (
-        <>
-          <Dashboard /> {/* Assuming Dashboard renders the main content */}
-        </>
+          <Dashboard /> 
       ),
-    },
-    {
-      path: "/payment-billing",
-      element: <PaymentBilling />,
     },
   ]);
 

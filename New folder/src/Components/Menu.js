@@ -29,8 +29,8 @@ export default function SwipeableTemporaryDrawer() {
     { text: "Ongoing Orders", icon: <Home style={{ color: "white" }} /> },
     { text: "Logout", icon: <Logout style={{ color: "white" }} /> },
   ];
-  const name="Username"
-  const email="abc@gmail.com"
+  const name = "Username";
+  const email = "abc@gmail.com";
   const toggleDrawer = (anchor, open) => (event) => {
     if (
       event &&

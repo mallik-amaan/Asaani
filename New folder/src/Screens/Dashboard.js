@@ -6,14 +6,10 @@ import PopServices from "../Components/PopServices";
 function Dashboard() {
   return (
     <div>
-      <div
-        className="row"
-        style={{ display: "flex", justifyContent: "space-between" }}
-      >
-        <SearchCard className="col" />
-        <OngoingOrders className="col" align="end" />
+      <div className=" d-flex justify-content-center">
+        <SearchCard className="col-lg-10"/>
+        <OngoingOrders className="col-lg-2"/>
       </div>
-
       <PopServices />
     </div>
   );
