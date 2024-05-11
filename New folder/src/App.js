@@ -7,7 +7,6 @@ import Dashboard from "./Screens/Dashboard";
 import Footer from "./Components/Footer";
 import Menu from "./Components/Menu";
 import "./App.css";
-import menuicon from "./menu.svg";
 import "./fonts/XB Tabriz.ttf";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
@@ -24,7 +23,7 @@ function App() {
       element: <Login />,
     },
     {
-      path: "/landing",
+      path: "/",
       element: <LandingPage />,
     },
     {
@@ -32,12 +31,10 @@ function App() {
       element: <SignUp />,
     },
     {
-      path: "/",
+      path: "/dashboard",
       element: (
         <>
           <Dashboard /> {/* Assuming Dashboard renders the main content */}
-          <Menu isOpen={isOpen} onClose={toggleMenu} />{" "}
-          {/* Menu integrated here */}
         </>
       ),
     },
@@ -46,9 +43,7 @@ function App() {
   return (
     <>
       <div className="app">
-        <Navbar />
-        <img src={menuicon} alt="menu" onClick={toggleMenu} height={30} width={30}/>
-    
+        <Navbar />    
         <RouterProvider router={router} />
         <Footer />
       </div>
