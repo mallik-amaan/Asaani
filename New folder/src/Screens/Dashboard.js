@@ -1,5 +1,6 @@
 // Dashboard.js
 import React from "react";
+import Buttons from "../Components/Buttons";
 import SearchCard from "../Components/searchCard"; // Corrected import
 import OngoingOrders from "../Components/OngoingOrders";
 import PopServices from "../Components/PopServices";
@@ -11,6 +12,7 @@ function Dashboard() {
         <OngoingOrders className="col-lg-2"/>
       </div>
       <PopServices />
+      <Buttons btsize="small" value="hello" varient="contained"></Buttons>
     </div>
   );
 }
