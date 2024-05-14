@@ -1,85 +1,84 @@
-
 import React, { useState } from 'react';
-import bcrypt from 'bcryptjs'; // Import bcrypt.js library
-
-import "../App.css";
+import axios from 'axios';
 
 function Signup() {
   const [formData, setFormData] = useState({
     fname: '',
     lname: '',
     password: '',
-    phone: '',
+    phone_number: '',
     email: '',
-    cnic: ''
+    cnic: '',
+    address: '',
+    user_type: '',
+    username: '',
   });
 
-  const handleChange = (e) => {
-    console.log('Form data:', formData); // Log form data before sending
 
+  const handleChange = (e) => {
     setFormData({
       ...formData,
-      [e.target.name]: e.target.value
+      username: `${formData.fname}_${formData.lname}`,
+
+      [e.target.name]: e.target.value,
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    try {
-      // Hash the password before sending
-      const hashedPassword = await bcrypt.hash(formData.password, 10); // 10 is the saltRounds
-
-      // Concatenate fname and lname to form the username
-      const username = `${formData.fname}_${formData.lname}`;
-
-      // Create a new formData object with hashed password and username
-      const hashedFormData = { ...formData, password: hashedPassword, username };
-
-      const response = await fetch('http://localhost:5000/signup', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(hashedFormData)
+      axios.post("http://localhost:8081/signup",{formData})
+      .then((res) => {
+        console.log('Signup successful:', res.data);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
       });
-      console.log('Response:', hashedPassword);
 
-      if (response.ok) {
-        console.log('Signup successful');
-      } else {
-        console.error('Signup failed');
-        // Display error message to the user
-      }
-    } catch (error) {
-      console.error('Error:', error);
-    }
+
   };
 
   return (
-    <div className="FormContainer">
-      <div className="signup-box">
-        <h2>Sign Up</h2>
-          <div className="form-group">
-            <input type="text" name="fname" placeholder="First Name" value={formData.fname} onChange={handleChange} />
-          </div>
-          <div className="form-group">
-            <input type="text" name="lname" placeholder="Last Name" value={formData.lname} onChange={handleChange} />
-          </div>
-          <div className="form-group">
-            <input type="password" name="password" placeholder="Password" value={formData.password} onChange={handleChange} />
-          </div>
-          <div className="form-group">
-            <input type="text" name="phone" placeholder="Phone No." value={formData.phone} onChange={handleChange} />
-          </div>
-          <div className="form-group">
-            <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
-          </div>
-          <div className="form-group">
-            <input type="text" name="cnic" placeholder="CNIC" value={formData.cnic} onChange={handleChange} />
-          </div>
-          <button className="signUpButton" type="submit">Sign Up</button>
-      </div>
+    <div>
+      <h2>Sign Up</h2>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="fname"
+          placeholder="First Name"
+          value={formData.fname}
+          onChange={handleChange}
+        />
+        <input
+          type="text"
+          name="lname"
+          placeholder="Last Name"
+          value={formData.lname}
+          onChange={handleChange}
+        />
+        <input
+          type="password"
+          name="password"
+          placeholder="Password"
+          value={formData.password}
+          onChange={handleChange}
+        />
+        <input
+          type="tel" // Use "tel" for phone numbers
+          name="phone_number"
+          placeholder="Phone Number"
+          value={formData.phone_number}
+          onChange={handleChange}
+        />
+        <input type="email" name="email" placeholder="Email" value={formData.email} onChange={handleChange} />
+        <input type="text" name="cnic" placeholder="CNIC" value={formData.cnic} onChange={handleChange} />
+        <input type="text" name="address" placeholder="Address" value={formData.address} onChange={handleChange} />
+        <select name="user_type" value={formData.user_type} onChange={handleChange}>
+          <option value="">Select User Type</option>
+          <option value="Contractor">Contractor</option>
+          <option value="Customer">Customer</option>
+        </select>
+        <button type="submit">Sign Up</button>
+      </form>
     </div>
   );
 }

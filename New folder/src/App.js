@@ -12,7 +12,7 @@ import Contact from "./Components/Contact";
 import "./App.css"; 
 import "./fonts/XB Tabriz.ttf";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import OngoingOrdersScreen from "./Screens/OngoingOrdersScreen";
+import OrderNow from "./Screens/Ordernow";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false); // State for Menu visibility
@@ -52,11 +52,19 @@ function App() {
       path: "/contactus",
       element: <Contact />
     },
-    { 
-      path: "/payment-billing",
-      element: <PaymentBilling />
-    }
+    {
 
+      path: "/payment-billing",
+      element: <PaymentBilling />,
+    },
+    {
+      path: "/services",
+      element: (
+        <>
+        <OrderNow/>
+        </>
+      ),
+    },
   ]);
 
   return (

@@ -1,15 +1,36 @@
-import React from "react";
+import React, { useState,useEffect } from "react";
 import styled from "styled-components";
+import axios from "axios";
+
+const sendRequestToBackend = () => {
+  return axios.get("http://localhost:8081/services")
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      console.error("Error fetching services:", error);
+    });
+};
 
 const GigCard = ({ title, description, price, imageUrl }) => {
+  const [services, setServices] = useState([]);
+
+  const handleOrderNow = () => {
+    sendRequestToBackend()
+      .then((data) => {
+        setServices(data);
+        window.open("http://localhost:3000/services", "_blank");
+      });
+  };
+
   return (
     <StyledGigCard>
       <img src={imageUrl} alt={title} className="gig-image" />
       <div className="gig-details">
-        <h2 className="gig-title">Title</h2>
-        <p className="gig-description">Description</p>
-        <p className="gig-price">$Price</p>
-        <button className="order-button">Order Now</button>
+        <h2 className="gig-title">{title}</h2>
+        <p className="gig-description">{description}</p>
+        <p className="gig-price">${price}</p>
+        <button className="order-button" onClick={handleOrderNow}>Order Now</button>
       </div>
     </StyledGigCard>
   );
