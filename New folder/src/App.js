@@ -45,19 +45,17 @@ function App() {
       element: <OngoingOrdersScreen />,
     },
     {
-
       path: "/search",
       element: <Searchpage/>
     },
     {
       path: "/contactus",
       element: <Contact />
-    }
-    
-
-      path: "/payment-billing",
-      element: <PaymentBilling />,
     },
+    { 
+      path: "/payment-billing",
+      element: <PaymentBilling />
+    }
 
   ]);
 
