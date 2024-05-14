@@ -5,8 +5,11 @@ import SignUp from "./Screens/SignUp";
 import LandingPage from "./Screens/LandingPage";
 import Dashboard from "./Screens/Dashboard";
 import Footer from "./Components/Footer";
+import PaymentBilling from "./Screens/Payment&Billing";
 import Menu from "./Components/Menu";
-import "./App.css";
+import Searchpage from "./Components/Searchpage";
+import Contact from "./Components/Contact";
+import "./App.css"; 
 import "./fonts/XB Tabriz.ttf";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import OrderNow from "./Screens/Ordernow";
@@ -24,7 +27,7 @@ function App() {
       element: <Login />,
     },
     {
-      path: "/landing",
+      path: "/",
       element: <LandingPage />,
     },
     {
@@ -32,13 +35,28 @@ function App() {
       element: <SignUp />,
     },
     {
-      path: "/",
+      path: "/dashboard",
       element: (
-        <>
-          <Menu/>          {/* Menu integrated here */}
-          <Dashboard /> {/* Assuming Dashboard renders the main content */}
-        </>
+          <Dashboard /> 
       ),
+    },
+    {
+      path: "/ongoingorders",
+      element: <OngoingOrdersScreen />,
+    },
+    {
+
+      path: "/search",
+      element: <Searchpage/>
+    },
+    {
+      path: "/contactus",
+      element: <Contact />
+    },
+    {
+
+      path: "/payment-billing",
+      element: <PaymentBilling />,
     },
     {
       path: "/services",

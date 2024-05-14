@@ -43,15 +43,13 @@ const StyledGigCard = styled.div`
   overflow: hidden;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
+  padding: 20px;
 
   .gig-image {
     width: 100%;
     height: 200px;
     object-fit: cover;
-  }
-
-  .gig-details {
-    padding: 20px;
+    margin-bottom: 10px;
   }
 
   .gig-title {
@@ -76,6 +74,7 @@ const StyledGigCard = styled.div`
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s;
+    width: 100%;
   }
 
   .order-button:hover {

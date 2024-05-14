@@ -7,35 +7,33 @@ import MailIcon, {
   Facebook,
   Instagram,
 } from "@mui/icons-material";
+import EmailIcon from '@mui/icons-material/Email';
+
 function Footer() {
   return (
     <div
-      className="container-fluid"
-      style={{ backgroundColor: "#9748ff", color: "white" }}
-    >
+      className="container-fluid p-5"
+      style={{ backgroundColor: "#9748ff", color: "white" }}>
       <div className="row">
         <div className="col">
-          <h3>Contact Us</h3>
-          <form action="">
-            <label htmlFor="name">Name:</label>
-            <input type="text" name="name" id="name" className="name" />
-            <label htmlFor="email">Email:</label>
-            <input type="email" name="email" id="email" />
-            <label htmlFor="message">Message:</label>
-            <textarea name="message" id="message" rows={4} />
-            <Buttons value="submit" varient="contained"></Buttons>
-          </form>
+            <h2>Have a query?</h2>
+            <h1>Contact Us</h1>
+            <a href="/contactus" style={{color: "white"}}>
+              <div className="d-flex justify-content-center align-items-center" style={{backgroundColor: "#47dd9c", width: "50px", height: "50px", borderRadius: "50%"}}>
+                <EmailIcon />
+              </div>
+            </a>
         </div>
+
         <div className="col">
-          <ul style={{ listStyleType: "none" }}>
+          <ul style={{ listStyleType: "none", fontSize: "25px"}}>
             <li>Home</li>
             <li>Services</li>
             <li>About</li>
-            <li>Contact Us</li>
           </ul>
         </div>
         <div className="col">
-          <ul style={{ listStyleType: "none" }}>
+          <ul style={{ listStyleType: "none", fontSize: "20px" }}>
             <li>
               <Facebook />
               Facebook

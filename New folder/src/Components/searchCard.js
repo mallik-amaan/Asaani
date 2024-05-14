@@ -5,25 +5,27 @@ import searchIcon from "../search.svg";
 function SearchCard() {
   return (
     <>
-        <div className="dashboard-card" style={{width:"50%"}}>
+        <div className="dashboard-card p-3 mx-5" style={{width:"60%"}}>
           <h4>Search Services</h4>
           <div className="mb-3" style={{ padding: "10px" }}>
-            <div className="row">
-              <input
-                className="col-sm-8 col-md-10 col-lg-11"
-                type="text"
-                class="form-control form-control-sm"
-                name=""
-                id=""
-                aria-describedby="helpId"
-                placeholder=""
-              />
-              <img
-                src={searchIcon}
-                alt=""
-                style={searchStyle}
-                className="col  "
-              />
+            <div className="row align-items-top">
+              <div className="col-lg-11 col-sm-8 col-md-10">
+                <input
+                  className="w-100 border-0 rounded form-control form-control-sm"
+                  type="text"
+                  name=""
+                  id=""
+                  aria-describedby="helpId"
+                  placeholder=""
+                />
+              </div>
+              <div className="col">
+                <img
+                  src={searchIcon}
+                  alt=""
+                  style={searchStyle}
+                />
+              </div>
             </div>
           </div>
         </div>
