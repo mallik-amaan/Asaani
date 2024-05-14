@@ -45,7 +45,6 @@ function App() {
       element: <OngoingOrdersScreen />,
     },
     {
-
       path: "/search",
       element: <Searchpage/>
     },
@@ -66,7 +65,6 @@ function App() {
         </>
       ),
     },
-
   ]);
 
   return (
