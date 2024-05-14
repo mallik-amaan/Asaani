@@ -1,61 +1,78 @@
 const express = require('express');
 const app = express();
-const PORT = 5000;
-app.use(bodyParser.json());
+const PORT = 8081;
+const bodyParser = require('body-parser');
+const mysql = require('mysql');
+const fs = require('fs');
+const cors = require('cors');
+app.use(cors())
+
+// Environment variables are recommended for sensitive data (credentials)
 
 const ca = fs.readFileSync('./SSL certificate/DigiCertGlobalRootCA.crt.pem');
 
-// Create a connection to the MySQL database with SSL options
 const connection = mysql.createConnection({
   host: 'asaani.mysql.database.azure.com',
-  user: 'Kaif',
-  password: 'password',
+  user: 'Ahad',
+  password: 'pa2PX@eKutMA83A',
   database: 'asaani',
   ssl: {
     ca: ca
   }
 });
 
-// Connect to the database
+app.use(bodyParser.json());
+
+// Check if the database is connected successfully or not
 connection.connect((err) => {
   if (err) {
-    console.error('Error connecting to MySQL database: ' + err.stack);
+    console.error('Error connecting to MySQL database:', err.stack);
     return;
   }
-  console.log('Connected to MySQL database as id ' + connection.threadId);
+  console.log('Connected to MySQL database as id', connection.threadId);
 });
 
-app.post('/signup', (req, res) => {
-  const { fname, lname, password, phone, email, cnic } = req.body;
+//-----------signUp--------------
 
-  console.log('Received request body:', req.body);
-  console.log('Password:', password);
+app.post('/signup', async (req, res) => {
+  const sql = "INSERT INTO users (`username`, `password`, `email`, `phone_number`, `fname`, `lname`, `address`, `user_type`, `cnic`) VALUES (?)";
+  const values = [req.body.formData.username, req.body.formData.password, req.body.formData.email, req.body.formData.phone_number, req.body.formData.fname, req.body.formData.lname, req.body.formData.address, req.body.formData.user_type, req.body.formData.cnic];
+  console.log(values);
+  connection.query(sql, [values], (error, result) => {
+    if (error) return res.json(error);
+    console.log(result);
+    return res.json(result);
+  });
+});
+//-----------signUp--------------
 
+//-----------login--------------
 
-  // Concatenate fname and lname to form the username
-  const username = `${fname}_${lname}`;
+app.post('/login',  (req, res) => {
+  const sql2 = "SELECT username,password FROM users WHERE username = ? AND password = ?";
+  const values2 = [req.body.formData.username, req.body.formData.password];
+  connection.query(sql2, values2, (error, result) => {
+    if (error) return res.json(error);
+    console.log(result);
+    return res.json(result);
+  });
+});
 
-  // Insert the signup data into the database
-  const query = `
-    INSERT INTO users 
-    (username, password, email, phone_number, fname, lname, address, user_type, user_id) 
-    VALUES (?, ?, ?, ?, ?, ?, NULL, NULL, NULL)
-  `;
-
-  connection.query(query, [username, password, email, phone, fname, lname], (error, results) => {
+//---------> fo order now----------------
+app.get('/services', (req, res) => {
+  const query = 'SELECT * FROM services';
+  // Perform query
+  connection.query(query, (error, results) => {
     if (error) {
-      console.error('Error:', error);
-      res.status(500).json({ message: 'Internal server error' });
-    } else {
-      console.log('User signed up successfully');
-      res.status(200).json({ message: 'Signup successful' });
-    }
+      console.error('Error executing query:', error);
+      res.status(500).json({ error: 'Internal Server Error' });
+      return;
+    }  
+    res.json(results);
+    console.log('Services sent to front end');
   });
 });
 
 app.listen(PORT, () => {
   console.log(`Server is listening on port ${PORT}`);
 });
-
-// Export connection object for use in other parts of the application
-module.exports = { connection };

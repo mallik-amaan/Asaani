@@ -9,6 +9,7 @@ import Menu from "./Components/Menu";
 import "./App.css";
 import "./fonts/XB Tabriz.ttf";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import OrderNow from "./Screens/Ordernow";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false); // State for Menu visibility
@@ -39,6 +40,15 @@ function App() {
         </>
       ),
     },
+    {
+      path: "/services",
+      element: (
+        <>
+        <OrderNow/>
+        </>
+      ),
+    },
+
   ]);
 
   return (
