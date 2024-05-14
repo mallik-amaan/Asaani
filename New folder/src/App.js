@@ -5,6 +5,7 @@ import SignUp from "./Screens/SignUp";
 import LandingPage from "./Screens/LandingPage";
 import Dashboard from "./Screens/Dashboard";
 import Footer from "./Components/Footer";
+import PaymentBilling from "./Screens/Payment&Billing";
 import Menu from "./Components/Menu";
 import Searchpage from "./Components/Searchpage";
 import Contact from "./Components/Contact";
@@ -44,6 +45,7 @@ function App() {
       element: <OngoingOrdersScreen />,
     },
     {
+
       path: "/search",
       element: <Searchpage/>
     },
@@ -52,6 +54,11 @@ function App() {
       element: <Contact />
     }
     
+
+      path: "/payment-billing",
+      element: <PaymentBilling />,
+    },
+
   ]);
 
   return (
