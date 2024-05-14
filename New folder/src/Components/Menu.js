@@ -10,7 +10,7 @@ import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import menuicon from "../menu.svg";
 import Buttons from "./Buttons";
-import { Home, Payment, ManageAccounts, Logout } from "@mui/icons-material";
+import { Home, Payment, ManageAccounts, Logout, Margin } from "@mui/icons-material";
 
 export default function SwipeableTemporaryDrawer() {
   const [state, setState] = React.useState({
@@ -75,10 +75,9 @@ export default function SwipeableTemporaryDrawer() {
       >
         <h5>Wallet Balance</h5>
         <h5>2550$</h5>
-        <div className="row">
-          <Buttons btsize="small" value="Deposit" varient="contained" />
-          <Buttons btsize="small" value="Withdraw" varient="contained" />
-        </div>
+        <Buttons btsize="small" value="Deposit" varient="contained"  />
+        <Buttons btsize="small" value="Withdraw" varient="contained" />
+
       </div>
       <List>
         {menuItems.map((item, index) => (

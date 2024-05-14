@@ -7,7 +7,9 @@ import Dashboard from "./Screens/Dashboard";
 import Footer from "./Components/Footer";
 import PaymentBilling from "./Screens/Payment&Billing";
 import Menu from "./Components/Menu";
-import "./App.css";
+import Searchpage from "./Components/Searchpage";
+import Contact from "./Components/Contact";
+import "./App.css"; 
 import "./fonts/XB Tabriz.ttf";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import OngoingOrdersScreen from "./Screens/OngoingOrdersScreen";
@@ -43,9 +45,20 @@ function App() {
       element: <OngoingOrdersScreen />,
     },
     {
+
+      path: "/search",
+      element: <Searchpage/>
+    },
+    {
+      path: "/contactus",
+      element: <Contact />
+    }
+    
+
       path: "/payment-billing",
       element: <PaymentBilling />,
     },
+
   ]);
 
   return (
