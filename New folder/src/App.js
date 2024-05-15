@@ -13,6 +13,7 @@ import "./App.css";
 import "./fonts/XB Tabriz.ttf";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import OrderNow from "./Screens/Ordernow";
+import OngoingOrdersScreen from "./Screens/OngoingOrdersScreen";
 
 function App() {
   const [isOpen, setIsOpen] = useState(false); // State for Menu visibility
