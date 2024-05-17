@@ -21,9 +21,9 @@ function TopServices() {
     try {
       const response = await axios("http://localhost:4000/service");
       setServices(response.data.data);
-      console.log("ผลลัพธ์การค้นหา", response.data.data);
+      console.log("Search results", response.data.data);
     } catch (error) {
-      setError("เกิดข้อผิดพลาดในการเรียกข้อมูลหมวดหมู่");
+      setError("There is an error in calling for categories.");
     }
   };
 
@@ -52,7 +52,7 @@ function TopServices() {
     <div className="flex flex-col justify-center items-center top-20 h-full bg-[#f0f0f0]">
       <div className="pt-20">
         <h1 className="text-[#001C59] font-bold text-[32px]">
-          บริการยอดฮิตของเรา
+          Our popular service
         </h1>
       </div>
 
@@ -64,9 +64,9 @@ function TopServices() {
             services.data
               .filter(
                 (service) =>
-                  service.service_name === "ทำความสะอาดทั่วไป" ||
-                  service.service_name === "ล้างแอร์" ||
-                  service.service_name === "ซ่อมเครื่องซักผ้า"
+                  service.service_name === "General cleaning" ||
+                  service.service_name === "Clean the air" ||
+                  service.service_name === "Repair washing machines"
               )
               .map((service) => (
                 <div
@@ -98,10 +98,10 @@ function TopServices() {
                       <p className="ml-2 text-[#646C80] text-sm py-[10px]">
                         {getMinPrice(service.sub_service) !==
                         getMaxPrice(service.sub_service)
-                          ? `ค่าบริการประมาณ ${getMinPrice(
+                          ? `Approximate service fee ${getMinPrice(
                               service.sub_service
                             )} - ${getMaxPrice(service.sub_service)} ฿`
-                          : `ค่าบริการประมาณ ${getMinPrice(
+                          : `Approximate service fee ${getMinPrice(
                               service.sub_service
                             )} ฿`}
                       </p>
@@ -116,14 +116,14 @@ function TopServices() {
                                 navigate(`/checkout/${service.service_id}`)
                               }
                             >
-                              เลือกบริการ
+                              Select the service
                             </button>
                           ) : (
                             <button
                               className="btn-ghost"
                               onClick={handleAlertRole}
                             >
-                              เลือกบริการ
+                              Select the service
                             </button>
                           )}
                         </div>
@@ -132,7 +132,7 @@ function TopServices() {
                           className="btn-ghost"
                           onClick={() => navigate(`/login`)}
                         >
-                          เลือกบริการ
+                          Select the service
                         </button>
                       )}
                     </div>
@@ -145,10 +145,10 @@ function TopServices() {
           <AlertBoxDelete
             deleteFunction={handleLogout}
             hideFunction={hide}
-            textAlert="ไม่สามารถเลือกบริการได้"
-            alertQuestion={`คุณต้องเข้าสู่ระบบเป็น Customer`}
-            primary="ออกจากระบบ"
-            secondary="ยกเลิก"
+            textAlert="Cannot choose the service"
+            alertQuestion={`You have to log in to Customer`}
+            primary="Out of the system"
+            secondary="cancel"
           />
         )}
       </section>
@@ -158,7 +158,7 @@ function TopServices() {
           className="btn-primary"
           onClick={() => navigate("/services-list")}
         >
-          ดูบริการท้ังหมด
+          Look at all the services.
         </button>
       </div>
     </div>

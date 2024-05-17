@@ -129,19 +129,19 @@ function AddPromotionForm() {
     >
       <div className="bg-grey100 h-full pb-4% md:pb-0 md:pl-60">
         <div className="flex items-center h-20 px-10 justify-between border-b border-grey300 bg-white">
-          <h1 className="text-xl font-medium">เพิ่ม Promotion Code</h1>
+          <h1 className="text-xl font-medium">increase Promotion Code</h1>
           <div className="flex">
             <button
               className="btn-secondary flex items-center justify-center text-base font-medium w-28 h-11"
               onClick={() => navigate("/admin-promotion")}
             >
-              ยกเลิก
+              cancel
             </button>
             <button
               className="btn-primary flex items-center justify-center ml-6 text-base font-medium w-28 h-11"
               type="submit"
             >
-              สร้าง
+              build
             </button>
           </div>
         </div>
@@ -161,13 +161,13 @@ function AddPromotionForm() {
           </Form.Item>
 
           <Form.Item
-            label={<span style={labelStyle}>ประเภท</span>}
+            label={<span style={labelStyle}>type</span>}
             colon={false}
             name="promotion_types"
             rules={[
               {
                 required: true,
-                message: "กรุณาเลือกประเภทของโค้ด",
+                message: "Please select the type of code.",
               },
             ]}
           >
@@ -267,14 +267,14 @@ function AddPromotionForm() {
           </Form.Item>
 
           <Form.Item
-            label={<span style={labelStyle}>โควต้าการใช้</span>}
+            label={<span style={labelStyle}>Quota</span>}
             colon={false}
             name="promotion_quota"
             rules={[
               {
                 required: true,
                 min: 1,
-                message: "กรุณาระบุจำนวนครั้งให้ถูกต้อง",
+                message: "Please specify the number of times correctly.",
               },
               {
                 validator: (rule, value) => {
@@ -284,7 +284,7 @@ function AddPromotionForm() {
                     numericValue < 1 ||
                     numericValue > 1000
                   ) {
-                    return Promise.reject("กรุณาระบุจำนวนครั้งต่ำกว่า 1000");
+                    return Promise.reject("Please specify the number of times lower. 1000");
                   }
 
                   return Promise.resolve();
@@ -296,7 +296,7 @@ function AddPromotionForm() {
           </Form.Item>
 
           <Form.Item
-            label={<span style={labelStyle}>วันหมดอายุ</span>}
+            label={<span style={labelStyle}>Expiration date</span>}
             colon={false}
           >
             <Row gutter={1}>
@@ -306,7 +306,7 @@ function AddPromotionForm() {
                   rules={[
                     {
                       required: true,
-                      message: "กรุณาระบุวัน",
+                      message: "Please specify the day.",
                     },
                   ]}
                   noStyle
@@ -327,7 +327,7 @@ function AddPromotionForm() {
                   rules={[
                     {
                       required: true,
-                      message: "กรุณาระบุเวลา",
+                      message: "Please specify the time.",
                     },
                   ]}
                   noStyle

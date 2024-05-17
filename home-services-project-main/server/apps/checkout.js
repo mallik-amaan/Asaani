@@ -125,15 +125,15 @@ checkoutRouter.post("/", async (req, res) => {
         },
       ]);
 
-    res.json({ message: "สร้าง Order สำเร็จ" });
+    res.json({ message: "build Order succeed" });
   } catch (error) {
-    res.status(500).json({ message: "เกิดข้อผิดพลาดในระบบ" });
+    res.status(500).json({ message: "An error in the system" });
     console.error(error);
   }
 });
 
 // checkoutRouter.post("/", async (req, res) => {
-//   //req.body ที่ได้มา ใช้ insert 3 table
+//   //req.body Acquired ใช้ insert 3 table
 //   try {
 
 //     console.log(req.body)
@@ -181,21 +181,20 @@ checkoutRouter.post("/", async (req, res) => {
 //       .insert([
 //         {
 //           order_number,
-//           status: "กำลังดำเนินการ",
+//           status: "Operating",
 //           checkout_id,
 //           user_id: user_id, // replace with actual user ID
 //         },
 //       ]);
 
-//     res.json({ message: "สร้าง Order สำเร็จ" });
+//     res.json({ message: "build Order succeed" });
 //   } catch (error) {
-//     res.status(500).json({ message: "เกิดข้อผิดพลาดในระบบ" });
-//     console.error(error);
+// Res.status (500) .json ({message: "An error in the system"});//     console.error(error);
 //   }
 // });
 
 // checkoutRouter.post("/", async (req, res) => {
-//   //req.body ที่ได้มา ใช้ insert 3 table
+//   //req.body Acquired ใช้ insert 3 table
 //   try {
 //     console.log('req.body', req.body);
 
@@ -260,16 +259,14 @@ checkoutRouter.post("/", async (req, res) => {
 //     //   .insert([
 //     //     {
 //     //       order_number,
-//     //       status: "กำลังดำเนินการ",
+//     //       status: "Operating",
 //     //       checkout_id,
 //     //       user_id,
 //     //     },
 //     //   ]);
 
-//     res.json({ message: "สร้าง Order สำเร็จ" });
-//   } catch (error) {
-//     res.status(500).json({ message: "เกิดข้อผิดพลาดในระบบ" });
-//     console.error(error);
+// RES.JSON ({Message: "Build success"});//   } catch (error) {
+// Res.status (500) .json ({message: "An error in the system"});//     console.error(error);
 //   }
 // });
 

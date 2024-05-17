@@ -30,7 +30,7 @@ function AddService() {
 
   const [selectedImage, setSelectedImage] = useState(null); //manage the selected image
 
-  const [selectedCategory, setSelectedCategory] = useState("เลือกหมวดหมู่");
+  const [selectedCategory, setSelectedCategory] = useState("Select category");
 
   const [fileList, setFileList] = useState([]);
 
@@ -51,7 +51,7 @@ function AddService() {
     setSelectedImage(null);
   };
 
-  console.log("ฟายลิส", fileList);
+  console.log("Fai Lis", fileList);
 
   const handleSubmitService = async (values) => {
     try {
@@ -65,7 +65,7 @@ function AddService() {
         (category) => category.category_name === selectedCategory
       )?.category_id;
 
-      console.log("ก่อนส่ง", user_id);
+      console.log("Before sending", user_id);
 
       const formData = new FormData();
       formData.append("user_id", user_id);
@@ -159,19 +159,19 @@ function AddService() {
       >
         <div className="bg-grey100 h-full pb-4% md:pb-0 md:pl-60">
           <div className="flex items-center h-20 px-10 justify-between border-b border-grey300 bg-white">
-            <h1 className="text-xl font-medium">เพิ่มบริการ</h1>
+            <h1 className="text-xl font-medium">Add service</h1>
             <div className="flex">
               <button
                 className="btn-secondary flex items-center justify-center text-base font-medium w-28 h-11"
                 onClick={() => navigate("/admin-service")}
               >
-                ยกเลิก
+                cancel
               </button>
               <button
                 className="btn-primary flex items-center justify-center ml-6 text-base font-medium w-28 h-11"
                 type="submit"
               >
-                สร้าง
+                build
               </button>
             </div>
           </div>
@@ -193,7 +193,7 @@ function AddService() {
             </Form.Item>
 
             <Form.Item
-              label={<span style={labelStyle}>หมวดหมู่</span>}
+              label={<span style={labelStyle}>Category</span>}
               colon={false}
               rules={[
                 {
@@ -229,7 +229,7 @@ function AddService() {
 
             {/* <div className="h-40 w-8/12 pr-16 mb-10 flex justify-between "> */}
             <Form.Item
-              label={<span style={labelStyle}>รูปภาพ</span>}
+              label={<span style={labelStyle}>picture</span>}
               colon={false}
               rules={[
                 {
@@ -282,20 +282,19 @@ function AddService() {
                       <InboxOutlined style={{ fontSize: "36px" }} />
                       <p className="ant-upload-text">
                         <span className="text-blue600 text-base not-italic font-semibold underline">
-                          อัพโหลดรูปภาพ
+                          Upload pictures
                         </span>{" "}
-                        หรือ ลากและวางที่นี่
+                        or Drag and place here
                       </p>
                       <p className="ant-upload-hint">
-                        PNG, JPG ขนาดไม่เกิน 5MB
-                      </p>
+PNG, JPG size not more than 5MB                      </p>
                     </>
                   )}
                 </div>
               </Upload.Dragger>
               <div className="flex justify-between" style={{ width: "50%" }}>
                 <div className="text-grey700 text-xs z-0 mt-1">
-                  ขนาดภาพที่แนะนำ: 1440 x 225 PX
+                  Recommended image size: 1440 x 225 PX
                 </div>
                 <div className=" text-blue500 text-base not-italic font-semibold underline">
                   {" "}
@@ -362,7 +361,7 @@ function AddService() {
                           <div   style={{ width: "25%", }}>
                             <Form.Item
                               colon={false}
-                              label="ค่าบริการ / 1 หน่วย"
+                              label="Service fee / 1 unit"
                               name={[field.name, "cost"]}
                               labelAlign="top"
                               labelCol={{ span: 24 }}

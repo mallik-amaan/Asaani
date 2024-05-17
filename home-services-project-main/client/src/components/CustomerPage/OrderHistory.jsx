@@ -39,13 +39,13 @@ function OrderHistory () {
             {order.length === 0 ? (
                 <div className="p-6 w-[50vw] ml-10 mb-8 bg-white border border-grey300 rounded-lg">
                     <h1 className="text-grey700 text-2xl font-normal text-center">
-                        ไม่มีประวัติการซ่อม
+                        No repair history
                     </h1>
               </div>
             ) : (
                 <div>
                     {order.map((data, index) => {
-                        if (data.status === "ดำเนินการสำเร็จแล้ว") {
+                        if (data.status === "Completed") {
                             return (
                                 <div 
                                     className="p-6 w-[50vw] ml-10 mb-[28px] bg-white border border-grey300 rounded-lg flex justify-between"
@@ -53,7 +53,7 @@ function OrderHistory () {
                                 >
                                     <div>
                                         <div className="text-xl font-medium leading-normal">
-                                            คำสั่งซ่อมรหัส : {data.order_number}
+                                            Code repair order : {data.order_number}
                                         </div>
                                         <div className="h-12 flex flex-col gap-y-[9px] mt-3 mb-5 text-sm font-normal leading-[150%] text-grey700">
                                             <div className="flex gap-x-[15px]">
@@ -63,7 +63,7 @@ function OrderHistory () {
                                                     alt="Calendar Icon" 
                                                 />
                                                 <div>
-                                                  วันเวลาดำเนินการ:{" "}
+                                                  Operation date:{" "}
                                                         {dateFormat(data.checkout.service_date_time)}
                                                 </div>
                                             </div>
@@ -73,11 +73,11 @@ function OrderHistory () {
                                                     src={image.personIcon2}
                                                     alt="Person Icon" 
                                                 />
-                                                <div>พนักงาน: {data.serviceman_detail.serviceman_name}</div>
+                                                <div>employee: {data.serviceman_detail.serviceman_name}</div>
                                             </div>
                                         </div>
                                         <div className="text-base font-normal leading-normal text-grey700">
-                                            รายการ: {data.service.service_name}
+                                            list: {data.service.service_name}
                                             <ul className="flex flex-col list-disc ml-3">
                                                 {data.checkout.checkout_quantity.map((subService, index) => {
                                                     return (
@@ -91,7 +91,7 @@ function OrderHistory () {
                                                     )
                                                 })}
                                                 {/* <li className="ml-2 my-1 font-normal text-sm text-black">
-                                                    ล้างแอร์ 9,000 - 18,000 BTU, ติดผนัง 2 เครื่อง
+                                                    Clean the air 9,000 - 18,000 BTU, Wall 2 machine
                                                 </li> */}
                                             </ul> 
                                         </div>
@@ -99,13 +99,13 @@ function OrderHistory () {
                                     <div className="flex flex-col gap-y-12 items-end justify-between">
                                         <div className="h-[65px] flex flex-col gap-y-[13px]">
                                             <div className="text-grey700 font-normal text-sm leading-[150%] flex gap-x-3 justify-end items-center">
-                                                สถานะ:{" "}
+                                                status:{" "}
                                                     <div className="bg-[#DFF9F6] text-grey900 text-sm font-normal px-3 py-[2px] rounded-[99px]">
                                                         {data.status}
                                                     </div>
                                             </div>
                                             <div className="text-grey700 font-normal text-sm leading-normal flex gap-x-5 justify-end items-center">
-                                                ราคารวม:
+                                                Total price:
                                                 <div className="text-lg text-black font-medium leading-normal">
                                                     {parseFloat(data.checkout.total_price)
                                                         .toFixed(2)}{" "}

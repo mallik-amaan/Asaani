@@ -1,5 +1,5 @@
-// หน้าที่มีการเลือกรายการ และมีกล่องสรุปรายการด้านข้าง
-// ex 9000 - 18000 BTU แบบติดผนัง - +
+// The page has selected itAnd there is a summary box on the sideนข้าง
+// ex 9000 - 18000 BTU wall - +
 // import SubmitTab from "./SubmitTab.jsx";
 
 // function ServiceDetailAddOnList() {
@@ -10,7 +10,7 @@
 //       {/* <SubmitTab
 //         onClickBack={() => navigate("/services-list")}
 //         onClickNext={() => navigate("/services-list")}
-//         next="ดำเนินการต่อ"
+//         next="Proceed
 //       /> */}
 //     </>
 //   );

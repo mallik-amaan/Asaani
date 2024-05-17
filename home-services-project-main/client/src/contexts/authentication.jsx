@@ -42,17 +42,17 @@ function AuthProvider(props) {
       // ใส่ condition login ตรวจสอบ role
       if (userDataFromToken.role === "admin") {
         navigate("/admin-category");
-        message.success("เข้าสู่ระบบสำเร็จ");
+        message.success("Enter the system successfully");
       } else if (userDataFromToken.role === "customer") {
         navigate("/");
-        message.success("เข้าสู่ระบบสำเร็จ");
+        message.success("Enter the system successfully");
       } else {
-        message.error("อีเมลหรือรหัสผ่านไม่ถูกต้อง");
+        message.error("Incorrect email or password");
       }  
     } catch (e) {
       console.error("Login failed:", e);
       if (e.response && e.response.data) {
-        setErrorLogin("อีเมลหรือรหัสผ่านไม่ถูกต้อง");
+        setErrorLogin("Incorrect email or password");
       }
       // Return a response object indicating failure
       return { success: false, error: e.response ? e.response.data : e.message };

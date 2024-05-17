@@ -100,10 +100,10 @@ function PromotionEdit() {
   const handleDelete = async () => {
     try {
       await axios.delete(`http://localhost:4000/promotion/${promotionId}`);
-      message.success("ลบโปรโมชั่นสำเร็จ");
+      message.success("Delete successful promotions");
       navigate("/admin-promotion");
     } catch (error) {
-      console.error("เกิดข้อผิดพลาดในการลบโปรโมชั่น:", error);
+      console.error("There is an error in removing promotions.:", error);
     }
   };
 
@@ -166,7 +166,7 @@ function PromotionEdit() {
       );
 
       if (response.status === 200) {
-        message.success("แก้ไขโปรโมชั่นสำเร็จ");
+        message.success("Successful promotion");
       }
       navigate("/admin-promotion");
     } catch (error) {
@@ -225,13 +225,13 @@ function PromotionEdit() {
                 className="btn-secondary flex items-center justify-center text-base font-medium w-28 h-11"
                 onClick={() => navigate("/admin-promotion")}
               >
-                ยกเลิก
+                cancel
               </button>
               <button
                 className="btn-primary flex items-center justify-center ml-6 text-base font-medium w-28 h-11"
                 type="submit"
               >
-                ยืนยัน
+                confirm
               </button>
             </div>
           </div>
@@ -242,7 +242,7 @@ function PromotionEdit() {
               rules={[
                 {
                   required: true,
-                  message: "กรุณาระบุโค้ด",
+                  message: "Please specify the code.",
                 },
               ]}
             >
@@ -259,13 +259,13 @@ function PromotionEdit() {
             </Form.Item>
 
             <Form.Item
-              label={<span style={labelStyle}>ประเภท</span>}
+              label={<span style={labelStyle}>type</span>}
               colon={false}
               // name="promotion_types"
               rules={[
                 {
                   required: true,
-                  message: "กรุณาเลือกประเภทของโค้ด",
+                  message: "Please select the type of code.",
                 },
               ]}
             >
@@ -384,13 +384,13 @@ function PromotionEdit() {
 
             <Form.Item
               // name="promotion_quota"
-              label={<span style={labelStyle}>โควต้าการใช้</span>}
+              label={<span style={labelStyle}>Quota</span>}
               colon={false}
               rules={[
                 {
                   // required: true,
                   min: 1,
-                  message: "กรุณาระบุจำนวนครั้งให้ถูกต้อง",
+                  message: "Please specify the number of times correctly.",
                 },
                 {
                   validator: (rule, value) => {
@@ -400,7 +400,7 @@ function PromotionEdit() {
                       numericValue < 1 ||
                       numericValue > 1000
                     ) {
-                      return Promise.reject("กรุณาระบุจำนวนครั้งต่ำกว่า 1000");
+                      return Promise.reject("Please specify the number of times lower. 1000");
                     }
 
                     return Promise.resolve();
@@ -410,7 +410,7 @@ function PromotionEdit() {
             >
               <Input
                 style={{ width: "50%" }}
-                suffix="ครั้ง"
+                suffix="time"
                 value={newFormData.promotion_quota}
                 onChange={(e) =>
                   setFormData({
@@ -423,7 +423,7 @@ function PromotionEdit() {
 
             <Form.Item
               // name="promotion_expiry_date"
-              label={<span style={labelStyle}>วันหมดอายุ</span>}
+              label={<span style={labelStyle}>Expiration date</span>}
               colon={false}
             >
               <Row gutter={1}>
@@ -433,7 +433,7 @@ function PromotionEdit() {
                     rules={[
                       {
                         required: true,
-                        message: "กรุณาระบุวัน",
+                        message: "Please specify the day.",
                       },
                     ]}
                     noStyle
@@ -461,7 +461,7 @@ function PromotionEdit() {
                     rules={[
                       {
                         required: true,
-                        message: "กรุณาระบุเวลา",
+                        message: "Please specify the time.",
                       },
                     ]}
                     noStyle
@@ -479,7 +479,7 @@ function PromotionEdit() {
 
             <hr className="mt-10 mb-10 text-grey300 "></hr>
             <p className="pb-[25px] ">
-              <span className="text-grey700">สร้างเมื่อ</span>
+              <span className="text-grey700">Created when</span>
               <span className="px-[200px] text-black ">
                 {dateFormat(newFormData.promotion_created_date_time)}
               </span>
@@ -508,10 +508,10 @@ function PromotionEdit() {
         <AlertBoxDelete
           deleteFunction={handleDelete}
           hideFunction={hideDeleteConfirmation}
-          textAlert="ยืนยันการลบรายการ"
-          alertQuestion={`คุณต้องการลบรายการ'${newFormData.promotion_code}ใช่หรือไม่ ?`}
-          primary="ลบรายการ"
-          secondary="ยกเลิก"
+          textAlert="Confirm the deletion of items"
+          alertQuestion={`You want to delete the list.'${newFormData.promotion_code}Is it right? ?`}
+          primary="Delete"
+          secondary="cancel"
         />
       )}
     </div>

@@ -47,21 +47,21 @@ function CategoryAddForm() {
           className="header-name flex items-center h-20 px-10
          justify-between border-b border-grey300 bg-white"
         >
-          <h1 className="text-xl font-medium">เพิ่มหมวดหมู่</h1>
+          <h1 className="text-xl font-medium">Add category</h1>
           <div className="flex">
             <button
               className="btn-secondary flex items-center
                justify-center text-base font-medium w-28 h-11"
               onClick={handleCancel}
             >
-              ยกเลิก
+              cancel
             </button>
             <button
               className="btn-primary flex items-center justify-center
                ml-6 text-base font-medium w-28 h-11"
               type="submit"
             >
-              สร้าง
+              build
             </button>
           </div>
         </div>
@@ -75,7 +75,7 @@ function CategoryAddForm() {
             flex justify-between items-center h-11 w-full"
           >
             <label className="h-6 text-grey700">
-              ชื่อหมวดหมู่<span className="text-red">*</span>
+              Category name<span className="text-red">*</span>
             </label>
             <input
               required

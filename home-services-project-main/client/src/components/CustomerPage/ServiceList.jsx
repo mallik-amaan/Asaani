@@ -51,7 +51,7 @@ function ServiceList() {
   // handler event click [price range dropdown]
   const handleDropdownToggle = () => {
     if (isDropdownVisible && !hasClickedSearch) {
-      // ไม่ต้องรีเซ็ตค่าราคา
+      // No need to reset the price
     }
     setDropdownVisible(!isDropdownVisible);
   };
@@ -68,12 +68,12 @@ function ServiceList() {
     setOrderFilter(selectedOrder);
   };
 
-  // state ส่วนนี้เกี่ยวกับปุ่ม"ค้นหา"  เงื่อนไขคือผลลัพธ์ของ filter จะเกิดขึ้นเมื่อกดปุ่มค้นหาเท่านั้น
+  // state This part is about the button."search"  The condition is the result of filter Will occur when pressing the search button only
   const [isSearchClicked, setIsSearchClicked] = useState(false);
   const [filteredServices, setFilteredServices] = useState([]);
 
   const handleSearchClick = () => {
-    // ทำการกรองข้อมูลและตั้งค่า filteredServices ใหม่ตามเงื่อนไข
+    // Filter data and settings filteredServices New according to conditions
     const newFilteredServices = services.data.filter((service) => {
       const serviceCategory = service.category.category_name;
       const serviceName = service.service_name.toLowerCase();
@@ -96,7 +96,7 @@ function ServiceList() {
       return isCategoryMatch && isKeywordMatch && isPriceMatch;
     });
 
-    // เรียงลำดับข้อมูล
+    // Sort the information
     const sortedServices = sortServices(
       newFilteredServices,
       orderFilter,
@@ -118,9 +118,9 @@ function ServiceList() {
     try {
       const result = await axios("http://localhost:4000/category");
       setCategories(result.data.data);
-      console.log("getCategory มีอะไร ", result.data.data);
+      console.log("getCategory What's up? ", result.data.data);
     } catch (error) {
-      setError("เกิดข้อผิดพลาดในการเรียกข้อมูลหมวดหมู่");
+      setError("There is an error in calling for categories.");
     }
   };
 
@@ -134,21 +134,21 @@ function ServiceList() {
       );
 
       if (response.data.error) {
-        setError("เกิดข้อผิดพลาดในการค้นหา");
+        setError("There was an error in search.");
       } else {
         setServices(response.data.data);
-        console.log("ผลลัพธ์การค้นหา", response.data.data);
+        console.log("Search results", response.data.data);
       }
     } catch (error) {
-      setError("เกิดข้อผิดพลาดในการเชื่อมต่อกับเซิร์ฟเวอร์", error.message);
+      setError("An error in connection with the server", error.message);
     }
   };
 
-  console.log("อันนี้คือคำค้นหา", keywords);
-  console.log("อันนี้คือหมวดหมู่", selectedCategory);
-  console.log("ราคาต่ำสุด", minPriceFilter);
-  console.log("ราคาสูงสุด", maxPriceFilter);
-  console.log("เรียงตาม", orderFilter);
+  console.log("This is a search term.", keywords);
+  console.log("This is the category", selectedCategory);
+  console.log("The lowest price", minPriceFilter);
+  console.log("Maximum price", maxPriceFilter);
+  console.log("In accordance with", orderFilter);
 
   useEffect(() => {
     handleSearch();
@@ -163,11 +163,11 @@ function ServiceList() {
             <img src={image.Header} alt="Test" className="inline" />
             <div className="absolute top-0 h-[100%] left-0 right-0 z-10 text-center text-black bg-[#00195199]"></div>
             <span className="absolute top-[64px]  left-0 right-0 z-10 text-center text-white ">
-              <h1 className="text-[32px]">บริการของเรา</h1>
+              <h1 className="text-[32px]">Our service</h1>
               <p>
-                ซ่อมเครื่องใช้ไฟฟ้า ซ่อมแอร์ ทำความสะอาดบ้าน และอื่น ๆ อีกมากมาย
+                Repair electrical appliances, repair air, clean houses and many more.
                 <br />
-                โดยพนักงานแม่บ้าน และช่างมืออาชีพ
+                By housekeeperAnd professional technicians
               </p>
             </span>
           </div>
@@ -178,7 +178,7 @@ function ServiceList() {
             <div className="xl:px-[120px] flex row items-center space-x-4 justify-between">
               <input
                 type="text"
-                placeholder="ค้นหาบริการ"
+                placeholder="Search for service"
                 className="search-filter text-black  px-4 py-2 border-grey300 border bg-white rounded-lg focus:outline-none focus:ring focus:border-blue-300 w-[318px] "
                 value={keywords}
                 onChange={(e) => setKeywords(e.target.value)}
@@ -186,14 +186,14 @@ function ServiceList() {
               <div className="w-[80px]"></div>
               <div className=" category-option-filter  ">
                 <p className="pl-[10px] w-[120px] text-[12px] text-[#646C80]">
-                  หมวดหมู่บริการ
+                  Service category
                 </p>
                 <select
                   className="px-2 bg-white text-[16px] text-black font-semibold"
                   value={selectedCategory}
                   onChange={handleCategoryChange}
                 >
-                  <option value="All">บริการทั้งหมด</option>
+                  <option value="All">All services</option>
                   {categories.data &&
                     categories.data.map((category) => (
                       <option
@@ -208,7 +208,7 @@ function ServiceList() {
               <div className="line-1 border-[#CCD0D7] border-l border-[1px] h-[44px] "></div>{" "}
               <div>
                 <p className="pl-[10px] w-[120px] text-[12px] text-[#646C80]">
-                  ราคา
+                  price
                 </p>
                 <div className="price-range-filter relative inline-block text-black font-semibold">
                   <p
@@ -237,21 +237,21 @@ function ServiceList() {
               </div>
               <div className="line-2 border-[#CCD0D7] border-l border-[1px] h-[44px] "></div>
               <div className="sort-filter">
-                <p className="pl-[10px] text-[12px] text-[#646C80]">เรียงตาม</p>
+                <p className="pl-[10px] text-[12px] text-[#646C80]">In accordance with</p>
                 <select
                   className="px-2 bg-white text-black font-semibold"
                   value={orderFilter}
                   onChange={handleSortChange}
                 >
-                  <option value="recommend">บริการแนะนำ</option>
-                  <option value="popular">บริการยอดนิยม</option>
-                  <option value="ascending">ตามตัวอักษร (Ascending)</option>
-                  <option value="descending">ตามตัวอักษร (Descending)</option>
+                  <option value="recommend">Recommended service </ option>
+                  <option value = "popular"> Popular service </ option>
+                  <option value = "ASCENDING">(Ascending) </ option>
+                  <option value = "descending"> (Descending)</option>
                 </select>
               </div>
               <div className="w-[80px]"></div>
               <button className="btn-primary" onClick={handleSearchClick}>
-                ค้นหา
+                search
               </button>
             </div>
           </div>
@@ -294,10 +294,10 @@ function ServiceList() {
                           <p className="ml-2 text-[#646C80] text-sm py-[10px]">
                             {getMinPrice(service.sub_service) !==
                             getMaxPrice(service.sub_service)
-                              ? `ค่าบริการประมาณ ${getMinPrice(
+                              ? `Approximate service fee ${getMinPrice(
                                   service.sub_service
                                 )} - ${getMaxPrice(service.sub_service)} ฿`
-                              : `ค่าบริการประมาณ ${getMinPrice(
+                              : `Approximate service fee ${getMinPrice(
                                   service.sub_service
                                 )} ฿`}
                           </p>
@@ -312,14 +312,13 @@ function ServiceList() {
                                     navigate(`/checkout/${service.service_id}`)
                                   }
                                 >
-                                  เลือกบริการ
-                                </button>
+Select the service                                </button>
                               ) : (
                                 <button
                                   className="btn-ghost"
                                   onClick={handleAlertRole}
                                 >
-                                  เลือกบริการ
+                                  Select the service
                                 </button>
                               )}
                             </div>
@@ -328,7 +327,7 @@ function ServiceList() {
                               className="btn-ghost"
                               onClick={() => navigate(`/login`)}
                             >
-                              เลือกบริการ
+                              Select the service
                             </button>
                           )}
                         </div>
@@ -338,10 +337,9 @@ function ServiceList() {
                 ) : (
                   <div className="text-center h-[500px]">
                     <h1 className="mt-[100px]">
-                      ขออภัยค่ะ ไม่พบการค้นหาบริการที่ท่านต้องการ
-                    </h1>
-                    <p> หากลูกค้าต้องการบริการใดๆเพิ่มเติม</p>
-                    <p>สามารถติดต่อสอบถามได้ที่ 080-540-6357</p>
+Sorry, no search for the service you want.                    </h1>
+                    <p> If the customer wants any additional service</p>
+                    <p>Can contact 080-540-6357</p>
                   </div>
                 )
               ) : (
@@ -375,10 +373,10 @@ function ServiceList() {
                         <p className="ml-2 text-[#646C80] text-sm py-[10px]">
                           {getMinPrice(service.sub_service) !==
                           getMaxPrice(service.sub_service)
-                            ? `ค่าบริการประมาณ ${getMinPrice(
+                            ? `Approximate service fee ${getMinPrice(
                                 service.sub_service
                               )} - ${getMaxPrice(service.sub_service)} ฿`
-                            : `ค่าบริการประมาณ ${getMinPrice(
+                            : `Approximate service fee ${getMinPrice(
                                 service.sub_service
                               )} ฿`}
                         </p>
@@ -394,14 +392,13 @@ function ServiceList() {
                                   navigate(`/checkout/${service.service_id}`)
                                 }
                               >
-                                เลือกบริการ
-                              </button>
+Select the service                              </button>
                             ) : (
                               <button
                                 className="btn-ghost"
                                 onClick={handleAlertRole}
                               >
-                                เลือกบริการ
+                                Select the service
                               </button>
                             )}
                           </div>
@@ -410,7 +407,7 @@ function ServiceList() {
                             className="btn-ghost"
                             onClick={() => navigate(`/login`)}
                           >
-                            เลือกบริการ
+                            Select the service
                           </button>
                         )}
                       </div>
@@ -423,25 +420,23 @@ function ServiceList() {
             <AlertBoxDelete
               deleteFunction={handleLogout}
               hideFunction={hide}
-              textAlert="ไม่สามารถเลือกบริการได้"
-              alertQuestion={`คุณต้องเข้าสู่ระบบเป็น Customer`}
-              primary="ออกจากระบบ"
-              secondary="ยกเลิก"
+              textAlert="Cannot choose the service"
+              alertQuestion={`You have to log in to Customer`}
+              primary="Out of the system"
+              secondary="cancel"
             />
           )}
         </section>
 
         <footer className="h-[284px] bg-[#336DF2] text-center flex justify-center items-center">
           <p className="text-[20px] text-white">
-            เพราะเราคือช่าง ผู้ให้บริการเรื่องบ้านอันดับ 1 แบบครบวงจร
-            โดยทีมช่างมืออาชีพมากกว่า 100 ทีม
+Because we are techniciansComplete number 1 home service provider            By a more professional team 100 ทีม
             <br />
-            สามารถตอบโจทย์ด้านการบริการเรื่องบ้านของคุณ และสร้าง
+            Able to meet your home service and build
             <br />
-            ความสะดวกสบายในการติดต่อกับทีมช่าง ได้ทุกที่ ทุกเวลา ตลอด 24 ชม.
+            The convenience of contacting the technician anywhere, anytime, 24 hours.
             <br />
-            มั่นใจ ช่างไม่ทิ้งงาน พร้อมรับประกันคุณภาพงาน
-          </p>
+            Confident, do not leave workWith work quality guarantee          </p>
           <img src="" />
         </footer>
       </div>

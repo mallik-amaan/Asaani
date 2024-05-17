@@ -37,7 +37,7 @@ function AdminDetailCategoryPage() {
                   onClick={() => navigate("/admin-category")}
                 />
                 <div className="Header-name">
-                  <p className="category-text text-xs">หมวดหมู่</p>
+                  <p className="category-text text-xs">Category</p>
                   <h1
                     name={categoryDetail}
                     className="text-black   font-semibold text-xl"
@@ -52,26 +52,26 @@ function AdminDetailCategoryPage() {
                   navigate(`/admin-category-edit/${category.category_id}`)
                 }
               >
-                แก้ไข
+                correct
               </button>
             </div>
             <div className="flex flex-col items-center">
               <div className="detail-container w-[95%] rounded-lg border border-grey300 bg-white font-normal flex-col items-center  px-10 mt-10 pt-[20px] py-[10px] ">
                 <p className="pb-[40px] pt-[20px] ">
-                  <span className="text-grey700">ชื่อหมวดหมู่</span>
+                  <span className="text-grey700">Category name</span>
                   <span className="px-[182px] text-black ">
                     {category.category_name}
                   </span>
                 </p>
                 <hr className="py-[20px]" />
                 <p className="pb-[25px] ">
-                  <span className="text-grey700">สร้างเมื่อ</span>
+                  <span className="text-grey700">Created when</span>
                   <span className="px-[200px] text-black ">
                     {dateFormat(category.category_created_date)}
                   </span>
                 </p>
                 <p className="pb-[40px] ">
-                  <span className="text-grey700">แก้ไขล่าสุด</span>
+                  <span className="text-grey700">Last edited</span>
                   <span className="px-[190px] text-black ">
                     {dateFormat(category.category_edited_date)}
                   </span>

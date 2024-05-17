@@ -52,7 +52,7 @@ function PromotionDetail() {
                   navigate(`/admin-promotion-edit/${promotion.promotion_id}`)
                 }
               >
-                แก้ไข
+                correct
               </button>
             </div>
             <div className="flex flex-col items-center">
@@ -64,14 +64,14 @@ function PromotionDetail() {
                   </span>
                 </p>
                 <p className="pb-[40px] pt-[20px] ">
-                  <span className="text-grey700">ประเภท</span>
+                  <span className="text-grey700">type</span>
                   <span className="px-[215px] text-black ">
                     {promotion.promotion_types.charAt(0).toUpperCase() +
                       promotion.promotion_types.slice(1).toLowerCase()}
                   </span>
                 </p>
                 <p className="pb-[40px] pt-[20px] ">
-                  <span className="text-grey700">ราคาที่ลด</span>
+                  <span className="text-grey700">Discounted price</span>
                   <span className="px-[200px] text-[#C82438] ">
                     -
                     {promotion.promotion_types === "fixed"
@@ -80,13 +80,13 @@ function PromotionDetail() {
                   </span>
                 </p>
                 <p className="pb-[40px] pt-[20px] ">
-                  <span className="text-grey700">โควต้าการใช้คงเหลือ</span>
+                  <span className="text-grey700">Removal quota</span>
                   <span className="px-[125px] text-black ">
-                    {promotion.promotion_quota} ครั้ง
+                    {promotion.promotion_quota} time
                   </span>
                 </p>
                 <p className="pb-[40px] pt-[20px] ">
-                  <span className="text-grey700">วันหมดอายุ</span>
+                  <span className="text-grey700">Expiration date</span>
                   <span className="px-[185px] text-black ">
                     {dateFormat(
                       `${promotion.promotion_expiry_date} ${promotion.promotion_expiry_time}`
@@ -95,13 +95,13 @@ function PromotionDetail() {
                 </p>
                 <hr className="py-[20px]" />
                 <p className="pb-[25px] ">
-                  <span className="text-grey700">สร้างเมื่อ</span>
+                  <span className="text-grey700">Created when</span>
                   <span className="px-[200px] text-black ">
                     {dateFormat(promotion.promotion_created_date_time)}
                   </span>
                 </p>
                 <p className="pb-[40px] ">
-                  <span className="text-grey700">แก้ไขล่าสุด</span>
+                  <span className="text-grey700">Last edited</span>
                   <span className="px-[189px] text-black ">
                     {dateFormat(promotion.promotion_edited_date_time)}
                   </span>

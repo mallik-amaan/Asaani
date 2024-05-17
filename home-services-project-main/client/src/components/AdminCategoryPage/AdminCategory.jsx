@@ -35,7 +35,7 @@ function AdminCategory() {
   //     });
   //     setData(sortedData);
   //   } catch (error) {
-  //     setError("เกิดข้อผิดพลาดในการเรียกข้อมูลหมวดหมู่");
+  //     setError("There is an error in calling for categories.");
   //   }
   // };
 
@@ -48,7 +48,6 @@ function AdminCategory() {
 
     setData({ data: reorderedCategories });
 
-    // บันทึกข้อมูลลำดับใน localStorage
     localStorage.setItem("categoryOrder", JSON.stringify(reorderedCategories));
   };
 
@@ -104,7 +103,7 @@ function AdminCategory() {
       <div className="bg-bg h-[100%] pb-[4%] pl-60 min-h-screen">
         <div className="  flex flex-col items-center  ">
           <div className="header-name justify-between  flex items-center h-20 px-10 mt-0 pt-[20px] py-[10px] w-[100%] bg-white  text-grey600 pb-[20px] border-b border-grey300">
-            <h1 className="text-black   font-semibold text-xl">หมวดหมู่</h1>
+            <h1 className="text-black   font-semibold text-xl">Category</h1>
             <div className="flex">
               <input
                 type="text"
@@ -119,7 +118,7 @@ function AdminCategory() {
                 className="flex  btn-primary rounded-lg ml-7  h-[100%] w-[190px] text-white focus:outline-none "
                 onClick={() => navigate("/admin-category-create")}
               >
-                <p className=" pl-[15%]">เพิ่มหมวดหมู่</p>
+                <p className=" pl-[15%]">Add category</p>
                 <p className="pt-2 pl-[15%]">
                   <img src={plusSign} className=" w-[10px] h-[10px] " />
                 </p>
@@ -134,18 +133,18 @@ function AdminCategory() {
               <div className="category-list mt-10  w-[100%]">
                 <ul>
                   <li className=" flex text-sm text-grey600 list-none p-[20px]  rounded-t-lg bg-grey200 border-[1px] border-grey300">
-                    <span className=" text-grey700 mx-[8%]"> ลำดับ</span>
+                    <span className=" text-grey700 mx-[8%]"> number</span>
                     <span className=" text-grey700 mx-[%] ">
                       {" "}
-                      ชื่อหมวดหมู่{" "}
+                      Category name{" "}
                     </span>
                     <span className=" text-grey700 mx-[16.4%]">
                       {" "}
-                      สร้างเมื่อ
+                      Created when
                     </span>
                     <span className=" text-grey700 mx-[-0.5%]">
                       {" "}
-                      แก้ไขล่าสุด
+                      Last edited
                     </span>
                     <span className=" text-grey700 mx-[30%] mr-[1%]">
                       {" "}

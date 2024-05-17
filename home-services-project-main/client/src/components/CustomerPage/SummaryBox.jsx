@@ -1,1 +1,1 @@
-// กล่องสรุปรายการ ใช้ในหน้า add on list / information / payment
+// Summary box, use on the add on list / information / payment

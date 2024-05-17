@@ -84,7 +84,7 @@ function EditedCategoryForm() {
                 onClick={() => navigate("/admin-category")}
               />
               <div className="Header-name">
-                <p className="category-text text-xs">หมวดหมู่</p>
+                <p className="category-text text-xs">Category</p>
                 <h1
                   name={category.category_name}
                   className="text-black   font-semibold text-xl"
@@ -103,7 +103,7 @@ function EditedCategoryForm() {
                   justify-center text-base font-medium w-28 h-11"
                   onClick={handleCancel}
                 >
-                  ยกเลิก
+                  cancel
                 </button>
                 <button
                   className="btn-primary flex items-center justify-center
@@ -118,7 +118,7 @@ function EditedCategoryForm() {
           <div className="flex flex-col items-center">
             <div className="detail-container w-[95%] rounded-lg border border-grey300 bg-white font-normal flex-col items-center  px-10 mt-10 pt-[20px] py-[10px] ">
               <p className="pb-[40px] pt-[20px] ">
-                <span className="text-grey700">ชื่อหมวดหมู่</span>
+                <span className="text-grey700">Category name</span>
                 <input
                   className="rounded-lg bg-white text-black border ml-16 px-4 h-11 w-4/6 border-grey300 focus:border-blue600 focus:outline-none"
                   type="text"
@@ -129,13 +129,13 @@ function EditedCategoryForm() {
               </p>
               <hr className="py-[20px]" />
               <p className="pb-[25px] ">
-                <span className="text-grey700">สร้างเมื่อ</span>
+                <span className="text-grey700">Created when</span>
                 <span className="px-[200px] text-black ">
                   {dateFormat(category.category_created_date)}
                 </span>
               </p>
               <p className="pb-[40px] ">
-                <span className="text-grey700">แก้ไขล่าสุด</span>
+                <span className="text-grey700">Last edited</span>
                 <span className="px-[190px] text-black ">
                   {dateFormat(category.category_edited_date)}
                 </span>
@@ -151,7 +151,7 @@ function EditedCategoryForm() {
               src={trash}
               alt="Delete"
             />{" "}
-            ลบหมวดหมู่
+            Delete category
           </div>
         </form>
       ))}

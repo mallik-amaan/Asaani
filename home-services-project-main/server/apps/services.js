@@ -22,11 +22,10 @@ serviceRouter.get("/", async (req, res) => {
       .from("service")
       .select("*, sub_service(*), category(*)");
 
-    //note: ถ้าใส่ function filter อาจจะทำให้หน้าอื่นที่ใช้ API ตัวนี้เกิดปัญหาได้ ต้องเช็คหน้าอื่นที่ใช้ API ตัวเดียวกันระหว่างเทส
 
     // .ilike("service_name, category_name", `%${keywords}%`);
 
-    //กรองตามช่วงราคา;
+    
     // const data = rawData.filter((item) => {
     //   const price_per_unit =
     //     parseFloat(item.sub_service[0]?.price_per_unit) || 0;
@@ -410,18 +409,18 @@ serviceRouter.delete("/:id", async (req, res) => {
       .eq("service_id", serviceId);
 
     if (error) {
-      return res.status(500).json({ error: "ไม่สามารถลบได้" });
+      return res.status(500).json({ error: "Unable to delete" });
     }
 
     if (data && data.length === 0) {
       return res
         .status(404)
-        .json({ error: `ไม่พบรายการที่ตรงกับ ${serviceId}` });
+        .json({ error: `No items that match ${serviceId}` });
     }
 
     return res.status(200).json({ success: true });
   } catch (error) {
-    res.status(500).json({ success: false, error: "ไม่สามารถลบได้" });
+    res.status(500).json({ success: false, error: "Unable to delete" });
   }
 });
 

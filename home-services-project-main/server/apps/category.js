@@ -47,25 +47,23 @@ categoryRouter.post("/", async (req, res) => {
       category_edited_date: new Date(),
     };
 
-    // ทำการ insert หมวดหมู่ใหม่ลงใน Supabase
     const { data, error } = await supabase
       .from("category")
       .insert([newCategory], {
         // returning: ["category_name"],
       }); // ใช้ .insert แทน .insertOne
     if (error) {
-      return res.status(500).json({ error: "ไม่สามารถสร้างหมวดหมู่ได้" });
+      return res.status(500).json({ error: "Unable to create a category" });
     }
 
     return res
-      .status(201) // ใช้ HTTP status code 201 เมื่อสร้างสำเร็จ
-      .json({ message: "สร้างหมวดหมู่เรียบร้อยแล้ว" });
+      .status(201) 
+      .json({ message: "Already created" });
   } catch (error) {
     return res.status(500).json({ error: error.message });
   }
 });
 
-// แก้ไข categorty idนั้นๆ
 categoryRouter.put("/:id", async (req, res) => {
   try {
     const { category_name } = req.body; // ดึง category_name จาก req.body
@@ -78,9 +76,9 @@ categoryRouter.put("/:id", async (req, res) => {
     const { data, error } = await supabase
       .from("category")
       .update(updatedCatagory)
-      .eq("category_id", categoryId); // ใช้ .insert แทน .insertOne
+      .eq("category_id", categoryId); 
     if (error) {
-      return res.status(500).json({ error: "ไม่สามารถupdate" });
+      return res.status(500).json({ error: "Unable to update" });
     }
     return res
       .status(200)
@@ -108,7 +106,6 @@ categoryRouter.get("/:keyword", async (req, res) => {
   }
 });
 
-// category delete เพิ่มส่วนนี้ค่ะ ui หน้าบ้านมีไอคอนลบ
 categoryRouter.delete("/:id", async (req, res) => {
   try {
     const categoryId = req.params.id;
@@ -119,18 +116,18 @@ categoryRouter.delete("/:id", async (req, res) => {
       .eq("category_id", categoryId);
 
     if (error) {
-      return res.status(500).json({ error: "ไม่สามารถลบได้" });
+      return res.status(500).json({ error: "Unable to delete" });
     }
 
     if (data && data.length === 0) {
       return res
         .status(404)
-        .json({ error: `ไม่พบรายการที่ตรงกับ ${categoryId}` });
+        .json({ error: `No items that match ${categoryId}` });
     }
 
     return res.status(200).json({ success: true });
   } catch (error) {
-    res.status(500).json({ success: false, error: "ไม่สามารถลบได้" });
+    res.status(500).json({ success: false, error: "Unable to delete" });
   }
 });
 

@@ -424,7 +424,7 @@ Or drag and place here                              </p>
                               <Form.Item
                                 {...restField}
                                 name={[name, "price_per_unit"]}
-                                label="Service fee / 1 หน่วย"
+                                label="Service fee / 1 unit"
                                 labelAlign="top"
                                 labelCol={{ span: 24 }}
                                 rules={[
@@ -446,7 +446,7 @@ Or drag and place here                              </p>
                                   max="20000"
                                   step="any"
                                   className="rounded-lg h-11 border border-grey300 mr-4 py-2.5 px-4 focus:border-blue600 focus:outline-none"
-                                  placeholder="Service fee / 1 หน่วย"
+                                  placeholder="Service fee / 1 unit"
                                 />
                               </Form.Item>
                             </div>
@@ -487,7 +487,7 @@ Or drag and place here                              </p>
                                       notification.error({
                                         message: "Error",
                                         description:
-                                          "Must have at least a sub -lislistายการ",
+                                          "Must have at least a sub -List list",
                                         duration: 5, // Set duration (in seconds)
                                       });
                                     }

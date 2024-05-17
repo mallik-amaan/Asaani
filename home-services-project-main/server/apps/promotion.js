@@ -23,7 +23,6 @@ promotionRouter.get("/", async (req, res) => {
   }
 });
 
-// ดู promotion แบบเจาะจง id
 promotionRouter.get("/:id", async (req, res) => {
   try {
     const promotionId = req.params.id;
@@ -152,18 +151,18 @@ promotionRouter.delete("/:id", async (req, res) => {
       .eq("promotion_id", promotionId);
 
     if (error) {
-      return res.status(500).json({ error: "ไม่สามารถลบได้" });
+      return res.status(500).json({ error: "Unable to delete" });
     }
 
     if (data && data.length === 0) {
       return res
         .status(404)
-        .json({ error: `ไม่พบรายการที่ตรงกับ ${promotionId}` });
+        .json({ error: `No items that match ${promotionId}` });
     }
 
     return res.status(200).json({ success: true });
   } catch (error) {
-    res.status(500).json({ success: false, error: "ไม่สามารถลบได้" });
+    res.status(500).json({ success: false, error: "Unable to delete" });
   }
 });
 

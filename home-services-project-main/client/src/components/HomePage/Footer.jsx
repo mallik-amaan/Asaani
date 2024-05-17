@@ -10,12 +10,12 @@ function Footer () {
       <div className="flex items-center">
       <img src={HouseIcon} alt="" className="w-[40px] hidden xl:block"/>
         <div className="lg:text-[30px] font-semibold text-[#336DF2] prompt md:ml-2">
-          HomeServices
+          Asaani
           </div>
         </div>
       <div className="">
-        <h1 className="lg:text-[18px] font-bold">บริษัท โฮมเซอร์วิสเซส จำกัด</h1>
-        <p className="lg:pt-3 text-[10px] md:text-[16px]">452 ซอยสุขุมวิท 79 แขวงพระโขนงเหนือ เขตวัฒนา กรุงเทพมหานคร 10260</p>
+        <h1 className="lg:text-[18px] font-bold">Asaani</h1>
+        <p className="lg:pt-3 text-[10px] md:text-[16px]">Islamabad Sector H-12</p>
       </div>
       <div className="">
         <div className="flex ">
@@ -30,11 +30,11 @@ function Footer () {
       </div>
       <div className="bg-[#EFEFF2] flex justify-between p-2 md:px-40">
         <div className="text-[12px] text-grey500">
-          copyright © 2021 HomeServices.com All rights reserved
+          copyright © 2024 Asaani All rights reserved
         </div>
         <div className="flex text-[10px] md:text-[14px] text-grey700">
-          <p className="ml-6">เงื่อนไขและข้อตกลงการใช้งานเว็บไซต์</p>
-          <p className="ml-6">นโยบายความเป็นส่วนตัว</p>
+          <p className="ml-6">Conditions and terms of website usage</p>
+          <p className="ml-6">Privacy policy</p>
         </div>
       </div>
     </footer>

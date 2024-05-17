@@ -39,13 +39,13 @@ function OrderList () {
             {order.length === 0 ? (
                 <div className="p-6 w-[50vw] ml-10 mb-8 bg-white border border-grey300 rounded-lg">
                     <h1 className="text-grey700 text-2xl font-normal text-center">
-                        ไม่มีรายการสั่งซ่อม
+                        No repairs
                     </h1>
               </div>
             ) : (
                 <div>
                     {order.map((data, index) => {
-                        if (data.status === "รอดำเนินการ" || data.status === "กำลังดำเนินการ")
+                        if (data.status === "Waiting for action" || data.status === "Operating")
                         return (
                             <div 
                                 className="p-6 w-[50vw] ml-10 mb-[28px] bg-white border border-grey300 rounded-lg flex justify-between"
@@ -53,7 +53,7 @@ function OrderList () {
                             >
                                 <div>
                                     <div className="text-xl font-medium leading-normal">
-                                        คำสั่งซ่อมรหัส : {data.order_number}
+                                        Code repair order : {data.order_number}
                                     </div>
                                     <div className="h-12 flex flex-col gap-y-[9px] mt-3 mb-5 text-sm font-normal leading-[150%] text-grey700">
                                         <div className="flex gap-x-[15px]">
@@ -63,7 +63,7 @@ function OrderList () {
                                                 alt="Calendar Icon" 
                                             />
                                             <div>
-                                              วันเวลาดำเนินการ:{" "}
+                                              Operation date:{" "}
                                                     {dateFormat(data.checkout.service_date_time)}
                                             </div>
                                         </div>
@@ -73,11 +73,11 @@ function OrderList () {
                                                 src={image.personIcon2}
                                                 alt="Person Icon" 
                                             />
-                                            <div>พนักงาน: {data.serviceman_detail.serviceman_name}</div>
+                                            <div>employee: {data.serviceman_detail.serviceman_name}</div>
                                         </div>
                                     </div>
                                     <div className="text-base font-normal leading-normal text-grey700">
-                                        รายการ: {data.service.service_name}
+                                        list: {data.service.service_name}
                                         <ul className="flex flex-col list-disc ml-3">
                                             {data.checkout.checkout_quantity.map((subService, index) => {
                                                 return (
@@ -96,12 +96,12 @@ function OrderList () {
                                 <div className="flex flex-col gap-y-12 items-end justify-between">
                                     <div className="h-[65px] flex flex-col gap-y-[13px]">
                                         <div className="text-grey700 font-normal text-sm leading-[150%] flex gap-x-3 justify-end items-center">
-                                            สถานะ:{" "}
-                                            {data.status === "รอดำเนินการ" ? (
+                                            status:{" "}
+                                            {data.status === "Waiting for action" ? (
                                                 <div className="bg-[#E6E7EB] text-grey900 text-sm font-normal px-3 py-[2px] rounded-[99px]">
                                                     {data.status}
                                                 </div>
-                                            ) : data.status === "กำลังดำเนินการ" ? (
+                                            ) : data.status === "Operating" ? (
                                                 <div className="bg-[#FFF3D4] text-grey900 text-sm font-normal px-3 py-[2px] rounded-[99px]">
                                                     {data.status}
                                                 </div>
@@ -112,7 +112,7 @@ function OrderList () {
                                             )}
                                         </div>
                                         <div className="text-grey700 font-normal text-sm leading-normal flex gap-x-5 justify-end items-center">
-                                            ราคารวม:
+                                            Total price:
                                             <div className="text-lg text-black font-medium leading-normal">
                                                 {parseFloat(data.checkout.total_price)
                                                     .toFixed(2)}{" "}
@@ -121,7 +121,7 @@ function OrderList () {
                                         </div>
                                     </div>
                                     <button className="btn-primary w-34">
-                                        ดูรายละเอียด      
+                                        See details      
                                     </button>
                                 </div>
                             </div>

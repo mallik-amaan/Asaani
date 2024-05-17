@@ -25,7 +25,7 @@ orderHistoryRouter.get("/:id", async (req, res) => {
       result,
     });
   } catch (error) {
-    res.status(500).json({ error: "เกิดข้อผิดพลาดในการดึงข้อมูลและรวมข้อมูล" });
+    res.status(500).json({ error: "There is an error in pulling data and including information." });
   }
 });
 

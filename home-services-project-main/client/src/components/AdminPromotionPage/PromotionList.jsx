@@ -20,7 +20,7 @@ function PromotionList() {
       const result = await axios("http://localhost:4000/promotion");
       setData(result.data.data);
     } catch (error) {
-      setError("เกิดข้อผิดพลาดในการเรียกข้อมูลโปรโมชั่น");
+      setError("There is an error in the promotion of promotions.");
     }
   };
 
@@ -31,7 +31,7 @@ function PromotionList() {
       getPromotion();
       hide();
     } catch (error) {
-      console.log("เกิดข้อผิดพลาดในการลบโปรโมชั่น");
+      console.log("There is an error in removing promotions.");
     }
   };
 
@@ -58,18 +58,18 @@ function PromotionList() {
         );
 
         if (response.data.error) {
-          setError("เกิดข้อผิดพลาดในการค้นหา");
+          setError("There was an error in search.");
         } else {
           setData(response.data.data);
-          console.log("ผลลัพธ์การค้นหา", response.data.data);
+          console.log("Search results", response.data.data);
         }
       } catch (error) {
-        setError("เกิดข้อผิดพลาดในการเชื่อมต่อกับเซิร์ฟเวอร์");
+        setError("An error in connection with the server");
       }
     };
 
     fetchData();
-    console.log("แสดงผลข้อมูลของ useEffect", data);
+    console.log("Display the information of useEffect", data);
   }, [keyword]);
 
   console.log(data);
@@ -93,7 +93,7 @@ function PromotionList() {
               className="flex btn-primary rounded-lg ml-7 h-[44px] w-[238px] text-white focus:outline-none "
               onClick={() => navigate("/admin-promotion-create")}
             >
-              <p className="">เพิ่ม Promotion Code</p>
+              <p className="">increase Promotion Code</p>
               <p className="pt-2 pl-[15px]">
                 <img src={plusSign} className="w-[10px] h-[10px]" />
               </p>
@@ -109,13 +109,12 @@ function PromotionList() {
               <ul>
                 <li className="flex text-sm text-grey600 list-none p-[20px] rounded-t-lg bg-grey200 border-[1px] border-grey300">
                   <span className="text-grey700 mx-[1%]">Promotion Code</span>
-                  <span className="text-grey700 mx-[6%]">ประเภท</span>
+                  <span className="text-grey700 mx-[6%]">type</span>
                   <span className="text-grey700 ml-[%] ">
-                    โควต้าเหลือ(ครั้ง)
-                  </span>
-                  <span className="text-grey700 mx-[5%]">ราคาที่ลด</span>
-                  <span className="text-grey700 mx-[4%]">สร้างเมื่อ</span>
-                  <span className="text-grey700 mx-[12%]">วันหมดอายุ</span>
+Remaining quota (time)                  </span>
+                  <span className="text-grey700 mx-[5%]">Discounted price</span>
+                  <span className="text-grey700 mx-[4%]">Created when</span>
+                  <span className="text-grey700 mx-[12%]">Expiration date</span>
                   <span className="text-grey700 mx-[9%] mr-[2%]">Action</span>
                 </li>
                 <ul>
@@ -171,8 +170,7 @@ function PromotionList() {
                               </p>
                               <p className="w-[50%] mr-[8%]">
                                 {console.log(
-                                  "เช็ค วันหมดอายุโค้ด",
-                                  promotion.promotion_expiry_date
+"Check the expiration date code",                                  promotion.promotion_expiry_date
                                 )}
 
                                 {dateFormat(
@@ -211,14 +209,14 @@ function PromotionList() {
             <AlertBoxDelete
               deleteFunction={handleDelete}
               hideFunction={hide}
-              textAlert="ยืนยันการลบรายการ"
-              alertQuestion={`คุณต้องการลบรายการ '${
+              textAlert="Confirm the deletion of items"
+              alertQuestion={`You want to delete the list. '${
                 data.data.find(
                   (item) => item.promotion_id === deletePromotionId
                 )?.promotion_code
-              }' ใช่หรือไม่ ?`}
-              primary="ลบรายการ"
-              secondary="ยกเลิก"
+              }' Is it right? ?`}
+              primary="Delete"
+              secondary="cancel"
             />
           )}
         </div>

@@ -100,7 +100,7 @@ function AdminDetailService() {
               onClick={() => navigate("/admin-service")}
             />
             <div className="Header-name">
-              <p className="service-text text-xs">บริการ</p>
+              <p className="service-text text-xs">serve</p>
               <h1
                 name={service.serviceDetail}
                 className="text-black   font-semibold text-xl"

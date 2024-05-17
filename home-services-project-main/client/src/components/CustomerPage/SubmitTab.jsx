@@ -1,10 +1,9 @@
-// แทบล่างสุดที่มี ปุ่มย้อนกลับ และถัดไป เป็น components ที่ใช้หลายหน้า
-import image from "../../assets/CustomerPhoto/imageIndex.js";
+// The bottom bar has a return button and next is a components that use many pages.import image from "../../assets/CustomerPhoto/imageIndex.js";
 function SubmitTab(props) {
   return (
     <footer className="w-full flex justify-between items-center bg-white h-[92px] px-[10vw] border-t border-grey300 fixed bottom-0 ">
       <button className="btn-secondary " onClick={props.onClickBack}>
-        <img src={image.arrowBlue} className="inline " /> ย้อนกลับ{" "}
+        <img src={image.arrowBlue} className="inline " /> retrospective{" "}
       </button>
       <button className="btn-primary " onClick={props.onClickNext}>
         {" "}
