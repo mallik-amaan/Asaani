@@ -17,7 +17,7 @@ function Slogan () {
         <div className="text-[#000000] font-bold md:text-[25px] lg:text-[30px] xl:text-[42px] prompt-Bold xl:ml-40">
 "Convenient, good value, reliable,"        </div>
         <div className="text-[#646C80] md:text-[20px] xl:text-[24px] xl:ml-40 lg:mt-10 text-[12px]">
-          Repair electrical appliances, repair air conditioning, clean the house<br />โดยพนักงานแม่บ้าน และช่างมืออาชีพ
+          Repair electrical appliances, repair air conditioning, clean the house<br />By housekeeper And professional technicians
         </div>
         <div className="xl:ml-40 xl:mt-12 lg:mt-20 "> 
           <button className="btn-primary"

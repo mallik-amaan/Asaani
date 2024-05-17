@@ -39,7 +39,6 @@ function AuthProvider(props) {
       localStorage.setItem("phoneNumber", userDataFromToken.phoneNumber);
       localStorage.setItem("email", userDataFromToken.email);
       navigate("/");
-      // ใส่ condition login ตรวจสอบ role
       if (userDataFromToken.role === "admin") {
         navigate("/admin-category");
         message.success("Enter the system successfully");

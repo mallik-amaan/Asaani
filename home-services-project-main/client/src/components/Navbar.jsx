@@ -24,7 +24,7 @@ function Navbar () {
       <div className="flex lg:ml-40 items-center">
         <img src={HouseIcon} alt="" />
         <button className="text-2xl font-semibold text-[#336DF2] prompt ml-2" onClick={() => navigate('/')}>
-          HomeServices
+          Asaani
         </button>
         <div className="items-center text-base font-bold prompt lg:ml-10 px-3 pt-1.5">
           <button className="cursor-pointer"
