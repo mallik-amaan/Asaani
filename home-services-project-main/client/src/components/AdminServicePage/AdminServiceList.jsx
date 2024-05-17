@@ -20,7 +20,7 @@ function AdminServiceList() {
       const response = await axios.get("http://localhost:4000/service");
       setServices(response.data.data);
     } catch (error) {
-      setError("เกิดข้อผิดพลาดในการเรียกข้อมูลบริการ");
+      setError("There is an error in the service information.");
     }
   };
 
@@ -41,7 +41,7 @@ function AdminServiceList() {
       JSON.stringify(reorderedServices.map((item) => item.service_id))
     );
 
-    // อัปเดต state ด้วยลำดับใหม่
+    // Update state With a new order
     setServices({ ...services, data: reorderedServices });
   };
 
@@ -55,7 +55,7 @@ function AdminServiceList() {
   //     getServices();
   //     hideDeleteServiceAlert();
   //   } catch (error) {
-  //     setError("เกิดข้อผิดพลาดในการลบบริการ");
+  //     setError("There is an error in the deletion of service.");
   //   }
   // };
 
@@ -75,7 +75,7 @@ function AdminServiceList() {
       getServices();
       hide();
     } catch (error) {
-      console.error("เกิดข้อผิดพลาดในการลบหมวดหมู่:", error);
+      console.error("There is an error in deleting categories.:", error);
     }
   };
 
@@ -114,9 +114,9 @@ function AdminServiceList() {
 
   function getCategoryColor(categoryName) {
     switch (categoryName) {
-      case "บริการห้องครัว":
+      case "Kitchen service":
         return "bg-[#ECE6FF] text-[#4512B4]";
-      case "บริการห้องน้ำ":
+      case "Bathroom service":
         return "bg-[#DFF9F6] text-[#00596C]";
       default:
         return "bg-[#E7EEFF] text-[#0E3FB0]";
@@ -128,13 +128,13 @@ function AdminServiceList() {
       <header className="bg-bg h-[100%] pl-60">
         <div className="flex flex-col items-center">
           <div className="header-name justify-between flex items-center h-20 px-10 mt-0 pt-[20px] py-[10px] w-[100%] bg-white text-grey600 pb-[20px] border-b border-grey300">
-            <h1 className="text-black font-semibold text-xl">บริการ</h1>
+            <h1 className="text-black font-semibold text-xl">serve</h1>
             <div className="flex">
               <input
                 id="search-text"
                 name="search-text"
                 type="text"
-                placeholder="ค้นหาบริการ..."
+                placeholder="Search for service..."
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
                 className="px-4 py-2 border-grey300 border bg-white rounded-lg focus:outline-none focus:ring focus:border-blue-300 w-[400px]"
@@ -143,7 +143,7 @@ function AdminServiceList() {
                 className="flex btn-primary rounded-lg ml-7 h-[100%] w-[190px] text-white focus:outline-none"
                 onClick={() => navigate("/admin-service-create")}
               >
-                <p className="pl-[15%]">เพิ่มบริการ</p>
+                <p className="pl-[15%]">Add service</p>
                 <p className="pt-2 pl-[15%]">
                   <img
                     src={image.plusSign}
@@ -164,11 +164,11 @@ function AdminServiceList() {
           <div className="category-list w-[100%]">
             <ul>
               <li className="flex w-[100%] text-sm text-grey600 list-none p-[20px] rounded-t-lg bg-grey200 border-[1px] border-grey300 gap-[20px]">
-                <span className="text-grey700 pl-[7%]">ลำดับ</span>
-                <span className="text-grey700 pl-[4%]">ชื่อหมวดบริการ</span>
-                <span className="text-grey700 pl-[11%]">หมวดหมู่</span>
-                <span className="text-grey700 pl-[12%]">สร้างเมื่อ</span>
-                <span className="text-grey700 pl-[17%]">แก้ไขล่าสุด</span>
+                <span className="text-grey700 pl-[7%]">number</span>
+                <span className="text-grey700 pl-[4%]">Service category</span>
+                <span className="text-grey700 pl-[11%]">Category</span>
+                <span className="text-grey700 pl-[12%]">Created when</span>
+                <span className="text-grey700 pl-[17%]">Last edited</span>
                 <span className="text-grey700 pl-[16%]">Action</span>
               </li>
 
@@ -275,14 +275,14 @@ function AdminServiceList() {
           <AlertBoxDelete
             deleteFunction={handleDelete}
             hideFunction={hideDeleteConfirmation}
-            textAlert="ยืนยันการลบรายการ"
-            alertQuestion={`คุณต้องการลบรายการ '${
+            textAlert="Confirm the deletion of items"
+            alertQuestion={`You want to delete the list. '${
               serviceData.find(
                 (serviceItem) => serviceItem.service_id === service_Id
               )?.service_name
-            }' ใช่หรือไม่ ?`}
-            primary="ลบรายการ"
-            secondary="ยกเลิก"
+            }' Is it right? ?`}
+            primary="Delete"
+            secondary="cancel"
           />
         )}
       </div>

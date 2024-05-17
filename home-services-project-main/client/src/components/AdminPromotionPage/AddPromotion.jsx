@@ -97,7 +97,7 @@ function AddPromotionForm() {
       );
 
       if (response.status === 200) {
-        message.success("สร้างโปรโมชั่นโค้ดใหม่สำเร็จ");
+        message.success("Create a new code promotion.");
       }
       navigate("/admin-promotion");
     } catch (error) {

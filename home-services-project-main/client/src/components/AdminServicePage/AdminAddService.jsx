@@ -102,18 +102,18 @@ function AddService() {
       );
 
       if (response.status === 200) {
-        message.success("สร้างบริการใหม่สำเร็จ");
+        message.success("Create a new service successfully.");
       } else {
         message.error("Cannot create service");
       }
       navigate("/admin-service");
     } catch (error) {
       console.error(error);
-      message.error("กรุณากรอกบริการให้ครบถ้วน");
+      message.error("Please come and fill in the service.");
     }
   };
 
-  // เพิ่ม ถ้าสร้างเสร็จให้ navigate ไปหน้า admin dashboard
+  // increase If completed navigate Go to the face admin dashboard
 
   useEffect(() => {
     axios
@@ -179,12 +179,12 @@ function AddService() {
             {/* flex flex-col items-start  */}
 
             <Form.Item
-              label={<span style={labelStyle}>ชื่อบริการ</span>}
+              label={<span style={labelStyle}>Service name</span>}
               colon={false}
               rules={[
                 {
                   required: true,
-                  message: "โปรดกรอกชื่อบริการ",
+                  message: "Please fill in the service.",
                 },
               ]}
               name="service_name"
@@ -198,7 +198,7 @@ function AddService() {
               rules={[
                 {
                   required: true,
-                  message: "โปรดเลือกหมวดหมู่",
+                  message: "Please select the category",
                 },
               ]}
               required
@@ -210,7 +210,7 @@ function AddService() {
                 rules={[
                   {
                     required: true,
-                    message: "โปรดเลือกหมวดหมู่",
+                    message: "Please select the category",
                   },
                 ]}
               >
@@ -234,7 +234,7 @@ function AddService() {
               rules={[
                 {
                   required: true,
-                  message: "โปรดเลือกรูปภาพ",
+                  message: "Please select pictures",
                 },
               ]}
               required
@@ -248,11 +248,11 @@ function AddService() {
                   const isLt5M = file.size / 1024 / 1024 < 5;
               
                   if (!isImage) {
-                    message.error("โปรดอัพโหลดไฟล์รูปภาพเท่านั้น");
+                    message.error("Please upload image files only.");
                   }
               
                   if (!isLt5M) {
-                    message.error("ขนาดไฟล์รูปภาพต้องไม่เกิน 5MB");
+                    message.error("The image file size must not exceed. 5MB");
                   }
               
                   if (isImage && isLt5M) {
@@ -267,7 +267,7 @@ function AddService() {
                 rules={[
                   {
                     required: true,
-                    message: "เลือกรูปภาพ",
+                    message: "Select pictures",
                   },
                 ]}
               >
@@ -299,7 +299,7 @@ function AddService() {
                 </div>
                 <div className=" text-blue500 text-base not-italic font-semibold underline">
                   {" "}
-                  <a onClick={handleDeleteImage}>ลบรูปภาพ</a>
+                  <a onClick={handleDeleteImage}>Delete images</a>
                 </div>
               </div>
             </Form.Item>
@@ -308,7 +308,7 @@ function AddService() {
             <hr className="mb-10 text-grey300 "></hr>
 
             <div className="mb-10 text-grey700 text-base font-medium ">
-              รายการบริการย่อย
+              Sub -service list
             </div>
             {/* <Row gutter={12}>
               <Col span={24}> */}
@@ -343,14 +343,14 @@ function AddService() {
                           >
                             <Form.Item
                               colon={false}
-                              label="ชื่อรายการ" 
+                              label="Program name" 
                               name={[field.name, "name"]}
                               labelAlign="top"
                               labelCol={{ span: 24 }}
                               rules={[
                                 {
                                   required: true, // Only the first one is required
-                                  message: "โปรดกรอกชื่อรายการ",
+                                  message: "Please fill in the list.",
                                 },
                               ]}    
                                             
@@ -368,7 +368,7 @@ function AddService() {
                               labelCol={{ span: 24 }}
                               rules={[
                                 {
-                                  message: "โปรดกรอกค่าบริการ",
+                                  message: "Please fill out the service fee.",
                                 },
                                 {
                                   validator(_, value) {
@@ -376,7 +376,7 @@ function AddService() {
                                       return Promise.resolve();
                                     }
                                     return Promise.reject(
-                                      "ค่าบริการต้องไม่เกิน 20000"
+                                      "The service fee must not exceed. 20000"
                                     );
                                   },
                                 },
@@ -395,13 +395,13 @@ function AddService() {
                           >
                             <Form.Item
                               colon={false}
-                              label="หน่วยการบริการ"
+                              label="Service unit"
                               name={[field.name, "unit"]}
                               labelAlign="top"
                               labelCol={{ span: 24 }}
                               rules={[
                                 {
-                                  message: "โปรดกรอกหน่วยการบริการ",
+                                  message: "Please fill out the service unit.",
                                 },
                               ]}
                             >
@@ -436,7 +436,7 @@ function AddService() {
                                       marginRight: "8px",
                                     }}
                                   >
-                                    ลบรายการ
+                                    Delete
                                   </a>
                                 </div>
                               </Form.Item>
@@ -450,7 +450,7 @@ function AddService() {
                         type="button"
                         onClick={() => add()}
                       >
-                        + เพิ่มรายการ
+                        + Add items
                       </button>
                     </div>
                   )}

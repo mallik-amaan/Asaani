@@ -115,23 +115,23 @@ function AdminDetailService() {
               navigate(`/admin-service-edit/${service.service_id}`)
             }
           >
-            แก้ไข
+            correct
           </button>
         </div>
         <div className="flex flex-col items-center">
           <div className="detail-container w-[95%] rounded-lg border border-grey300 bg-white font-normal flex-col items-center  px-10 mt-10 pt-[20px] py-[10px] ">
             <p className="pb-[40px] pt-[20px] ">
-              <span className="text-grey700">ชื่อบริการ</span>
+              <span className="text-grey700">Service name</span>
               <span className="px-[182px] text-black ">
                 {service.service_name}
               </span>
             </p>
             <p className="pb-[40px] pt-[20px] ">
-              <span className="text-grey700">หมวดหมู่</span>
+              <span className="text-grey700">Category</span>
               <span className="px-[182px] text-black">{categoryName}</span>
             </p>
             <p className="pb-[40px] pt-[20px] ">
-              <span className="text-grey700">รูปภาพ</span>
+              <span className="text-grey700">picture</span>
               <span className="px-[182px] text-black ">
                 <img
                   className="px-[182px] text-black"
@@ -141,7 +141,7 @@ function AdminDetailService() {
             </p>
             <hr className="py-[20px]" />
             <div className="mb-10 text-grey700 text-base font-medium ">
-              รายการบริการย่อย
+              Sub -service list
             </div>
 
             <div>
@@ -152,17 +152,17 @@ function AdminDetailService() {
                     key={index}
                   >
                     <div className="subServiceName self-stretch text-grey700 text-base">
-                      ชื่อรายการ:
+                      Program name:
                       <div className="text-black">
                         {subService.sub_service_name}
                       </div>
                     </div>
                     <div className="subServiceName self-stretch text-grey700 text-base">
-                      หน่วยการบริการ:
+                      Service unit:
                       <div className="text-black">{subService.unit}</div>
                     </div>
                     <div className="subServiceName self-stretch text-grey700 text-base">
-                      ค่าบริการ / 1 หน่วย:
+                      Service fee / 1 unit:
                       <div className="text-black">
                         {subService.price_per_unit}
                       </div>
@@ -172,13 +172,13 @@ function AdminDetailService() {
             </div>
 
             <p className="mt-10 pb-[25px] ">
-              <span className="text-grey700">สร้างเมื่อ</span>
+              <span className="text-grey700">Created when</span>
               <span className="px-[200px] text-black ">
                 {dateFormat(service.service_created_date)}
               </span>
             </p>
             <p className="pb-[40px] ">
-              <span className="text-grey700">แก้ไขล่าสุด</span>
+              <span className="text-grey700">Last edited</span>
               <span className="px-[190px] text-black ">
                 {dateFormat(service.service_edited_date)}
               </span>

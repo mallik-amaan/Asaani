@@ -38,7 +38,7 @@ function ServiceEditForm() {
   const [category, setCategory] = useState([]); //use to map data on category
   const [selectedCategory, setSelectedCategory] = useState(""); //this state store the select category
   const [currentCategory, setCurrentCategory] = useState([]); // the category from serviceID(the data before editng)
-  console.log("เปลี่ยนแคท", currentCategory, typeof currentCategory);
+  console.log("Change the cat", currentCategory, typeof currentCategory);
   console.log(selectedCategory);
 
   //state for category to map
@@ -57,9 +57,9 @@ function ServiceEditForm() {
   const currentSubService = service.sub_service; // subservice เดิม
 
   //state for image
-  const [selectedImage, setSelectedImage] = useState(null); //โชว์รูปภาพที่เลือก
-  const [fileList, setFileList] = useState([]); //ส่งไปหลังบ้าน
-  const [currentImage, setCurrentImage] = useState(""); //รูปที่ fetchมา
+  const [selectedImage, setSelectedImage] = useState(null); //Show the selected picture
+  const [fileList, setFileList] = useState([]); //Send to the back of the house
+  const [currentImage, setCurrentImage] = useState(""); //Image Fetch
   // const [isModalVisible, setIsModalVisible] = useState(false);
   console.log("b", fileList);
 
@@ -107,10 +107,10 @@ function ServiceEditForm() {
   const handleDelete = async () => {
     try {
       await axios.delete(`http://localhost:4000/service/${serviceId}`);
-      message.success("ลบserviceสำเร็จ");
+      message.success("Delete the service successfully");
       navigate("/admin-service");
     } catch (error) {
-      console.error("เกิดข้อผิดพลาดในการลบโปรโมชั่น:", error);
+      console.error("There is an error in removing promotions.:", error);
     }
   };
 
@@ -174,7 +174,7 @@ function ServiceEditForm() {
       );
 
       if (response.status === 200) {
-        message.success("แก้ไข service สำเร็จ!");
+        message.success("correct service succeed!");
       } else {
         message.error("Cannot update service");
       }
@@ -242,7 +242,7 @@ function ServiceEditForm() {
                     onClick={() => navigate("/admin-service")}
                   />
                   <div className="Header-name">
-                    <p className="service-text text-xs">บริการ</p>
+                    <p className="service-text text-xs">serve</p>
                     <h1
                       name={service.serviceDetail}
                       className="text-black   font-semibold text-xl"
@@ -256,13 +256,13 @@ function ServiceEditForm() {
                     className="btn-secondary flex items-center justify-center text-base font-medium w-28 h-11"
                     onClick={() => navigate("/admin-service")}
                   >
-                    ยกเลิก
+                    cancel
                   </button>
                   <button
                     className="btn-primary flex items-center justify-center ml-6 text-base font-medium w-28 h-11"
                     type="submit"
                   >
-                    ยืนยัน
+                    confirm
                   </button>
                 </div>
               </div>
@@ -270,7 +270,7 @@ function ServiceEditForm() {
               <div className="bg-white mx-10 mt-10 p-6 border border-grey200 rounded-lg">
                 <Form.Item
                   colon={false}
-                  label={<span style={labelStyle}>ชื่อบริการ</span>}
+                  label={<span style={labelStyle}>Service name</span>}
                   required
                 >
                   <Input
@@ -283,7 +283,7 @@ function ServiceEditForm() {
                 </Form.Item>
 
                 <Form.Item
-                  label={<span style={labelStyle}>หมวดหมู่</span>}
+                  label={<span style={labelStyle}>Category</span>}
                   colon={false}
                   required
                 >
@@ -306,7 +306,7 @@ function ServiceEditForm() {
                 </Form.Item>
 
                 <Form.Item
-                  label={<span style={labelStyle}>รูปภาพ</span>}
+                  label={<span style={labelStyle}>picture</span>}
                   colon={false}
                   required
                   className="mb-10"
@@ -351,12 +351,11 @@ function ServiceEditForm() {
                               <InboxOutlined style={{ fontSize: "36px" }} />
                               <p className="ant-upload-text">
                                 <span className="text-blue600 text-base not-italic font-semibold underline">
-                                  อัพโหลดรูปภาพ
+                                  Upload pictures
                                 </span>{" "}
-                                หรือ ลากและวางที่นี่
-                              </p>
+Or drag and place here                              </p>
                               <p className="ant-upload-hint">
-                                PNG, JPG ขนาดไม่เกิน 5MB
+                                PNG, JPG Not over 5MB
                               </p>
                             </>
                           )}
@@ -368,11 +367,11 @@ function ServiceEditForm() {
                       style={{ width: "50%" }}
                     >
                       <div className="text-grey700 text-xs z-0 mt-1">
-                        ขนาดภาพที่แนะนำ: 1440 x 225 PX
+                        Recommended image size: 1440 x 225 PX
                       </div>
                       <div className=" text-blue500 text-base not-italic font-semibold underline">
                         {" "}
-                        <a onClick={handleDeleteImage}>ลบรูปภาพ</a>
+                        <a onClick={handleDeleteImage}>Delete images</a>
                       </div>
                     </div>
                   </div>
@@ -382,7 +381,7 @@ function ServiceEditForm() {
 
                 {/* {service.sub_service.length > 0 && ( */}
                 <div className="mb-10 text-grey700 text-base font-medium ">
-                  รายการบริการย่อย
+                  Sub -service list
                 </div>
                 <Form.List
                   name="service.sub_service"
@@ -405,19 +404,19 @@ function ServiceEditForm() {
                               <Form.Item
                                 {...restField}
                                 name={[name, "sub_service_name"]}
-                                label="ชื่อรายการ"
+                                label="Program name"
                                 labelAlign="top"
                                 labelCol={{ span: 24 }}
                                 rules={[
                                   {
                                     required: true,
-                                    message: "กรุณากรอกชื่อรายการ",
+                                    message: "Please fill in the list.",
                                   },
                                 ]}
                               >
                                 <Input
                                   className="rounded-lg h-11 border border-grey300 mr-4 py-2.5 px-4 focus:border-blue600 focus:outline-none"
-                                  placeholder="ชื่อรายการ"
+                                  placeholder="Program name"
                                 />
                               </Form.Item>
                             </div>
@@ -425,7 +424,7 @@ function ServiceEditForm() {
                               <Form.Item
                                 {...restField}
                                 name={[name, "price_per_unit"]}
-                                label="ค่าบริการ / 1 หน่วย"
+                                label="Service fee / 1 หน่วย"
                                 labelAlign="top"
                                 labelCol={{ span: 24 }}
                                 rules={[
@@ -435,7 +434,7 @@ function ServiceEditForm() {
                                         return Promise.resolve();
                                       }
                                       return Promise.reject(
-                                        "ค่าบริการต้องไม่เกิน 20000"
+                                        "The service fee must not exceed. 20000"
                                       );
                                     },
                                   },
@@ -447,7 +446,7 @@ function ServiceEditForm() {
                                   max="20000"
                                   step="any"
                                   className="rounded-lg h-11 border border-grey300 mr-4 py-2.5 px-4 focus:border-blue600 focus:outline-none"
-                                  placeholder="ค่าบริการ / 1 หน่วย"
+                                  placeholder="Service fee / 1 หน่วย"
                                 />
                               </Form.Item>
                             </div>
@@ -455,18 +454,18 @@ function ServiceEditForm() {
                               <Form.Item
                                 {...restField}
                                 name={[name, "unit"]}
-                                label="หน่วยการบริการ"
+                                label="Service unit"
                                 labelAlign="top"
                                 labelCol={{ span: 24 }}
                                 rules={[
                                   {
-                                    message: "กรุณากรอกหน่วยการบริการ",
+                                    message: "Please fill out the service unit.",
                                   },
                                 ]}
                               >
                                 <Input
                                   className="rounded-lg h-11 border border-grey300 py-2.5 px-4 focus:border-blue600 focus:outline-none mr-4"
-                                  placeholder="หน่วยการบริการ"
+                                  placeholder="Service unit"
                                   name="unit"
                                 />
                               </Form.Item>
@@ -488,13 +487,13 @@ function ServiceEditForm() {
                                       notification.error({
                                         message: "Error",
                                         description:
-                                          "ต้องมีรายการย่อยอย่างน้อย  1 รายการ",
+                                          "Must have at least a sub -lislistายการ",
                                         duration: 5, // Set duration (in seconds)
                                       });
                                     }
                                   }}
                                 >
-                                  ลบรายการ
+                                  Delete
                                 </a>
                               </Form.Item>
                             </div>
@@ -508,7 +507,7 @@ function ServiceEditForm() {
                           // Add a new empty object to newSubService
                         }}
                       >
-                        + เพิ่มรายการ
+                        + Add
                       </button>
                     </>
                   )}
@@ -516,13 +515,13 @@ function ServiceEditForm() {
 
                 <hr className="mt-10 mb-10 text-grey300 "></hr>
                 <p className="pb-[25px] ">
-                  <span className="text-grey700">สร้างเมื่อ</span>
+                  <span className="text-grey700">Created when</span>
                   <span className="px-[200px] text-black ">
                     {dateFormat(service.service_created_date)}
                   </span>
                 </p>
                 <p className="pb-[40px] ">
-                  <span className="text-grey700">แก้ไขล่าสุด</span>
+                  <span className="text-grey700">Last edited</span>
                   <span className="px-[190px] text-black ">
                     {dateFormat(service.service_edited_date)}
                   </span>
@@ -540,16 +539,16 @@ function ServiceEditForm() {
             src={trash}
             alt="Delete"
           />{" "}
-          ลบบริการ
+          Delete service
         </div>
         {deleteConfirmation && (
           <AlertBoxDelete
             deleteFunction={handleDelete}
             hideFunction={hideDeleteConfirmation}
-            textAlert="ยืนยันการลบรายการ"
-            alertQuestion={`คุณต้องการลบรายการ ${service.service_name} ใช่หรือไม่ ?`}
-            primary="ลบรายการ"
-            secondary="ยกเลิก"
+            textAlert="Confirm the deletion of items"
+            alertQuestion={`You want to delete the list. ${service.service_name} Is it right? ?`}
+            primary="Delete"
+            secondary="cancel"
           />
         )}
       </div>

@@ -27,13 +27,13 @@ const AdminServiceHeader = () => {
     return (
       <header className="sticky top-0 bg-white">
       <div className="pl-60 flex items-center h-20 pr-10 justify-between border-b border-grey300 ">
-        <h1 className="text-xl font-medium text-black pl-10">บริการ</h1>
+        <h1 className="text-xl font-medium text-black pl-10">serve</h1>
         <div className="flex">
           <input
             id="search-text"
             name="search-text"
             type="text"
-            placeholder="ค้นหาบริการ..."
+            placeholder="Search for service..."
             value={searchService}
             onChange={(event) => {
               setSearchService(event.target.value);
@@ -44,7 +44,7 @@ const AdminServiceHeader = () => {
             className="btn-primary flex items-center ml-6"
             onClick={() => navigate("/admin-service-create")}
           >
-            <div className="text-base font-medium mr-3">เพิ่มบริการ</div>
+            <div className="text-base font-medium mr-3">Add service</div>
             <img src={image.plusSign} alt="Plus Symbol" />
           </button>
         </div>
