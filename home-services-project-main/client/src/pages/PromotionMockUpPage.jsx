@@ -40,8 +40,8 @@ const PromotionMockUpPage = () => {
 
   const handleApplyPromotion = async () => {
     if (!promotionCode) {
-        message.error("กรุณากรอก promotion code ก่อน");
-        return;
+      message.error("Please enter the promotion code first");
+      return;
     }
 
     console.log("handleApplyPromotion called with promotionCode:", promotionCode);
@@ -49,7 +49,7 @@ const PromotionMockUpPage = () => {
         await getPromotion(promotionCode);
 
         if (promotionCode !== promotion_code) {
-          message.error("โปรโมชันโค้ดไม่ถูกต้อง");
+          message.error("The promotion code is incorrect");
           return;
         }
 
@@ -66,7 +66,7 @@ const PromotionMockUpPage = () => {
         const expirationDateObject = new Date(promotion_expiry_date);
 
         if (currentDate > expirationDateObject) {
-            message.error("โค้ดหมดอายุแล้ว");
+            message.error("The code has expired");
             return;
           }
 
@@ -78,7 +78,7 @@ const PromotionMockUpPage = () => {
           setExpirationTime(promotion_expiry_time); // Update expiration date
           setPromotionQuota(promotion_quota);
           setIsApplied(true); 
-          message.success("โค้ดถูกใช้งานแล้ว");
+          message.success("The code has already been used");
 
           decreaseQuota(promotion);
 
@@ -89,7 +89,7 @@ const PromotionMockUpPage = () => {
           setTotalPrice(discountedPrice);
 
         } else {
-            message.error("โค้ดหมดแล้ว");
+            message.error("The code has expired");
         }
 
     } catch (error) {
@@ -126,7 +126,7 @@ const PromotionMockUpPage = () => {
     }
   }, [promotionCode, promotion_code])
 
-  console.log("ราคาหลังลดไป:", totalPrice)
+  console.log("Price after discount:", totalPrice)
 
   return (
     <div className="promotion-container">
@@ -148,7 +148,7 @@ const PromotionMockUpPage = () => {
         </div>
         <div className="promotion-usage">
             <p>Usage</p>
-            <p>{`${codeUsage}/${promotion_quota}`}</p> {/* แสดงจำนวนการใช้โปรโมชัน / โควต้า */}
+            <p>{`${codeUsage}/${promotion_quota}`}</p> {/* Show the number of promotion/quota usage*/}
         </div>
         <div className="promotion-expiration">
             <p>Expiration Date</p>
