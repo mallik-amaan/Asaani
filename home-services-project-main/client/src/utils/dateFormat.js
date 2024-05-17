@@ -8,7 +8,7 @@ const dateFormat = (date) => {
     const minutes = dataFormatObject.getMinutes();
     const ampm = hours >= 12 ? "PM" : "AM";
     hours = hours % 12;
-    hours = hours ? hours : 12; // หากเป็น 0 ให้กำหนดให้เป็น 12
+    hours = hours ? hours : 12; // If it is 0, set it to 12
 
     return `${day < 10 ? "0" : ""}${day}/${
       month < 10 ? "0" : ""
