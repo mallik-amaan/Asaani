@@ -26,7 +26,7 @@ function CategoryAddForm() {
       setIsLoading(false);
       if (response.status === 201) {
         setCategoryName("");
-        message.success("สร้าง category สำเร็จ!");
+        message.success("build category succeed!");
         navigate("/admin-category");
       }
     } catch (error) {

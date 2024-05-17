@@ -22,7 +22,7 @@ function AdminCategory() {
       const result = await axios("http://localhost:4000/category");
       setData(result.data.data);
     } catch (error) {
-      setError("เกิดข้อผิดพลาดในการเรียกข้อมูลหมวดหมู่");
+      setError("There is an error in calling for categories.");
     }
   };
   // const getCategory = async () => {
@@ -58,7 +58,7 @@ function AdminCategory() {
       getCategory();
       hide();
     } catch (error) {
-      setError("เกิดข้อผิดพลาดในการลบหมวดหมู่");
+      setError("There is an error in deleting categories.");
     }
   };
 
@@ -85,12 +85,12 @@ function AdminCategory() {
         );
 
         if (response.data.error) {
-          setError("เกิดข้อผิดพลาดในการค้นหา");
+          setError("There was an error in search.");
         } else {
           setData(response.data.data);
         }
       } catch (error) {
-        setError("เกิดข้อผิดพลาดในการเชื่อมต่อกับเซิร์ฟเวอร์");
+        setError("An error in connection with the server");
       }
     };
 
@@ -108,7 +108,7 @@ function AdminCategory() {
             <div className="flex">
               <input
                 type="text"
-                placeholder="ค้นหาหมวดหมู่..."
+                placeholder="Search category..."
                 value={keyword}
                 onChange={(e) => setKeyword(e.target.value)}
                 className="px-4 py-2 border-grey300 border bg-white rounded-lg focus:outline-none focus:ring focus:border-blue-300 w-[400px] "
@@ -247,13 +247,13 @@ function AdminCategory() {
               <AlertBoxDelete
                 deleteFunction={handleDelete}
                 hideFunction={hide}
-                textAlert="ยืนยันการลบรายการ"
-                alertQuestion={`คุณต้องการลบรายการ '${
+                textAlert="Confirm the deletion of items"
+                alertQuestion={`You want to delete the list. '${
                   data.data.find((item) => item.category_id === category_Id)
                     ?.category_name
-                }' ใช่หรือไม่ ?`}
-                primary="ลบรายการ"
-                secondary="ยกเลิก"
+                }' Is it right? ?`}
+                primary="Delete"
+                secondary="cancel"
               />
             )}
           </div>

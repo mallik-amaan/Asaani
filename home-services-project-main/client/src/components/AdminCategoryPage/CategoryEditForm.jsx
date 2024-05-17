@@ -27,7 +27,7 @@ function EditedCategoryForm() {
       setCategoryData(response.data.data);
       setEditedCategoryName(response.data.data[0].category_name);
     } catch (error) {
-      console.error("เกิดข้อผิดพลาดในการเรียกข้อมูลหมวดหมู่:", error);
+      console.error("There is an error in calling for categories.:", error);
     }
   };
 
@@ -42,21 +42,21 @@ function EditedCategoryForm() {
         }
       );
       if (response.status === 200) {
-        message.success("แก้ไขหมวดหมู่สำเร็จ");
+        message.success("Successfully edit the category");
         navigate("/admin-category");
       }
     } catch (error) {
-      console.error("เกิดข้อผิดพลาดในการแก้ไขหมวดหมู่:", error);
+      console.error("There was an error in the category to edit.:", error);
     }
   };
 
   const handleDelete = async () => {
     try {
       await axios.delete(`http://localhost:4000/category/${categoryId}`);
-      message.success("ลบหมวดหมู่สำเร็จ");
+      message.success("Delete success category");
       navigate("/admin-category");
     } catch (error) {
-      console.error("เกิดข้อผิดพลาดในการลบหมวดหมู่:", error);
+      console.error("There is an error in deleting categories.:", error);
     }
   };
 
@@ -160,10 +160,10 @@ function EditedCategoryForm() {
         <AlertBoxDelete
           deleteFunction={handleDelete}
           hideFunction={hideDeleteConfirmation}
-          textAlert="ยืนยันการลบรายการ"
-          alertQuestion={`คุณต้องการลบรายการ '${categoryData[0]?.category_name}' ใช่หรือไม่ ?`}
-          primary="ลบรายการ"
-          secondary="ยกเลิก"
+          textAlert="Confirm the deletion of items"
+          alertQuestion={`You want to delete the list. '${categoryData[0]?.category_name}' Is it right? ?`}
+          primary="Delete"
+          secondary="cancel"
         />
       )}
     </div>
