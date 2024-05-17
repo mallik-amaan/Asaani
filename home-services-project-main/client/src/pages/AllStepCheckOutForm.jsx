@@ -83,15 +83,15 @@ function AllStepCheckOutForm() {
 
   const steps = [
     {
-      title: "รายการ",
+      title: "List",
       content: "First-content",
     },
     {
-      title: "กรอกข้อมูลบริการ",
+      title: "Fill in service information",
       content: "Second-content",
     },
     {
-      title: "ชำระเงิน",
+      title: "Payment",
       content: "Third-content",
     },
   ];
@@ -148,7 +148,7 @@ function AllStepCheckOutForm() {
 
   const handleApplyPromotion = async () => {
     if (!promotionCode) {
-      message.error("กรุณากรอก promotion code ก่อน");
+      message.error("Please enter the promotion code first");
       return;
     }
 
@@ -156,13 +156,13 @@ function AllStepCheckOutForm() {
       await getPromotion(promotionCode);
 
       if (promotionCode !== promotion_code) {
-        // message.error("โปรโมชันโค้ดไม่ถูกต้อง");
+        message.error("The promotion code is invalid");
         return;
       }
 
       // Check if the promotion has already been applied
       if (isApplied) {
-        message.warning("ท่านใช้ส่วนลดไปแล้ว");
+        message.warning("You have already used the discount");
         return;
       }
 
@@ -171,8 +171,8 @@ function AllStepCheckOutForm() {
       const expirationDateObject = new Date(promotion_expiry_date);
 
       if (currentDate > expirationDateObject) {
-          message.error("โค้ดหมดอายุแล้ว");
-          return;
+        message.error("The code has expired");
+        return;
       }
 
       // Check code usage quota
@@ -181,8 +181,7 @@ function AllStepCheckOutForm() {
         setExpirationDate(promotion_expiry_date); // Update expiration date
         setPromotionQuota(promotion_quota);
         setIsApplied(true); 
-        message.success("โค้ดถูกใช้งานแล้ว");
-
+        message.success("The code has been used successfully");
         decreaseQuota(promotion);
 
         // Calculate discounted price here
@@ -192,7 +191,7 @@ function AllStepCheckOutForm() {
         setTotalPrice(discountedPrice);
 
       } else {
-          message.error("โค้ดหมดแล้ว");
+        message.error("The code is no longer available");
       }
 
       
@@ -249,9 +248,9 @@ function AllStepCheckOutForm() {
   }, [promotionCode, promotion_code])
 
   useEffect(() => {
-    // ฟังก์ชันสำหรับคำนวณราคาและอัปเดต state
+    // Function to calculate the price and update the state
     const calculateTotalPrice = () => {
-      // คำนวณราคาใหม่จากรายการและอัปเดต state
+    // Calculate the new price from the items and update the state
       const newTotalPrice = selectedSubService.reduce(
         (total, item) => total + item.price_per_unit * item.count,
         0
@@ -259,9 +258,9 @@ function AllStepCheckOutForm() {
       setTotalPrice(newTotalPrice);
     };
 
-    // เรียกใช้ฟังก์ชันคำนวณราคาเมื่อรายการเปลี่ยนแปลง
-    calculateTotalPrice();
-  }, [selectedSubService]); // เป็นตัวแปรที่เมื่อมีการเปลี่ยนแปลงจะเรียกใช้ useEffect
+  // Call the calculateTotalPrice function when the items change
+  calculateTotalPrice();
+  }, [selectedSubService]); // This variable triggers useEffect when it changes
 
   const handleFormChange = (changedValues) => {
     const quantity = selectedSubService[0].count;
@@ -323,7 +322,7 @@ function AllStepCheckOutForm() {
       );
 
       if (response.status === 200) {
-        message.success("ซื้อบริการสำเร็จ");
+        message.success("Service purchased successfully");
       }
       next();
     } catch (error) {
@@ -394,7 +393,7 @@ function AllStepCheckOutForm() {
               className="min-w-full mt-40 mix-blend-screen"
             />
             <div className="rounded-lg px-10 py-[10px] w-auto h-[68px] text-center text-[#646C80]  bg-opacity-12 shadow-[2px_2px_24px_rgba(23,51,106,0.12)] absolute bg-white left-[12rem]">
-              บริการของเรา
+              Our services
               <img src={greyarrow} className="inline mx-3" />
               <span className="text-[32px] text-[#336DF2] ">
                 {service.service_name}
@@ -414,7 +413,7 @@ function AllStepCheckOutForm() {
         {current === 0 ? (
           <div className="h-full w-[900px] lg:mr-[2vw] py-8 px-6 mb-[125px] flex flex-col justify-between border border-grey300 rounded-lg  bg-white mt-20 ">
             <div className="text-[20px] text-[#646C80]">
-              เลือกรายการบริการ{service.service_name}
+              Choose a service{service.service_name}
             </div>
             <div className="mt-4">
               {service.sub_service && service.sub_service.length > 0 && (
@@ -435,7 +434,7 @@ function AllStepCheckOutForm() {
                           </li>
                           <img src={sellblack} className="inline mr-2" />
                           <li className="text-[14px] text-[#646C80] inline">
-                            {subService.price_per_unit}.00฿ / {subService.unit}
+                            {subService.price_per_unit}.00Rs / {subService.unit}
                           </li>
                         </div>
                         <div className="flex flex-row items-center p-">
@@ -498,18 +497,18 @@ function AllStepCheckOutForm() {
                   }}
                 >
                   <h1 className="text-gray300 text-center text-[20px] font-medium mb-[30px]">
-                    กรอกข้อมูลบริการ
+                    Enter service information
                   </h1>
 
                   <Form.Item
                     className="font-medium text-grey900"
                     name="date"
-                    label="วันที่สะดวกใช้บริการ"
+                    label="Preferred service date"
                     style={{ display: "flex", flexDirection: "column" }}
                   >
                     <DatePicker
                       format="DD/MM/YYYY"
-                      placeholder="กรุณาเลือกวันที่"
+                      placeholder="Please select a date"
                       className="w-[22.5vw] h-[44px] px-4 py-2.5"
                       value={formData.date}
                       onChange={(date) =>
@@ -519,13 +518,13 @@ function AllStepCheckOutForm() {
                   </Form.Item>
 
                   <Form.Item
-                    label="เวลาที่สะดวกใช้บริการ"
+                    label="Preferred service time"
                     className="font-medium text-grey900"
                     name="time"
                   >
                     <TimePicker
                       format="HH:mm"
-                      placeholder="กรุณาเลือกเวลา"
+                      placeholder="Please select a time"
                       className="w-[22.5vw] h-[44px] px-4 py-2.5"
                       value={formData.time}
                       onChange={(time) =>
@@ -552,86 +551,69 @@ function AllStepCheckOutForm() {
 
                   <div className="w-full flex-col justify-between mt-4">
                     <Form.Item
-                      label="แขวง / ตำบล"
-                      className="font-medium  text-grey900"
-                      name="subdistrict"
+                        label="Subdistrict / Tambon"
+                        className="font-medium text-grey900"
+                        name="subdistrict"
                     >
-                      <Input
-                        placeholder="กรุณากรอกแขวง / ตำบล"
-                        allowClear
-                        style={{ height: "44px" }}
-                        value={formData.sub_district}
-                        onChange={(e) =>
-                          handleFormChange({ sub_district: e.target.value })
-                        }
-                      />
-                    </Form.Item>
-                    <Form.Item
-                      label="เขต / อำเภอ"
-                      className="font-medium text-grey900"
-                      name="district"
-                    >
-                      <Input
-                        placeholder="กรุณากรอกเขต / อำเภอ"
-                        allowClear
-                        style={{ height: "44px" }}
-                        value={formData.district}
-                        onChange={(e) =>
-                          handleFormChange({ district: e.target.value })
-                        }
-                      />
-                    </Form.Item>
-                  </div>
-
-                  <div className="w-full flex justify-between ml-[95px]">
-                    <Form.Item
-                      label="จังหวัด"
-                      className="font-medium  text-grey900"
-                      name="province"
-                    >
-                      <Input
-                        placeholder="กรุณากรอกจังหวัด"
-                        allowClear
-                        style={{ height: "44px" }}
-                        value={formData.province}
-                        onChange={(e) =>
-                          handleFormChange({ province: e.target.value })
-                        }
-                      />
-                    </Form.Item>
-                    {/* <div className="mr-[120px] ">
-                      <Form.Item
-                        label="รหัสไปรษณีย์ :"
-                        className="font-medium  text-grey900"
-                        name="zipcode"
-                      >
                         <Input
-                          placeholder="กรุณากรอกรหัสไปรษณีย์"
-                          allowClear
-                          style={{ height: "44px", marginLeft: "24px" }}
-                          value={formData.zipcode}
-                          onChange={(e) =>
-                            handleFormChange({ zipcode: e.target.value })
-                          }
+                            placeholder="Please enter subdistrict / tambon"
+                            allowClear
+                            style={{ height: "44px" }}
+                            value={formData.sub_district}
+                            onChange={(e) =>
+                                handleFormChange({ sub_district: e.target.value })
+                            }
                         />
-                      </Form.Item>
-                    </div> */}
-                  </div>
+                    </Form.Item>
+                    <Form.Item
+                        label="District / Amphoe"
+                        className="font-medium text-grey900"
+                        name="district"
+                    >
+                        <Input
+                            placeholder="Please enter district / amphoe"
+                            allowClear
+                            style={{ height: "44px" }}
+                            value={formData.district}
+                            onChange={(e) =>
+                                handleFormChange({ district: e.target.value })
+                            }
+                        />
+                    </Form.Item>
+                </div>
 
-                  <Form.Item
-                    label="ระบุข้อมูลเพิ่มเติม"
+                <div className="w-full flex justify-between ml-[95px]">
+                    <Form.Item
+                        label="Province"
+                        className="font-medium text-grey900"
+                        name="province"
+                    >
+                        <Input
+                            placeholder="Please enter province"
+                            allowClear
+                            style={{ height: "44px" }}
+                            value={formData.province}
+                            onChange={(e) =>
+                                handleFormChange({ province: e.target.value })
+                            }
+                        />
+                    </Form.Item>
+                </div>
+
+                <Form.Item
+                    label="Additional Information"
                     className="font-medium text-grey900"
                     name="additionalInfo"
-                  >
+                >
                     <TextArea
-                      placeholder="กรุณาระบุข้อมูลเพิ่มเติม"
-                      autoSize={{ minRows: 3 }}
-                      value={formData.note}
-                      onChange={(e) =>
-                        handleFormChange({ note: e.target.value })
-                      }
+                        placeholder="Please provide additional information"
+                        autoSize={{ minRows: 3 }}
+                        value={formData.note}
+                        onChange={(e) =>
+                            handleFormChange({ note: e.target.value })
+                        }
                     />
-                  </Form.Item>
+                </Form.Item>
                 </Form>
               </div>
             </div>
@@ -679,7 +661,7 @@ function AllStepCheckOutForm() {
                 หมายเลขบัตรเครดิต<span className="text-[#C82438]">*</span>
               </p>
               <input
-                placeholder="กรุณากรอกหมายเลขบัตรเครดิต"
+                placeholder="Please enter credit card number"
                 className="w-full border border-[#CCD0D7] bg-white rounded-lg p-2"
                 required
               />
@@ -689,7 +671,7 @@ function AllStepCheckOutForm() {
                 ชื่อบนบัตร<span className="text-[#C82438]">*</span>
               </p>
               <input
-                placeholder="กรุณากรอกชื่อบนบัตร"
+                placeholder="Please enter name on card"
                 className="w-full border bg-white border-[#CCD0D7] rounded-lg p-2"
                 required
               />
@@ -726,7 +708,7 @@ function AllStepCheckOutForm() {
             <div>
               <p>Promotion Code</p>
               <input
-                placeholder="กรุณากรอกโค้ดส่วนลด (ถ้ามี)"
+                placeholder="Please enter discount code (if any)"
                 className="w-full border bg-white border-[#CCD0D7] rounded-lg p-1"
                 onChange={handlePromotionInputChange}
               />
@@ -736,7 +718,7 @@ function AllStepCheckOutForm() {
                 className="btn-secondary-[#336DF2]  flex items-center justify-center text-white font-medium w-20 p-1 px-1 bg-[#336DF2] rounded-lg"
                 onClick={handleApplyPromotion}
               >
-                ใช้โค้ด
+                Apply code
               </button>
             </div>
             {/* </Elements> */}
@@ -746,7 +728,7 @@ function AllStepCheckOutForm() {
         <div className="h-full w-[562px] py-8 px-6 flex flex-col justify-between bg-white border border-grey300 rounded-lg mr-0 top-40 mt-20 ">
           <div className="summary-box flex-auto text-center pb-3 text-[40px] text-[#646C80]">
             {" "}
-            {current === 3 ? "ชำระเงินเรียบร้อยแล้ว" : "สรุปรายการ"}
+            {current === 3 ? "Payment completed successfully" : "Summary of the order"}
           </div>
           <ul>
             {calculateTotalPrice().map((item, index) => (
@@ -767,26 +749,26 @@ function AllStepCheckOutForm() {
               {current === 1 || current === 2 || current === 3 ? (
                 <div>
                   <div className="flex justify-between">
-                    <div className="text-[#646C80]">วันที่:</div>
+                    <div className="text-[#646C80]">Date:</div>
                     <div className="text-black">
                       {formData.date ? formData.date.format("DD/MM/YYYY") : ""}
                     </div>
                   </div>
                   <div className="flex justify-between">
-                    <div className="text-[#646C80]">เวลา:</div>
+                    <div className="text-[#646C80]">Time:</div>
                     <div className="text-black">
                       {formData.time ? formData.time.format("HH:mm") : ""}
                     </div>
                   </div>
                   <div className="flex justify-between">
-                    <div className="text-[#646C80]">สถานที่:</div>
+                    <div className="text-[#646C80]">Location:</div>
                     <div className="text-black">
                       {formData.address} {formData.sub_district}{" "}
                       {formData.district} {formData.province} {formData.zipcode}
                     </div>
                   </div>
                   <div className="flex justify-between">
-                    <div className="text-[#646C80]">ข้อมูลเพิ่มเติม:</div>
+                    <div className="text-[#646C80]">Additional information:</div>
                     <div className="text-black">{formData.note}</div>
                   </div>
                 </div>
@@ -795,9 +777,9 @@ function AllStepCheckOutForm() {
           </div>
           <div className="w-[301]px h-[1px] border border-[#CCD0D7] mt-3"></div>
           <div className="flex justify-between pt-5 mb-2">
-            <div className="text-[16px] text-[#646C80]">รวม</div>
+            <div className="text-[16px] text-[#646C80]">Total</div>
             <div className="text-black font-bold">
-              {totalPrice.toFixed(2)} ฿
+              {totalPrice.toFixed(2)} Rs
             </div>
           </div>
           {current === 3 && (
@@ -806,7 +788,7 @@ function AllStepCheckOutForm() {
                 className="bg-blue600 w-full h-11 rounded-lg text-white"
                 onClick={() => navigate(`/customer-ordered-list/${userId}`)}
               >
-                เช็ครายการซ่อม
+                Check repair list
               </button>
             </div>
           )}
@@ -822,14 +804,14 @@ function AllStepCheckOutForm() {
                 navigate("/services-list");
               }}
             >
-              ย้อนกลับ
+              Go back
               <img src={arrowBlue} alt="arrow" />
             </button>
             <button
               className="btn-secondary-[#336DF2]  flex items-center justify-center text-white font-medium w-40 p-2 px-6 bg-[#336DF2] rounded-lg"
               onClick={next}
             >
-              ดำเนินการต่อ
+              Continue
               <img src={arrowWhite} alt="goarrow" />
             </button>
           </>
@@ -840,7 +822,7 @@ function AllStepCheckOutForm() {
                 className="btn-secondary flex items-center justify-center text-base font-medium w-40 p-2 px-6"
                 onClick={() => prev()}
               >
-                ย้อนกลับ
+                Back
                 <img src={arrowBlue} alt="arrow" />
               </button>
             )}
@@ -849,7 +831,7 @@ function AllStepCheckOutForm() {
                 className="btn-secondary-[#336DF2]  flex items-center justify-center text-white font-medium w-40 p-2 px-6 bg-[#336DF2] rounded-lg"
                 onClick={current === 2 ? () => next() : () => next()}
               >
-                ดำเนินการต่อ
+                Proceed
                 <img src={arrowWhite} alt="goarrow" />
               </button>
             )}
@@ -865,7 +847,7 @@ function AllStepCheckOutForm() {
                 }}
                 className="btn-secondary-[#336DF2]  flex items-center justify-center text-white font-medium w-45 p-2 px-6 bg-[#336DF2] rounded-lg"
               >
-                ยืนยันการชำระเงิน
+                Confirm payment
               </button>
             )}
           </>

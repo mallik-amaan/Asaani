@@ -21,7 +21,7 @@ function LoginForm() {
       if (response.success) {
         navigate("/");
       } else {
-        message.error("อีเมลหรือรหัสผ่านไม่ถูกต้อง");
+        message.error("Email or password is incorrect");
       }
     } catch (error) {
       console.error("Login failed:", error);
@@ -64,40 +64,40 @@ function LoginForm() {
             className={formStyle}
           >
             <h1 className="text-blue950 text-center text-[32px] font-medium">
-              เข้าสู่ระบบ
+              Log in
             </h1>
             <Form.Item
               className="w-440px h-72px"
-              label={<span style={labelStyle}>อีเมล</span>}
+              label={<span style={labelStyle}>Email</span>}
               name="email"
               labelAlign="top"
               labelCol={{ span: 24 }}
               rules={[
                 {
                   required: true,
-                  message: "กรุณากรอกอีเมล",
+                  message: "Please enter your email",
                 },
               ]}
             >
-              <Input className={inputStyle} placeholder="กรุณากรอกอีเมล" />
+              <Input className={inputStyle} placeholder="Please enter your email" />
             </Form.Item>
 
             <Form.Item
               className="w-440px h-72px"
-              label={<span style={labelStyle}>รหัสผ่าน</span>}
+              label={<span style={labelStyle}>Password</span>}
               labelAlign="top"
               name="password"
               labelCol={{ span: 24 }}
               rules={[
                 {
                   required: true,
-                  message: "กรุณากรอกรหัสผ่าน",
+                  message: "Please enter your password",
                 },
               ]}
             >
               <Input.Password
                 className={inputStyle}
-                placeholder="กรุณากรอกรหัสผ่าน"
+                placeholder="Please enter your password"
               />
             </Form.Item>
 
@@ -105,15 +105,15 @@ function LoginForm() {
               <button  
               className="btn-primary w-[100%] mt-5 mb-5"
               type="submit">
-                เข้าสู่ระบบ
+                Log in
               </button>
             </Form.Item>
             <div className="text-center">
               <span className="text-base text-grey700">
-                ยังไม่มีบัญชีผู้ใช้ HomeServices?
+                Don't have an account yet HomeServices?
               </span>
               <a className="btn-ghost" onClick={handleRegisterClick}>
-                <span className="underline">ลงทะเบียน</span>
+                <span className="underline">Register</span>
               </a>
             </div>
           </Form>

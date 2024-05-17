@@ -8,7 +8,7 @@ function CustomerOrderHistoryPage() {
   return (
     <>
       <Navbar />
-      <Title title="ประวัติการซ่อม" />
+      <Title title="Repair history" />
       <div className="flex justify-between px-[15vw] pt-[5vh] pb-[33vh] bg-[#f0f0f0]">
         <SideNavbar />
         <OrderHistory />

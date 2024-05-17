@@ -8,7 +8,7 @@ function CustomerOrderListPage() {
   return (
     <>
       <Navbar />
-      <Title title="รายการคำสั่งซ่อม" />
+      <Title title="Repair order list" />
       <div className="h-[100%] flex justify-between px-[15vw] pt-[5vh] pb-[33vh] bg-[#f0f0f0]">
         <SideNavbar />
         <OrderList />
