@@ -22,6 +22,7 @@ import PromotionMockUpPage from "./PromotionMockUpPage.jsx";
 import ProfilePage from "./ProfilePage.jsx";
 import CustomerUserInfoPage from "./CustomerUserInfoPage.jsx";
 import ChatPage from "./ChatPage.jsx";
+import ContractorDashboardPage from "./ContractorDashboardPage.jsx";
 function AuthenticatedApp() {
   const loginRole = localStorage.getItem("role");
 
@@ -94,7 +95,10 @@ function AuthenticatedApp() {
             path="/customer-ordered-list/:userId"
             element={<CustomerOrderListPage />}
           />
-
+          <Route
+            path="/dashboard"
+            element={<ContractorDashboardPage />}
+          />
           <Route
             path="/customer-ordered-history/:userId"
             element={<CustomerOrderHistoryPage />}

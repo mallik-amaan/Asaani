@@ -7,8 +7,9 @@ import watch from "../assets/homepagePhoto/watch.svg";
 import exit from "../assets/homepagePhoto/exit.svg";
 import chatRoundDots from "../assets/homepagePhoto/chat-round-dots.svg.svg"; // Import the new chat icon
 import { useState } from "react";
+import PropTypes from 'prop-types';
 
-function Navbar() {
+function Navbar(props) {
   const [open, setOpen] = useState(false);
   const loginRole = localStorage.getItem("role");
   const loginName = localStorage.getItem("fullName");
@@ -33,7 +34,7 @@ function Navbar() {
             className="cursor-pointer"
             onClick={() => navigate("/services-list")}
           >
-            Our services
+            {props.title}
           </button>
         </div>
       </div>
@@ -185,3 +186,8 @@ function Navbar() {
 }
 
 export default Navbar;
+
+
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
+};
