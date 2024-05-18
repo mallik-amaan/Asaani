@@ -24,7 +24,7 @@ authRouter.post("/register", async (req, res) => {
     phoneNumber: req.body.phoneNumber,
     email: req.body.email,
     password: req.body.password,
-    role: "admin",
+    role: req.body.role,
   };
 
   console.log("Received data from frontend:", user); // Log the data
@@ -38,7 +38,6 @@ authRouter.post("/register", async (req, res) => {
       .from("users")
       .insert([
         {
-          user_id: 2,
           fullName: user.fullName,
           phoneNumber: user.phoneNumber,
           email: user.email,
