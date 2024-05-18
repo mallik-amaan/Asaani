@@ -20,11 +20,11 @@ function Footer () {
       <div className="">
         <div className="flex ">
           <img src={Phone} alt="" className="w-[12px] lg:w-[20px]"/>
-          <p className="text-[12px] lg:text-[18px] xl:ml-3">080-540-6357</p>
+          <p className="text-[12px] lg:text-[18px] xl:ml-3">+92 313444880</p>
         </div>
         <div className="flex items-center pt-3">
           <img src={LetterIcon} alt="" className="w-[12px] lg:w-[20px] hidden sm:block"/>
-          <p className="xl:ml-3 text-[12px] lg:text-[18px]"></p>
+          <p className="xl:ml-3 text-[12px] lg:text-[18px]">asaani@gmail.com</p>
         </div>
       </div>
       </div>

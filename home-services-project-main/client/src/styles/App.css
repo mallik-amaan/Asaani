@@ -17,6 +17,14 @@
   font-family: prompt-Bold;
   src: url(../public/Prompt-Bold.ttf);
 }
+@font-face {
+  font-family: "urdufont1";
+  src: url("../assets/Fonts/AA Sameer Kelk Regular.ttf");
+}
+@font-face {
+  font-family: "urdufont2";
+  src: url("../assets/Fonts/XB Tabriz.ttf");
+}
 
 .prompt {
   font-family: prompt;

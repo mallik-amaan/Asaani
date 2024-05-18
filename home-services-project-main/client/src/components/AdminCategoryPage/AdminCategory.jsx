@@ -146,7 +146,7 @@ function AdminCategory() {
                       {" "}
                       Last edited
                     </span>
-                    <span className=" text-grey700 mx-[30%] mr-[1%]">
+                    <span className=" text-grey700 mx-[20%] mr-[4.5%]">
                       {" "}
                       Action
                     </span>

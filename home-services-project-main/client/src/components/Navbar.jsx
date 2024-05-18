@@ -5,10 +5,11 @@ import person from "../assets/homepagePhoto/person.svg";
 import form from "../assets/homepagePhoto/form.svg";
 import watch from "../assets/homepagePhoto/watch.svg";
 import exit from "../assets/homepagePhoto/exit.svg";
-import bell from "../assets/homepagePhoto/bell.svg";
+import chatRoundDots from "../assets/homepagePhoto/chat-round-dots.svg.svg"; // Import the new chat icon
 import { useState } from "react";
+import PropTypes from 'prop-types';
 
-function Navbar() {
+function Navbar(props) {
   const [open, setOpen] = useState(false);
   const loginRole = localStorage.getItem("role");
   const loginName = localStorage.getItem("fullName");
@@ -33,7 +34,7 @@ function Navbar() {
             className="cursor-pointer"
             onClick={() => navigate("/services-list")}
           >
-            Our service
+            {props.title}
           </button>
         </div>
       </div>
@@ -101,7 +102,7 @@ function Navbar() {
                         <span>
                           <img src={exit} className="mr-3" />
                         </span>
-                        Out of the system
+                        Log out
                       </button>
                     </ul>
                   </div>
@@ -157,16 +158,19 @@ function Navbar() {
                         <span>
                           <img src={exit} className="mr-3" />
                         </span>
-                        Out of the system
+                        Log out
                       </button>
                     </ul>
                   </div>
                 )}
               </div>
             )}
-            <div className="flex items-center justify-center w-[30px] h-[30px] ml-3 rounded-full border-grey600 cursor-pointer">
+            <div
+              className="flex items-center justify-center w-[30px] h-[30px] ml-3 rounded-full border-grey600 cursor-pointer"
+              onClick={() => navigate("/chat")} // Make the icon clickable
+            >
               <img
-                src={bell}
+                src={chatRoundDots} // Replace bell with chat-round-dots
                 className="w-[30px] h-[30px] rounded-full bg-grey100"
               />
             </div>
@@ -182,3 +186,8 @@ function Navbar() {
 }
 
 export default Navbar;
+
+
+Navbar.propTypes = {
+  title: PropTypes.string.isRequired,
+};
