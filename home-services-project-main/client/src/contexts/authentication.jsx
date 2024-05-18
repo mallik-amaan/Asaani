@@ -3,6 +3,7 @@ import axios from "axios"; //npm install axios
 import { useNavigate } from "react-router-dom";
 import jwtDecode from "jwt-decode"; //package npm install jwt-decode //npm install jsonwebtoken
 import { message } from "antd";
+import PropTypes from 'prop-types';
 
 const AuthContext = React.createContext();
 //Comment Code//
@@ -91,3 +92,7 @@ function AuthProvider(props) {
 const useAuth = () => React.useContext(AuthContext);
 
 export { AuthProvider, useAuth };
+
+AuthProvider.propTypes = {
+  children: PropTypes.node.isRequired,
+};
