@@ -32,13 +32,13 @@ authRouter.post("/register", async (req, res) => {
   try {
     // Generate a salt
     const salt = await bcrypt.genSalt(10);
-
     // Hash the password with the generated salt
     const hashedPassword = await bcrypt.hash(user.password, salt);
     const { data, error } = await supabase
       .from("users")
       .insert([
         {
+          user_id: 2,
           fullName: user.fullName,
           phoneNumber: user.phoneNumber,
           email: user.email,

@@ -20,7 +20,7 @@ import AdminEditPromoPage from "./AdminEditPromoPage.jsx";
 import AdminPromoDetailPage from "./AdminDetailPromoPage.jsx";
 import PromotionMockUpPage from "./PromotionMockUpPage.jsx";
 import ProfilePage from "./ProfilePage.jsx";
-
+import CustomerUserInfoPage from "./CustomerUserInfoPage.jsx";
 function AuthenticatedApp() {
   const loginRole = localStorage.getItem("role");
 
@@ -80,7 +80,7 @@ function AuthenticatedApp() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="" element={<NotFoundPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/profile" element={<CustomerUserInfoPage />} />
           <Route
             path="/services-list"
             element={<CustomerServiceListDisplay />}
@@ -98,10 +98,7 @@ function AuthenticatedApp() {
             path="/customer-ordered-history/:userId"
             element={<CustomerOrderHistoryPage />}
           />
-          <Route
-            path="/customer-promotion"
-            element={<PromotionMockUpPage/>}
-          />
+          <Route path="/customer-promotion" element={<PromotionMockUpPage />} />
         </Routes>
       )}
     </div>

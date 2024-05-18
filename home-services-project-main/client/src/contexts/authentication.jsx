@@ -21,7 +21,7 @@ function AuthProvider(props) {
     navigate("/login");
   };
 
-  //ใส่ logic login
+  //logic login
   const login = async (data) => {
     try {
       const result = await axios.post("http://localhost:4000/auth/login", data);

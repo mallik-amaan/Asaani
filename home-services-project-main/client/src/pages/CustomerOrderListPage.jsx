@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar.jsx";
-import Footer from "../components/HomePage/Footer.jsx"; 
+import Footer from "../components/HomePage/Footer.jsx";
 import SideNavbar from "../components/CustomerPage/SideNavbar.jsx";
 import Title from "../components/CustomerPage/Title.jsx";
 import OrderList from "../components/CustomerPage/OrderList.jsx";
