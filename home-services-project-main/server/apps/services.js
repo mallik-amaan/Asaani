@@ -22,10 +22,8 @@ serviceRouter.get("/", async (req, res) => {
       .from("service")
       .select("*, sub_service(*), category(*)");
 
-
     // .ilike("service_name, category_name", `%${keywords}%`);
 
-    
     // const data = rawData.filter((item) => {
     //   const price_per_unit =
     //     parseFloat(item.sub_service[0]?.price_per_unit) || 0;
@@ -108,8 +106,8 @@ serviceRouter.post("/", upload.single("file"), async (req, res) => {
 
     // Upload file to Supabase storage
     const uploadResult = await supabase.storage
-      .from("home_service")
-      .upload(`service_photo/${Date.now()}${file.originalname}`, file.buffer, {
+      .from("service_photos")
+      .upload(`service_photos/${Date.now()}${file.originalname}`, file.buffer, {
         cacheControl: "3600",
         upsert: false,
         contentType: file.mimetype,
