@@ -9,7 +9,7 @@ function RegisterPage() {
   const [form] = Form.useForm();
   const navigate = useNavigate();
 
-  const inputStyle = "border rounded-lg border-grey300 w-[100%] h-12 px-4 py-2" ;
+  const inputStyle = "border rounded-lg border-grey300 w-[100%] h-12 px-4 py-2";
 
   const formStyle =
     "bg-white border border-grey300 rounded-lg h-full mt-[3.25rem] mb-[5.4375rem] px-[5.4375rem] pt-[2rem] pb-[3.3125rem] flex flex-col w-[840px] items-center gap-4";
@@ -125,11 +125,11 @@ function RegisterPage() {
             rules={[
               {
                 required: true,
-                message: "Please enter your phone number",
+                message: "Please enter your phone number, e.g. +923001234567",
               },
               {
                 validator: (rule, value) => {
-                  if (!/^0[6-9]{1}[0-9]{8}$/.test(value)) {
+                  if (!/^\+92\d{10}$/.test(value)) {
                     return Promise.reject("Please enter a valid phone number");
                   }
                   return Promise.resolve();
@@ -173,8 +173,10 @@ function RegisterPage() {
               },
             ]}
           >
-            <Input className={inputStyle} 
-            placeholder="Please enter your email" />
+            <Input
+              className={inputStyle}
+              placeholder="Please enter your email"
+            />
           </Form.Item>
 
           {/* Password */}
@@ -199,19 +201,27 @@ function RegisterPage() {
                     return Promise.reject("Please enter a valid password");
                   }
                   if (!/[A-Z]/.test(value)) {
-                    return Promise.reject("Must have at least 1 uppercase letter");
+                    return Promise.reject(
+                      "Must have at least 1 uppercase letter"
+                    );
                   }
                   if (!/[a-z]/.test(value)) {
-                    return Promise.reject("Must have at least 1 lowercase letter");
+                    return Promise.reject(
+                      "Must have at least 1 lowercase letter"
+                    );
                   }
                   if (!/[0-9]/.test(value)) {
                     return Promise.reject("Must have at least 1 digit");
                   }
                   if (!/[!@#$%^&*]/.test(value)) {
-                    return Promise.reject("Must have at least 1 special character");
+                    return Promise.reject(
+                      "Must have at least 1 special character"
+                    );
                   }
                   if (value.length < 8) {
-                    return Promise.reject("Password must be at least 8 characters long");
+                    return Promise.reject(
+                      "Password must be at least 8 characters long"
+                    );
                   }
                   return Promise.resolve();
                 },

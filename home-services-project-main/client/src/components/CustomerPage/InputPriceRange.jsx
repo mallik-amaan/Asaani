@@ -9,7 +9,7 @@ const InputPriceRange = ({
   max,
   onChange,
   setMinFilter,
-  setMaxFilter,
+  setMaxFilter
 }) => {
   const [minVal, setMinVal] = useState(min);
   const [maxVal, setMaxVal] = useState(max);
@@ -56,7 +56,7 @@ const InputPriceRange = ({
   return (
     <div>
       <p className="text-xs font-normal text-grey700 px-5 my-1.5">
-        {minVal}-{maxVal}฿
+        {minVal}-{maxVal} PKR
       </p>
       <div className="container">
         <br></br>

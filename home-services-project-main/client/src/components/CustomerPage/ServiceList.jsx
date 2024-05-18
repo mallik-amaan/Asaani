@@ -165,7 +165,8 @@ function ServiceList() {
             <span className="absolute top-[64px]  left-0 right-0 z-10 text-center text-white ">
               <h1 className="text-[32px]">Our service</h1>
               <p>
-                Repair electrical appliances, repair air, clean houses and many more.
+                Repair electrical appliances, repair air, clean houses and many
+                more.
                 <br />
                 By housekeeperAnd professional technicians
               </p>
@@ -215,7 +216,7 @@ function ServiceList() {
                     className="cursor-pointer w-[150px] mb-1"
                     onClick={handleDropdownToggle}
                   >
-                    {minPriceFilter} - {maxPriceFilter} ฿ ▾
+                    {minPriceFilter} - {maxPriceFilter} PKR ▾
                   </p>
 
                   {isDropdownVisible && (
@@ -237,16 +238,18 @@ function ServiceList() {
               </div>
               <div className="line-2 border-[#CCD0D7] border-l border-[1px] h-[44px] "></div>
               <div className="sort-filter">
-                <p className="pl-[10px] text-[12px] text-[#646C80]">In accordance with</p>
+                <p className="pl-[10px] text-[12px] text-[#646C80]">
+                  In accordance with
+                </p>
                 <select
                   className="px-2 bg-white text-black font-semibold"
                   value={orderFilter}
                   onChange={handleSortChange}
                 >
-                  <option value="recommend">Recommended service </ option>
-                  <option value = "popular"> Popular service </ option>
-                  <option value = "ASCENDING">(Ascending) </ option>
-                  <option value = "descending"> (Descending)</option>
+                  <option value="recommend">Recommended service </option>
+                  <option value="popular"> Popular service </option>
+                  <option value="ASCENDING">(Ascending) </option>
+                  <option value="descending"> (Descending)</option>
                 </select>
               </div>
               <div className="w-[80px]"></div>
@@ -312,7 +315,8 @@ function ServiceList() {
                                     navigate(`/checkout/${service.service_id}`)
                                   }
                                 >
-Select the service                                </button>
+                                  Select the service{" "}
+                                </button>
                               ) : (
                                 <button
                                   className="btn-ghost"
@@ -337,7 +341,8 @@ Select the service                                </button>
                 ) : (
                   <div className="text-center h-[500px]">
                     <h1 className="mt-[100px]">
-Sorry, no search for the service you want.                    </h1>
+                      Sorry, no search for the service you want.{" "}
+                    </h1>
                     <p> If the customer wants any additional service</p>
                     <p>Can contact 080-540-6357</p>
                   </div>
@@ -392,7 +397,8 @@ Sorry, no search for the service you want.                    </h1>
                                   navigate(`/checkout/${service.service_id}`)
                                 }
                               >
-Select the service                              </button>
+                                Select the service{" "}
+                              </button>
                             ) : (
                               <button
                                 className="btn-ghost"
@@ -430,13 +436,16 @@ Select the service                              </button>
 
         <footer className="h-[284px] bg-[#336DF2] text-center flex justify-center items-center">
           <p className="text-[20px] text-white">
-Because we are techniciansComplete number 1 home service provider            By a more professional team 100 ทีม
+            Because we are techniciansComplete number 1 home service provider By
+            a more professional team 100 ทีม
             <br />
             Able to meet your home service and build
             <br />
-            The convenience of contacting the technician anywhere, anytime, 24 hours.
+            The convenience of contacting the technician anywhere, anytime, 24
+            hours.
             <br />
-            Confident, do not leave workWith work quality guarantee          </p>
+            Confident, do not leave workWith work quality guarantee{" "}
+          </p>
           <img src="" />
         </footer>
       </div>

@@ -7,7 +7,7 @@ const categoryRouter = Router();
 // View all categories
 categoryRouter.get("/", async (req, res) => {
   try {
-    const data = await supabase.from("").select("*");
+    const data = await supabase.from("category").select("*");
     return res.json({
       data,
     });
@@ -24,9 +24,9 @@ categoryRouter.get("/:id", async (req, res) => {
     const categoryId = req.params.id;
 
     const { data, error } = await supabase
-      .from("")
+      .from("category")
       .select("*")
-      // .eq("category_id", categoryId);
+      .eq("category_id", categoryId);
     return res.json({
       data,
     });

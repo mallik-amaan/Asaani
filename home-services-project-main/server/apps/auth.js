@@ -24,7 +24,7 @@ authRouter.post("/register", async (req, res) => {
     phoneNumber: req.body.phoneNumber,
     email: req.body.email,
     password: req.body.password,
-    role: req.body.role,
+    role: "admin",
   };
 
   console.log("Received data from frontend:", user); // Log the data
