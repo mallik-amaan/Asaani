@@ -50,7 +50,7 @@ function LoginForm() {
   return (
     <>
       <div className="flex flex-col">
-        <Navbar />
+        <Navbar title="Our Services"/>
         <div className="flex w-[100%] min-h-screen justify-center bg-bg ">
           <Form
             labelCol={{ span: 10 }}
