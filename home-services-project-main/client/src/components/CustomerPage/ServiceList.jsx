@@ -118,7 +118,7 @@ function ServiceList() {
     try {
       const result = await axios("http://localhost:4000/category");
       setCategories(result.data.data);
-      console.log("getCategory What's up? ", result.data.data);
+      console.log("TEST DATA ", result.data.data);
     } catch (error) {
       setError("There is an error in calling for categories.");
     }

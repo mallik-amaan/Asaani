@@ -4,10 +4,10 @@ import supabase from "../utils/supabase.js";
 
 const categoryRouter = Router();
 // categoryRouter.use(protect);
-// ดู categories ทั้งหมด
+// View all categories
 categoryRouter.get("/", async (req, res) => {
   try {
-    const data = await supabase.from("category").select("*");
+    const data = await supabase.from("").select("*");
     return res.json({
       data,
     });
@@ -24,9 +24,9 @@ categoryRouter.get("/:id", async (req, res) => {
     const categoryId = req.params.id;
 
     const { data, error } = await supabase
-      .from("category")
+      .from("")
       .select("*")
-      .eq("category_id", categoryId);
+      // .eq("category_id", categoryId);
     return res.json({
       data,
     });

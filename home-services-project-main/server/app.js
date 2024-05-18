@@ -9,7 +9,8 @@ import orderHistoryRouter from "./apps/orderHistory.js";
 import paymentRouter from "./apps/payment.js";
 import promotionRouter from "./apps/promotion.js";
 import dotenv from "dotenv";
-
+import dummyRouter from "./apps/dummy.js";
+import supabase from "./utils/supabase.js";
 
 async function init() {
   dotenv.config();
@@ -30,9 +31,9 @@ async function init() {
   app.use("/service", serviceRouter);
   app.use("/checkout", checkoutRouter);
   app.use("/orderHistory", orderHistoryRouter);
-  app.use("/promotion",promotionRouter)
-  app.use("/payment", paymentRouter)
-
+  app.use("/promotion",promotionRouter);
+  app.use("/payment", paymentRouter);
+  app.use("/dummy", dummyRouter);
   app.get("/", (req, res) => {
     res.send("Welcome to Home Service!");
   });
