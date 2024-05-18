@@ -5,7 +5,7 @@ import Navbar from "../components/Navbar";
 function CustomerServiceListDisplay() {
   return (
     <>
-      <Navbar />
+      <Navbar title="Our Services"/>
       <ServiceList />
       <Footer />
     </>
