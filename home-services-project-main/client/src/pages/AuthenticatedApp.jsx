@@ -20,6 +20,7 @@ import AdminEditPromoPage from "./AdminEditPromoPage.jsx";
 import AdminPromoDetailPage from "./AdminDetailPromoPage.jsx";
 import PromotionMockUpPage from "./PromotionMockUpPage.jsx";
 import ProfilePage from "./ProfilePage.jsx";
+import DummyPage from "./DummyPage.jsx";
 
 function AuthenticatedApp() {
   const loginRole = localStorage.getItem("role");
@@ -78,6 +79,7 @@ function AuthenticatedApp() {
         </Routes>
       ) : (
         <Routes>
+          <Route path="/dummy" element={<DummyPage/>}/>
           <Route path="/" element={<HomePage />} />
           <Route path="" element={<NotFoundPage />} />
           <Route path="/profile" element={<ProfilePage />} />
