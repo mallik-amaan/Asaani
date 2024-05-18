@@ -11,7 +11,7 @@ function ForJob () {
       <div className="font-bold text-[40px]">
         Join as a repair staff
         <br/> 
-        with HomeServices
+        with Asaani
         </div>
       <div className="text-[18px]">
         Attending standardized training free! 

@@ -24,7 +24,7 @@ function Footer () {
         </div>
         <div className="flex items-center pt-3">
           <img src={LetterIcon} alt="" className="w-[12px] lg:w-[20px] hidden sm:block"/>
-          <p className="xl:ml-3 text-[12px] lg:text-[18px]">contact@homeservices.co</p>
+          <p className="xl:ml-3 text-[12px] lg:text-[18px]"></p>
         </div>
       </div>
       </div>
