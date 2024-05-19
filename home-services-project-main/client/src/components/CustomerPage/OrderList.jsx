@@ -116,7 +116,7 @@ function OrderList () {
                                             <div className="text-lg text-black font-medium leading-normal">
                                                 {parseFloat(data.checkout.total_price)
                                                     .toFixed(2)}{" "}
-                                                    ฿
+                                                    Rs
                                             </div>
                                         </div>
                                     </div>
