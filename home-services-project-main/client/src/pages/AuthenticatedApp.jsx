@@ -79,7 +79,7 @@ function AuthenticatedApp() {
             element={<CustomerServiceListDisplay />}
           />
         </Routes>
-      ) : (
+      ) : loginRole === "customer" ? (
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="" element={<NotFoundPage />} />
@@ -96,13 +96,16 @@ function AuthenticatedApp() {
             path="/customer-ordered-list/:userId"
             element={<CustomerOrderListPage />}
           />
-          <Route path="/dashboard" element={<ContractorDashboardPage />} />
           <Route
             path="/customer-ordered-history/:userId"
             element={<CustomerOrderHistoryPage />}
           />
           <Route path="/customer-promotion" element={<PromotionMockUpPage />} />
           <Route path="/chat" element={<ChatApp />} />
+        </Routes>
+      ) : (
+        <Routes>
+          <Route path="/dashboard" element={<ContractorDashboardPage />} />
         </Routes>
       )}
     </div>
