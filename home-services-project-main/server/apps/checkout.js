@@ -51,7 +51,7 @@ checkoutRouter.get("/", async (req, res) => {
 });
 
 checkoutRouter.post("/", async (req, res) => {
-  //req.body ที่ได้มา ใช้ insert 3 table
+  //req.body acquired and used insert 3 table
   try {
     console.log(req.body);
 

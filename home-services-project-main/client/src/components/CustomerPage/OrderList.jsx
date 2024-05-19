@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import dateFormat from "../../utils/dateFormat.js";
+
 // import Moment from "react-moment";
 
 function OrderList () {
@@ -31,7 +32,7 @@ function OrderList () {
     if (loading) {
         return (<div>Loading...</div>);
     }
-    console.log(order)
+    console.log(order[0].order_number);
    
 
     return (
