@@ -48,7 +48,7 @@ return (
               alt="serve"
             />
             <button className="h-14 text-grey100 font-medium text-base no-underline hover:text-white">
-              serve
+              Services
             </button>
           </div>
           <div className="hover:bg-blue900 h-12 my-1 cursor-pointer flex items-center" onClick={() => navigate("/admin-promotion")}>
@@ -71,7 +71,7 @@ return (
                 alt="Logout"
               />
               <button className="h-14 text-grey100 font-medium text-base no-underline hover:text-white">
-                Out of the system
+                Log Out
               </button>
             </div>
           </div>

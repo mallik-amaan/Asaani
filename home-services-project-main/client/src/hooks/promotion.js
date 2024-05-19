@@ -18,7 +18,7 @@ export const usePromotion = () => {
   const checkPromotionExpiry = (promotion) => {
     const { promotion_expiry_date, promotion_expiry_time } = promotion;
     const now = moment();
-    console.log("เวลาปัจจุบัน", now)
+    console.log("Current time", now)
     const expireDateTime = moment(`${promotion_expiry_date} ${promotion_expiry_time}`, "DD-MM-YYYY HH:mm:ss");
     if (now.isBefore(expireDateTime)) {
       return true;
@@ -41,15 +41,15 @@ export const usePromotion = () => {
       promotion_expiry_date: promotion.promotion_expiry_date,
       promotion_expiry_time: promotion.promotion_expiry_time,
     };
-    console.log("ที่จะส่งไปหลังบ้าน:", updatedPromotionItem);
+    console.log("to be sent to the backend:", updatedPromotionItem);
     axios.put(`http://localhost:4000/promotion/${promotion.promotion_id}`, updatedPromotionItem)
       .then((response) => {
         console.log("Decreased promotion quota:", response.data);
-        message.success("ใช้โค้ดส่วนลดสำเร็จ");
+        message.success("Discount code applied successfully");
       })
       .catch((error) => {
         console.error("Failed to decrease promotion quota:", error);
-        message.error("ส่งข้อมูลไปเซิฟเวอร์ล้มเหลว");
+        message.error("Failed to send data to the server.");
       });
   };
 
