@@ -115,7 +115,7 @@ function AdminDetailService() {
               navigate(`/admin-service-edit/${service.service_id}`)
             }
           >
-            correct
+            Edit
           </button>
         </div>
         <div className="flex flex-col items-center">

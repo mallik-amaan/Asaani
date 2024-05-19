@@ -430,11 +430,11 @@ Or drag and place here                              </p>
                                 rules={[
                                   {
                                     validator(_, value) {
-                                      if (value <= 20000) {
+                                      if (value <= 100000) {
                                         return Promise.resolve();
                                       }
                                       return Promise.reject(
-                                        "The service fee must not exceed. 20000"
+                                        "The service fee must not exceed 20000"
                                       );
                                     },
                                   },

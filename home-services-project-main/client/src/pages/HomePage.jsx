@@ -12,7 +12,6 @@ function Homepage() {
         <Navbar title="Our Services"/>
         <Slogan />
         <TopServices />
-        <ForJob />
         <Footer />
       </div>
     </div>
