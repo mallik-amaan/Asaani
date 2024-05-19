@@ -24,9 +24,13 @@ import CustomerUserInfoPage from "./CustomerUserInfoPage.jsx";
 import ChatPage from "./ChatPage.jsx";
 import ChatApp from "./chatApp/ChatApp.jsx";
 import ContractorDashboardPage from "./ContractorDashboardPage.jsx";
+import ContractorDetails from "../components/Contractor/ContractorDetails.jsx";
+import ContractorCreateServicePage from "../components/Contractor/ContractorCreateServicePage.jsx";
+import ContractorServicePage from "../components/Contractor/ContractorServicePage.jsx";
 function AuthenticatedApp() {
-  const loginRole = localStorage.getItem("role");
-
+  var loginRole = localStorage.getItem("role");
+  loginRole.length == 0 ? (loginRole = "contractor") : loginRole;
+  console.log("loginRole", loginRole);
   return (
     <div className="App">
       {loginRole === "admin" ? (
@@ -105,7 +109,15 @@ function AuthenticatedApp() {
         </Routes>
       ) : (
         <Routes>
-          <Route path="/dashboard" element={<ContractorDashboardPage />} />
+          <Route path="/" element={<ContractorDashboardPage />} />
+          <Route path="" element={<NotFoundPage />} />
+          <Route path="/profile" element={<CustomerUserInfoPage />} />
+          <Route path="/details" element={<ContractorDetails />} />
+          <Route path="/newservice" element={<ContractorCreateServicePage />} />
+          <Route
+            path="/contractor-service"
+            element={<ContractorServicePage />}
+          />
         </Routes>
       )}
     </div>

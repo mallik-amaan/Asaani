@@ -3,8 +3,11 @@ export default function ContractorStatistics() {
     <div
       className="row flex flex-row"
       style={{
-        backgroundColor: "white",
+        backgroundColor: "green",
         marginTop: "2%",
+        marginLeft: "5%",
+        marginRight: "5%",
+        color: "white",
       }}
     >
       <div className="basis-1/2">
