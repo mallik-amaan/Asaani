@@ -485,7 +485,7 @@ function PromotionEdit() {
               </span>
             </p>
             <p className="pb-[40px] ">
-              <span className="text-grey700">แก้ไขล่าสุด</span>
+              <span className="text-grey700">Last edited</span>
               <span className="px-[190px] text-black ">
                 {dateFormat(newFormData.promotion_edited_date_time)}
               </span>

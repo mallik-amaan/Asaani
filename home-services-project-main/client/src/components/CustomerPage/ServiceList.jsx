@@ -344,7 +344,7 @@ function ServiceList() {
                       Sorry, no search for the service you want.{" "}
                     </h1>
                     <p> If the customer wants any additional service</p>
-                    <p>Can contact 080-540-6357</p>
+                    <p>Can contact 0317-4123955</p>
                   </div>
                 )
               ) : (
@@ -380,10 +380,10 @@ function ServiceList() {
                           getMaxPrice(service.sub_service)
                             ? `Approximate service fee ${getMinPrice(
                                 service.sub_service
-                              )} - ${getMaxPrice(service.sub_service)} ฿`
+                              )} - ${getMaxPrice(service.sub_service)} PKR`
                             : `Approximate service fee ${getMinPrice(
                                 service.sub_service
-                              )} ฿`}
+                              )} PKR`}
                         </p>
                       </div>
 
@@ -437,7 +437,7 @@ function ServiceList() {
         <footer className="h-[284px] bg-[#336DF2] text-center flex justify-center items-center">
           <p className="text-[20px] text-white">
             Because we are techniciansComplete number 1 home service provider By
-            a more professional team 100 ทีม
+            a more professional team 100 team
             <br />
             Able to meet your home service and build
             <br />

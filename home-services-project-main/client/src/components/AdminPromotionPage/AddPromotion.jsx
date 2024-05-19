@@ -153,7 +153,7 @@ function AddPromotionForm() {
             rules={[
               {
                 required: true,
-                message: "กรุณาระบุโค้ด",
+                message: "Please specify the code.",
               },
             ]}
           >
@@ -199,13 +199,14 @@ function AddPromotionForm() {
                       validator(_, value) {
                         if (getFieldValue("promotion_types") === "fixed") {
                           const numericValue = parseFloat(value);
-                          if (
-                            isNaN(numericValue) ||
+                          if 
+                            (isNaN(numericValue) ||
                             numericValue < 1 ||
-                            numericValue > 1000
-                          ) {
+                            numericValue > 1
+                        )
+                           {
                             return Promise.reject(
-                              "Please enter a number between 1 and 1000"
+                              "Please enter a number between 1 and "
                             );
                           }
                         }
@@ -282,9 +283,9 @@ function AddPromotionForm() {
                   if (
                     isNaN(numericValue) ||
                     numericValue < 1 ||
-                    numericValue > 1000
+                    numericValue > 1
                   ) {
-                    return Promise.reject("Please specify the number of times lower. 1000");
+                    return Promise.reject("Please specify the number of times lower. ");
                   }
 
                   return Promise.resolve();
