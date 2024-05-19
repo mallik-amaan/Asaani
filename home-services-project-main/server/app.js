@@ -11,6 +11,7 @@ import promotionRouter from "./apps/promotion.js";
 import dotenv from "dotenv";
 import dummyRouter from "./apps/dummy.js";
 import chatAppRouter from "./apps/chatapp.js";
+import addDetailsRouter from "./apps/addDetails.js";
 import supabase from "./utils/supabase.js";
 
 async function init() {
@@ -32,6 +33,7 @@ async function init() {
   app.use("/payment", paymentRouter);
   app.use("/dummy", dummyRouter);
   app.use("/chatapp", chatAppRouter);
+  app.use("/addDetails",addDetailsRouter);
   app.get("/", (req, res) => {
     res.send("Welcome to Home Service!");
   });

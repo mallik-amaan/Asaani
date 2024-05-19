@@ -336,7 +336,9 @@ function RegisterPage() {
             <div className="text-center">
               <a
                 className="btn-ghost"
-                onClick={() => navigate("/login")}
+                onClick={() => {
+                  navigate("/details");
+                }}
                 style={{
                   color: "var(--blue-600, #336DF2)",
                   fontFamily: "Prompt",
