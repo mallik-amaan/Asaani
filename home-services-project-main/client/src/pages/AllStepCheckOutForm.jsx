@@ -484,11 +484,11 @@ function AllStepCheckOutForm() {
               />
             </div>
 
-            <div className="flex my-8 lg:mx-[12rem] md:mx-10 justify-between min-h-screen w-[80%] ">
+            <div className="flex my-8 lg:mx-[12rem] md:mx-10 justify-between min-h-screen w-[85%] ">
               <div className="h-full  w-[900px] lg:mr-[2vw] py-8 px-6 mb-[125px] flex flex-col justify-between  rounded-lg mt-[-50px] ml-[-200px] md:ml-[-210px] ">
                 <Form
                   labelCol={{ span: 5 }}
-                  wrapperCol={{ span: 19 }}
+                  wrapperCol={{ span: 15 }}
                   form={form}
                   autoComplete="on"
                   onFinish={(formValues) => {
@@ -504,12 +504,12 @@ function AllStepCheckOutForm() {
                     className="font-medium text-grey900"
                     name="date"
                     label="Preferred service date"
-                    style={{ display: "flex", flexDirection: "column" }}
+                    style={{ display: "flex", flexDirection: "column"}}
                   >
                     <DatePicker
                       format="DD/MM/YYYY"
                       placeholder="Please select a date"
-                      className="w-[22.5vw] h-[44px] px-4 py-2.5"
+                      className="w-[22.5vw] h-[44px] px-5 py-2.5"
                       value={formData.date}
                       onChange={(date) =>
                         handleFormChange({ date: dayjs(date) })
@@ -534,12 +534,12 @@ function AllStepCheckOutForm() {
                   </Form.Item>
 
                   <Form.Item
-                    label="ที่อยู่"
+                    label="address"
                     className="font-medium  text-grey900"
                     name="address"
                   >
                     <Input
-                      placeholder="กรุณากรอกที่อยู่"
+                      placeholder="Please enter your address here"
                       allowClear
                       style={{ height: "44px" }}
                       value={formData.address}
@@ -551,12 +551,12 @@ function AllStepCheckOutForm() {
 
                   <div className="w-full flex-col justify-between mt-4">
                     <Form.Item
-                        label="Subdistrict / Tambon"
+                        label="Subdistrict"
                         className="font-medium text-grey900"
                         name="subdistrict"
                     >
                         <Input
-                            placeholder="Please enter subdistrict / tambon"
+                            placeholder="Please enter subdistrict"
                             allowClear
                             style={{ height: "44px" }}
                             value={formData.sub_district}
@@ -566,12 +566,12 @@ function AllStepCheckOutForm() {
                         />
                     </Form.Item>
                     <Form.Item
-                        label="District / Amphoe"
+                        label="District"
                         className="font-medium text-grey900"
                         name="district"
                     >
                         <Input
-                            placeholder="Please enter district / amphoe"
+                            placeholder="Please enter district"
                             allowClear
                             style={{ height: "44px" }}
                             value={formData.district}
@@ -736,8 +736,8 @@ function AllStepCheckOutForm() {
                 <p className="text-black">{item.sub_service_name}</p>
                 <p className="text-black">
                   {item.count > 1
-                    ? `${item.count} ${item.unit}`
-                    : `1  ${item.unit}`}
+                    ? `${item.count} × ${item.unit}`
+                    : `1 × ${item.unit}`}
                 </p>
               </li>
             ))}
