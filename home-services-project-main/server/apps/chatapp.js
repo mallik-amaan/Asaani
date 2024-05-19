@@ -16,6 +16,7 @@ chatAppRouter.get("/messages", async (req, res) => {
 });
 
 chatAppRouter.post("/messages", async (req, res) => {
+  console.log(req.body);
   const { sender_id, receiver_id, text } = req.body;
   const { data, error } = await supabase
     .from("messages")

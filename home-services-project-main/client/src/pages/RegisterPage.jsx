@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Form, Input, Checkbox, message } from "antd";
+import { Button, Form, Input, Checkbox, Radio, message } from "antd";
 import Navbar from "../components/Navbar.jsx";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -27,6 +27,7 @@ function RegisterPage() {
   // State for checked checkbox and form submission
   const [isChecked, setIsChecked] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [role, setRole] = useState("customer"); // State for role
 
   // Handle form submission
   const onFinish = async (values) => {
@@ -40,7 +41,7 @@ function RegisterPage() {
           phoneNumber: values.phoneNumber,
           email: values.email,
           password: values.password,
-          role: "customer",
+          role: role, // Include role in registration data
         };
 
         // Make API request
@@ -71,9 +72,14 @@ function RegisterPage() {
     setIsChecked(e.target.checked);
   };
 
+  // Handle role change
+  const handleRoleChange = (e) => {
+    setRole(e.target.value);
+  };
+
   return (
     <div className="flex flex-col">
-      <Navbar title="Our Services"/>
+      <Navbar title="Our Services" />
       <div className="flex w-[100%] min-h-screen justify-center bg-bg">
         <Form
           labelCol={{ span: 10 }}
@@ -232,6 +238,26 @@ function RegisterPage() {
               className={inputStyle}
               placeholder="Please enter your password"
             />
+          </Form.Item>
+
+          {/* Role */}
+          <Form.Item
+            className="w-[80%]"
+            name="role"
+            label={<span style={labelStyle}>Role</span>}
+            labelAlign="top"
+            labelCol={{ span: 24 }}
+            rules={[
+              {
+                required: true,
+                message: "Please select your role",
+              },
+            ]}
+          >
+            <Radio.Group onChange={handleRoleChange} value={role}>
+              <Radio value="customer">Customer</Radio>
+              <Radio value="contractor">Contractor</Radio>
+            </Radio.Group>
           </Form.Item>
 
           {/* Accept Terms and Conditions */}
