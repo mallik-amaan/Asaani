@@ -118,7 +118,7 @@ checkoutRouter.post("/", async (req, res) => {
         {
           order_number,
           serviceman_detail_id: 1,
-          status: "รอดำเนินการ",
+          status: "Waiting for action",
           checkout_id,
           user_id,
           service_id: req.body.service_id,

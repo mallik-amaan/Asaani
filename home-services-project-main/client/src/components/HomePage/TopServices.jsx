@@ -100,10 +100,10 @@ function TopServices() {
                         getMaxPrice(service.sub_service)
                           ? `Approximate service fee ${getMinPrice(
                               service.sub_service
-                            )} - ${getMaxPrice(service.sub_service)} ฿`
+                            )} - ${getMaxPrice(service.sub_service)} PKR`
                           : `Approximate service fee ${getMinPrice(
                               service.sub_service
-                            )} ฿`}
+                            )} PKR`}
                       </p>
                     </div>
                     <div className="button-authentication">
