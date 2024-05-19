@@ -128,7 +128,7 @@ function AdminServiceList() {
       <header className="bg-bg h-[100%] pl-60">
         <div className="flex flex-col items-center">
           <div className="header-name justify-between flex items-center h-20 px-10 mt-0 pt-[20px] py-[10px] w-[100%] bg-white text-grey600 pb-[20px] border-b border-grey300">
-            <h1 className="text-black font-semibold text-xl">serve</h1>
+            <h1 className="text-black font-semibold text-xl">Services</h1>
             <div className="flex">
               <input
                 id="search-text"

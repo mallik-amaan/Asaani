@@ -163,12 +163,11 @@ function ServiceList() {
             <img src={image.Header} alt="Test" className="inline" />
             <div className="absolute top-0 h-[100%] left-0 right-0 z-10 text-center text-black bg-[#00195199]"></div>
             <span className="absolute top-[64px]  left-0 right-0 z-10 text-center text-white ">
-              <h1 className="text-[32px]">Our service</h1>
+              <h1 className="text-[32px]">Our Services</h1>
               <p>
-                Repair electrical appliances, repair air, clean houses and many
-                more.
-                <br />
-                By housekeeperAnd professional technicians
+              Repair electrical appliances, clean houses, and much more.
+              <br />
+              By housekeepers and professional technicians.
               </p>
             </span>
           </div>
@@ -224,7 +223,7 @@ function ServiceList() {
                       <div className="pt-[15px]">
                         <InputPriceRange
                           min={0}
-                          max={4000}
+                          max={100000}
                           minFilter={minPriceFilter}
                           setMinFilter={setMinPriceFilter}
                           maxFilter={maxPriceFilter}
@@ -341,10 +340,10 @@ function ServiceList() {
                 ) : (
                   <div className="text-center h-[500px]">
                     <h1 className="mt-[100px]">
-                      Sorry, no search for the service you want.{" "}
+                      Sorry, no search results for the service you want.{" "}
                     </h1>
                     <p> If the customer wants any additional service</p>
-                    <p>Can contact 0317-4123955</p>
+                    <p>Can contact +923134448880</p>
                   </div>
                 )
               ) : (
@@ -436,15 +435,13 @@ function ServiceList() {
 
         <footer className="h-[284px] bg-[#336DF2] text-center flex justify-center items-center">
           <p className="text-[20px] text-white">
-            Because we are techniciansComplete number 1 home service provider By
-            a more professional team 100 team
+            We are the number one home service provider with a professional team of 100 technicians.
             <br />
-            Able to meet your home service and build
+            Able to meet all your home service and construction needs.
             <br />
-            The convenience of contacting the technician anywhere, anytime, 24
-            hours.
+            The convenience of contacting a technician anytime, anywhere, 24 hours a day.
             <br />
-            Confident, do not leave workWith work quality guarantee{" "}
+            Confident in our services, we never leave a job unfinished and guarantee the quality of our work.
           </p>
           <img src="" />
         </footer>

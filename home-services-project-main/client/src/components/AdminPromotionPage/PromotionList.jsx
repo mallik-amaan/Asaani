@@ -159,7 +159,7 @@ Remaining quota (time)                  </span>
                                   promotion.promotion_types
                                 )}
                                 {promotion.promotion_types === "fixed"
-                                  ? `${promotion.promotion_discount}฿`
+                                  ? `${promotion.promotion_discount}Rs`
                                   : `${promotion.promotion_discount}%`}
                               </p>
 

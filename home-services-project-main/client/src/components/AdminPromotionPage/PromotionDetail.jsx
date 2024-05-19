@@ -75,7 +75,7 @@ function PromotionDetail() {
                   <span className="px-[200px] text-[#C82438] ">
                     -
                     {promotion.promotion_types === "fixed"
-                      ? `${promotion.promotion_discount}฿`
+                      ? `${promotion.promotion_discount}Rs`
                       : `${promotion.promotion_discount}%`}
                   </span>
                 </p>
