@@ -6,7 +6,6 @@ import RegisterPage from "./RegisterPage";
 import "../styles/App.css";
 import NotFoundPage from "./NotFoundPage";
 import CustomerServiceListDisplay from "./CustomerServiceListDisplay"
-import ContractorDashboardPage from "./ContractorDashboardPage";
 
 function UnauthenticatedApp() {
   return (
@@ -20,8 +19,7 @@ function UnauthenticatedApp() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/register" element={<RegisterPage />} />
         <Route path="*" element={<NotFoundPage />} />
-        <Route path="/dashboard" element={<ContractorDashboardPage/>}/>     
-        </Routes>
+      </Routes>
     </div>
   );
 }

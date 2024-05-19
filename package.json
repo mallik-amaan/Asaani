@@ -1,8 +1,9 @@
 {
   "dependencies": {
+    "styled-components": "^6.1.11",
+
     "bcryptjs": "^2.4.3",
-    "chakra": "^0.0.3",
-    "sql": "^0.78.0",
-    "styled-components": "^6.1.11"
+    "sql": "^0.78.0"
+
   }
 }

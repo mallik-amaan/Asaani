@@ -21,7 +21,7 @@ import AdminPromoDetailPage from "./AdminDetailPromoPage.jsx";
 import PromotionMockUpPage from "./PromotionMockUpPage.jsx";
 import ProfilePage from "./ProfilePage.jsx";
 import CustomerUserInfoPage from "./CustomerUserInfoPage.jsx";
-import ChatApp from "../components/ChatPage/ChatApp.jsx";
+import ChatPage from "./ChatPage.jsx";
 import ContractorDashboardPage from "./ContractorDashboardPage.jsx";
 function AuthenticatedApp() {
   const loginRole = localStorage.getItem("role");
@@ -95,16 +95,20 @@ function AuthenticatedApp() {
             path="/customer-ordered-list/:userId"
             element={<CustomerOrderListPage />}
           />
-          <Route path="/chatapp" element={<ChatApp />} />
-
-          <Route path="/dashboard" element={<ContractorDashboardPage />} />
+          <Route
+            path="/dashboard"
+            element={<ContractorDashboardPage />}
+          />
           <Route
             path="/customer-ordered-history/:userId"
             element={<CustomerOrderHistoryPage />}
           />
           <Route path="/customer-promotion" element={<PromotionMockUpPage />} />
-          <Route path="/chat" element={<ChatPage />} />
+          <Route path="/chat" element={<ChatPage />} /> 
+
         </Routes>
+        
+        
       )}
     </div>
   );

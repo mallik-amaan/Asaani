@@ -12,7 +12,6 @@
   },
   "dependencies": {
     "@ant-design/icons": "^5.2.6",
-    "@chakra-ui/react": "^2.8.2",
     "@clerk/clerk-react": "^4.24.0",
     "@stripe/react-stripe-js": "^2.3.0",
     "@stripe/stripe-js": "^2.1.6",
@@ -35,6 +34,7 @@
     "react-router-dom": "^6.15.0",
     "validator": "^13.11.0",
     "webpack": "^5.91.0"
+    "socket.io-client": "^4.7.5",
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
