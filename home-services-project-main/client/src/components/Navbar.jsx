@@ -1,35 +1,35 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { useAuth } from '../contexts/authentication';
-import person from '../assets/homepagePhoto/person.svg';
-import form from '../assets/homepagePhoto/form.svg';
-import watch from '../assets/homepagePhoto/watch.svg';
-import exit from '../assets/homepagePhoto/exit.svg';
-import chatRoundDots from '../assets/homepagePhoto/chat-round-dots.svg.svg';
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/authentication";
+import person from "../assets/homepagePhoto/person.svg";
+import form from "../assets/homepagePhoto/form.svg";
+import watch from "../assets/homepagePhoto/watch.svg";
+import exit from "../assets/homepagePhoto/exit.svg";
+import chatRoundDots from "../assets/homepagePhoto/chat-round-dots.svg.svg";
 
 function Navbar() {
   const [open, setOpen] = useState(false);
-  const loginRole = localStorage.getItem('role');
-  const loginName = localStorage.getItem('fullName');
+  const loginRole = localStorage.getItem("role");
+  const loginName = localStorage.getItem("fullName");
   const { logout } = useAuth();
   const auth = useAuth();
   const navigate = useNavigate();
 
-  const userId = localStorage.getItem('user_id');
+  const userId = localStorage.getItem("user_id");
 
   return (
     <div className="flex justify-between p-5 shadow-[2px_2px_24px_rgba(23,51,106,0.12)] sticky top-0 z-[100] bg-white">
       <div className="flex lg:ml-40 items-center">
         <button
           className="text-2xl font-semibold text-[#336DF2] prompt ml-2"
-          onClick={() => navigate('/')}
+          onClick={() => navigate("/")}
         >
           Asaani
         </button>
         <div className="items-center text-base font-bold prompt lg:ml-10 px-3 pt-1.5">
           <button
             className="cursor-pointer"
-            onClick={() => navigate('/services-list')}
+            onClick={() => navigate("/services-list")}
           >
             Our services
           </button>
@@ -53,7 +53,7 @@ function Navbar() {
                   <ul className="flex flex-col shadow-2xl self-stretch rounded-lg text-[#4B5160] overflow-hidden">
                     <button
                       className="flex p-2 hover:bg-[#EFEFF2] hover:text-[#232630]"
-                      onClick={() => navigate('/profile')}
+                      onClick={() => navigate("/profile")}
                     >
                       <span>
                         <img src={person} className="mr-3 " />
@@ -99,12 +99,12 @@ function Navbar() {
               <img
                 src={chatRoundDots}
                 className="w-[30px] h-[30px] rounded-full bg-grey100"
-                onClick={() => navigate('/chat')}
+                onClick={() => navigate("/chat")}
               />
             </div>
           </>
         ) : (
-          <button className="btn-secondary" onClick={() => navigate('/login')}>
+          <button className="btn-secondary" onClick={() => navigate("/login")}>
             Log in
           </button>
         )}
