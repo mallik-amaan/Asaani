@@ -516,7 +516,7 @@ Or drag and place here                              </p>
                 <hr className="mt-10 mb-10 text-grey300 "></hr>
                 <p className="pb-[25px] ">
                   <span className="text-grey700">Created when</span>
-                  <span className="px-[200px] text-black ">
+                  <span className="px-[170px] text-black ">
                     {dateFormat(service.service_created_date)}
                   </span>
                 </p>
@@ -526,21 +526,21 @@ Or drag and place here                              </p>
                     {dateFormat(service.service_edited_date)}
                   </span>
                 </p>
+                <div
+                className="flex justify-end mr-12 mt-30 text-[#80899C] underline cursor-pointer"
+                onClick={showDeleteConfirmation}
+                >
+                  <img
+                    className="cursor-pointer w-[25px] h-[25px]  "
+                    src={trash}
+                    alt="Delete"
+                  />
+                  Delete service
+                </div>
               </div>
             </div>
           </div>
         </Form>
-        <div
-          className="flex justify-end mr-12 mt-5 text-[#80899C] underline cursor-pointer"
-          onClick={showDeleteConfirmation}
-        >
-          <img
-            className="cursor-pointer w-[25px] h-[25px]  "
-            src={trash}
-            alt="Delete"
-          />{" "}
-          Delete service
-        </div>
         {deleteConfirmation && (
           <AlertBoxDelete
             deleteFunction={handleDelete}

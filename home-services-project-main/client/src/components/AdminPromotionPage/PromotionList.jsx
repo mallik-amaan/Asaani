@@ -82,7 +82,7 @@ function PromotionList() {
           <div className="flex">
             <input
               type="text"
-              placeholder="ค้นหา Promotion Code ..."
+              placeholder="Search Promotion Code ..."
               value={keyword}
               onChange={(e) => setKeyword(e.target.value)}
               className="px-4 py-2 border-grey300 border bg-white rounded-lg focus:outline-none focus:ring focus:border-blue-300 w-[400px] "
@@ -93,7 +93,7 @@ function PromotionList() {
               className="flex btn-primary rounded-lg ml-7 h-[44px] w-[238px] text-white focus:outline-none "
               onClick={() => navigate("/admin-promotion-create")}
             >
-              <p className="">increase Promotion Code</p>
+              <p className="">Add Promotion Code</p>
               <p className="pt-2 pl-[15px]">
                 <img src={plusSign} className="w-[10px] h-[10px]" />
               </p>

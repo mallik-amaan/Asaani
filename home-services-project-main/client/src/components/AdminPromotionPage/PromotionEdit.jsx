@@ -312,7 +312,7 @@ function PromotionEdit() {
                   >
                     <Input
                       style={{ width: "50%" }}
-                      suffix="฿"
+                      suffix="Rs"
                       value={
                         newFormData.promotion_types === "fixed"
                           ? newFormData.promotion_discount
@@ -490,20 +490,21 @@ function PromotionEdit() {
                 {dateFormat(newFormData.promotion_edited_date_time)}
               </span>
             </p>
+            <div
+            className="flex justify-end mr-12 mt-10 text-[#80899C] underline cursor-pointer"
+            onClick={showDeleteConfirmation}
+            >
+              <img
+                className="cursor-pointer w-[25px] h-[25px]  "
+                src={trash}
+                alt="Delete"
+              />{" "}
+              Delete Promotion Code
+          </div>
           </div>
         </div>
       </Form>
-      <div
-        className="flex justify-end mr-12 mt-10 text-[#80899C] underline cursor-pointer"
-        onClick={showDeleteConfirmation}
-      >
-        <img
-          className="cursor-pointer w-[25px] h-[25px]  "
-          src={trash}
-          alt="Delete"
-        />{" "}
-        ลบ Promotion Code
-      </div>
+      
       {deleteConfirmation && (
         <AlertBoxDelete
           deleteFunction={handleDelete}

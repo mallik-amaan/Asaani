@@ -106,8 +106,8 @@ serviceRouter.post("/", upload.single("file"), async (req, res) => {
 
     // Upload file to Supabase storage
     const uploadResult = await supabase.storage
-      .from("service_photos")
-      .upload(`service_photos/${Date.now()}${file.originalname}`, file.buffer, {
+      .from("Asaani_public")
+      .upload(`service_photo/${Date.now()}${file.originalname}`, file.buffer, {
         cacheControl: "3600",
         upsert: false,
         contentType: file.mimetype,
@@ -116,7 +116,7 @@ serviceRouter.post("/", upload.single("file"), async (req, res) => {
 
     if (!uploadResult.error) {
       // Get public URL for the uploaded file
-      const servicePhotourl = `https://zvvtojeuspirvypkehal.supabase.co/storage/v1/s3/service_photos/${uploadResult.data.path}`;
+      const servicePhotourl = `https://zvvtojeuspirvypkehal.supabase.co/storage/v1/s3/Asaani_public/${uploadResult.data.path}`;
       console.log(uploadResult.data.path);
 
       // Assign the URL directly to service_photo
@@ -245,7 +245,7 @@ serviceRouter.put("/:id", upload.single("file"), async (req, res) => {
     if (file) {
       // Upload file to Supabase storage
       const uploadResult = await supabase.storage
-        .from("home_service")
+        .from("Asaani_public")
         .upload(
           `service_photo/${Date.now()}${file.originalname}`,
           file.buffer,
@@ -259,7 +259,7 @@ serviceRouter.put("/:id", upload.single("file"), async (req, res) => {
 
       if (!uploadResult.error) {
         // Get public URL for the uploaded file
-        const servicePhotourl = `https://tqjclbmprqjrgdrvylqd.supabase.co/storage/v1/object/public/home_service/${uploadResult.data.path}`;
+        const servicePhotourl = `https://zvvtojeuspirvypkehal.supabase.co/storage/v1/object/public/Asaani_public/${uploadResult.data.path}`;
         console.log(uploadResult.data.path);
 
         // Assign the URL directly to service_photo
