@@ -21,8 +21,7 @@ import AdminPromoDetailPage from "./AdminDetailPromoPage.jsx";
 import PromotionMockUpPage from "./PromotionMockUpPage.jsx";
 import ProfilePage from "./ProfilePage.jsx";
 import CustomerUserInfoPage from "./CustomerUserInfoPage.jsx";
-// import ChatApp from "../components/ChatPage/ChatApp.jsx";
-import ChatPage from "./ChatPage.jsx";
+import ChatApp from "../components/ChatPage/ChatApp.jsx";
 import ContractorDashboardPage from "./ContractorDashboardPage.jsx";
 function AuthenticatedApp() {
   const loginRole = localStorage.getItem("role");
