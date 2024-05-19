@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { createClient } from "@supabase/supabase-js";
@@ -9,7 +10,7 @@ const supabaseKey =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inp2dnRvamV1c3BpcnZ5cGtlaGFsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MTU3MDkzNDcsImV4cCI6MjAzMTI4NTM0N30.Wds1JxZh-zF_CuhcKCLVdMoS7MpE_V_h8Df4MdpVS3o";
 const supabase = createClient(supabaseUrl, supabaseKey);
 
-const ChatApp = ({s_id,r_id}) => {
+const ChatApp = ({s_id=1,r_id=2}) => {
   const [messages, setMessages] = useState([]);
   const sender_id = s_id;
   const receiver_id = r_id;
@@ -36,7 +37,7 @@ const ChatApp = ({s_id,r_id}) => {
   }, []);
 
   const sendMessage = async (message) => {
-    console.log("entered sen message");
+    console.log("entered send message");
     const response = await axios.post(
       "http://localhost:4000/chatapp/messages",
       {
