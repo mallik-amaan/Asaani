@@ -52,7 +52,7 @@ function TopServices() {
     <div className="flex flex-col justify-center items-center top-20 h-full bg-[#f0f0f0]">
       <div className="pt-20">
         <h1 className="text-[#001C59] font-bold text-[32px]">
-          Our popular service
+          Our Popular Services
         </h1>
       </div>
 
@@ -64,9 +64,9 @@ function TopServices() {
             services.data
               .filter(
                 (service) =>
-                  service.service_name === "General cleaning" ||
-                  service.service_name === "Clean the air" ||
-                  service.service_name === "Repair washing machines"
+                  service.service_name === "Car Repair" ||
+                  service.service_name === "Bike Repair" ||
+                  service.service_name === "Woodworks"
               )
               .map((service) => (
                 <div

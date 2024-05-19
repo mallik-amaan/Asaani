@@ -52,7 +52,7 @@ function AdminDetailCategoryPage() {
                   navigate(`/admin-category-edit/${category.category_id}`)
                 }
               >
-                correct
+                Edit
               </button>
             </div>
             <div className="flex flex-col items-center">
