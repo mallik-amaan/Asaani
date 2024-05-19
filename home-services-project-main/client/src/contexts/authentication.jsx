@@ -41,10 +41,10 @@ function AuthProvider(props) {
       navigate("/");
       if (userDataFromToken.role === "admin") {
         navigate("/admin-category");
-        message.success("Enter the system successfully");
+        message.success("Login as admin successful");
       } else if (userDataFromToken.role === "customer") {
         navigate("/");
-        message.success("Enter the system successfully");
+        message.success("Login as customer successful");
       } else {
         message.error("Incorrect email or password");
       }  

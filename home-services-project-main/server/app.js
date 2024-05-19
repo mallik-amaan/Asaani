@@ -10,6 +10,7 @@ import paymentRouter from "./apps/payment.js";
 import promotionRouter from "./apps/promotion.js";
 import dotenv from "dotenv";
 import dummyRouter from "./apps/dummy.js";
+import chatAppRouter from "./apps/chatapp.js";
 import supabase from "./utils/supabase.js";
 
 async function init() {
@@ -17,23 +18,20 @@ async function init() {
 
   const app = express();
   const port = 4000;
-  
- 
 
   app.use(cors());
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
-  
-
 
   app.use("/auth", authRouter);
   app.use("/category", categoryRouter);
   app.use("/service", serviceRouter);
   app.use("/checkout", checkoutRouter);
   app.use("/orderHistory", orderHistoryRouter);
-  app.use("/promotion",promotionRouter);
+  app.use("/promotion", promotionRouter);
   app.use("/payment", paymentRouter);
   app.use("/dummy", dummyRouter);
+  app.use("/chatapp", chatAppRouter);
   app.get("/", (req, res) => {
     res.send("Welcome to Home Service!");
   });

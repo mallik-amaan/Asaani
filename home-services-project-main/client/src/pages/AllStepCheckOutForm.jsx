@@ -631,7 +631,7 @@ function AllStepCheckOutForm() {
               />
             </div>
             {/* <Elements stripe={stripePromise}> */}
-            <div>ชำระเงิน</div>
+            <div>Make a payment.</div>
             <div className="flex justify-evenly mt-4">
               <button
                 className={`w-full border border-[#CCD0D7] rounded-lg p-1 flex flex-col justify-center items-center focus:outline-none focus:ring focus:ring-[#336DF2] ${
@@ -642,7 +642,7 @@ function AllStepCheckOutForm() {
                 onClick={() => handlePaymentMethodClick("qr")}
               >
                 <img src={qr} />
-                <p>พร้อมเพย์</p>
+                <p>PromptPay</p>
               </button>
               <button
                 className={`w-full border border-[#CCD0D7] rounded-lg p-1 ml-4 flex flex-col justify-center items-center focus:outline-none focus:ring focus:ring-[#336DF2] ${
@@ -653,12 +653,12 @@ function AllStepCheckOutForm() {
                 onClick={() => handlePaymentMethodClick("credit")}
               >
                 <img src={credit} />
-                <p>บัตรเครดิต</p>
+                <p>Credit card</p>
               </button>
             </div>
             <div className="mt-5">
               <p>
-                หมายเลขบัตรเครดิต<span className="text-[#C82438]">*</span>
+              Credit card number.<span className="text-[#C82438]">*</span>
               </p>
               <input
                 placeholder="Please enter credit card number"
@@ -668,7 +668,7 @@ function AllStepCheckOutForm() {
             </div>
             <div className="mt-5">
               <p>
-                ชื่อบนบัตร<span className="text-[#C82438]">*</span>
+              The name on the card<span className="text-[#C82438]">*</span>
               </p>
               <input
                 placeholder="Please enter name on card"
@@ -679,7 +679,7 @@ function AllStepCheckOutForm() {
             <div className="flex mt-5">
               <div>
                 <p>
-                  วันหมดอายุ<span className="text-[#C82438]">*</span>
+                The expiration date<span className="text-[#C82438]">*</span>
                 </p>
                 <DatePicker
                   defaultValue={dayjs("2015/01", monthFormat)}
@@ -691,7 +691,7 @@ function AllStepCheckOutForm() {
               </div>
               <div className="ml-4">
                 <p>
-                  รหัส CVC / CVV
+                The security code CVC / CVV
                   <span className="text-[#C82438] bg-white">*</span>
                 </p>
                 <input
