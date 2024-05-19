@@ -129,7 +129,7 @@ function AddPromotionForm() {
     >
       <div className="bg-grey100 h-full pb-4% md:pb-0 md:pl-60">
         <div className="flex items-center h-20 px-10 justify-between border-b border-grey300 bg-white">
-          <h1 className="text-xl font-medium">increase Promotion Code</h1>
+          <h1 className="text-xl font-medium">Add Promotion Code</h1>
           <div className="flex">
             <button
               className="btn-secondary flex items-center justify-center text-base font-medium w-28 h-11"
@@ -202,11 +202,11 @@ function AddPromotionForm() {
                           if 
                             (isNaN(numericValue) ||
                             numericValue < 1 ||
-                            numericValue > 1
+                            numericValue > 1000
                         )
                            {
                             return Promise.reject(
-                              "Please enter a number between 1 and "
+                              "Please enter a number between 1 and 1000"
                             );
                           }
                         }
@@ -217,7 +217,7 @@ function AddPromotionForm() {
                 >
                   <Input
                     style={{ width: "50%" }}
-                    suffix="฿"
+                    suffix="Rs"
                     disabled={promotionType === "percent"}
                   />
                 </Form.Item>
@@ -282,8 +282,8 @@ function AddPromotionForm() {
                   const numericValue = parseFloat(value);
                   if (
                     isNaN(numericValue) ||
-                    numericValue < 1 ||
-                    numericValue > 1
+                    numericValue < 0 ||
+                    numericValue > 5000
                   ) {
                     return Promise.reject("Please specify the number of times lower. ");
                   }
@@ -293,7 +293,7 @@ function AddPromotionForm() {
               },
             ]}
           >
-            <Input style={{ width: "50%" }} suffix="ครั้ง" />
+            <Input style={{ width: "50%" }} suffix="usages" />
           </Form.Item>
 
           <Form.Item

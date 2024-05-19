@@ -116,7 +116,7 @@ serviceRouter.post("/", upload.single("file"), async (req, res) => {
 
     if (!uploadResult.error) {
       // Get public URL for the uploaded file
-      const servicePhotourl = `https://zvvtojeuspirvypkehal.supabase.co/storage/v1/s3/Asaani_public/${uploadResult.data.path}`;
+      const servicePhotourl = `https://zvvtojeuspirvypkehal.supabase.co/storage/v1/object/public/Asaani_public/${uploadResult.data.path}`;
       console.log(uploadResult.data.path);
 
       // Assign the URL directly to service_photo
