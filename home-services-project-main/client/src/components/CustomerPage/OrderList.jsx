@@ -23,7 +23,7 @@ function OrderList () {
             );
             setOrder(result.data.result);
             setLoading(false);
-
+            console.log(result.data.result);
         } catch (error) {
             console.error("Error fetching data:", error);
         }

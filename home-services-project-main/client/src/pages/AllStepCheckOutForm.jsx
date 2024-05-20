@@ -786,9 +786,9 @@ function AllStepCheckOutForm() {
             <div>
               <button
                 className="bg-blue600 w-full h-11 rounded-lg text-white"
-                onClick={() => navigate(`/customer-ordered-list/${userId}`)}
+                onClick={() => navigate(`/customer-ordered-history/${userId}`)}
               >
-                Check repair list
+                Check Order History
               </button>
             </div>
           )}
