@@ -1,7 +1,7 @@
 export default function ContractorStatistics() {
   return (
     <div
-      className="row flex flex-row"
+      className=" flex p-5 justify-between rounded-lg shadow-md dark:bg-gray-800 dark:text-gray-200"
       style={{
         backgroundColor: "green",
         marginTop: "2%",
@@ -10,7 +10,7 @@ export default function ContractorStatistics() {
         color: "white",
       }}
     >
-      <div className="basis-1/2">
+      <div className="basis-1">
         <h2>Ongoing Contracts</h2>
         <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
           <div
@@ -25,7 +25,7 @@ export default function ContractorStatistics() {
           ></div>
         </div>
       </div>
-      <div className="basis-1/2">
+      <div className="basis-1">
         <h2>Completed Contracts</h2>
         <div
           className="radial-progress"
@@ -35,7 +35,7 @@ export default function ContractorStatistics() {
           70%
         </div>
       </div>
-      <div className="basis-1/2">
+      <div className="basis-1">
         <h2>Your Rating</h2>
         <div className="flex items-center">
           <svg
