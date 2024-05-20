@@ -166,10 +166,10 @@ function AdminServiceList() {
               <li className="flex w-[100%] text-sm text-grey600 list-none p-[20px] rounded-t-lg bg-grey200 border-[1px] border-grey300 gap-[20px]">
                 <span className="text-grey700 pl-[7%]">number</span>
                 <span className="text-grey700 pl-[4%]">Service category</span>
-                <span className="text-grey700 pl-[11%]">Category</span>
-                <span className="text-grey700 pl-[12%]">Created when</span>
-                <span className="text-grey700 pl-[17%]">Last edited</span>
-                <span className="text-grey700 pl-[16%]">Action</span>
+                <span className="text-grey700 pl-[6%]">Category</span>
+                <span className="text-grey700 pl-[5%]">Created when</span>
+                <span className="text-grey700 pl-[8%]">Last edited</span>
+                <span className="text-grey700 pl-[5%]">Action</span>
               </li>
 
               <Droppable droppableId="service-list">
