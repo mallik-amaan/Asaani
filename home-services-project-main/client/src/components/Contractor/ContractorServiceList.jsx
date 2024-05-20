@@ -15,6 +15,8 @@ function ContractorServiceList() {
   const navigate = useNavigate();
   const serviceData = services.data;
 
+  var user_id = localStorage.getItem("user_id");
+
   const getServices = async () => {
     try {
       const response = await axios.get("http://localhost:4000/service");
@@ -128,7 +130,7 @@ function ContractorServiceList() {
       <header className="bg-bg h-[100%] pl-60">
         <div className="flex flex-col items-center">
           <div className="header-name justify-between flex items-center h-20 px-10 mt-0 pt-[20px] py-[10px] w-[100%] bg-white text-grey600 pb-[20px] border-b border-grey300">
-            <h1 className="text-black font-semibold text-xl">Services</h1>
+            <h1 className="text-black font-semibold text-xl">My Services</h1>
             <div className="flex">
               <input
                 id="search-text"
@@ -179,7 +181,7 @@ function ContractorServiceList() {
                       serviceData
                         .filter((serviceItem) =>
                           serviceItem.service_name.includes(keyword)
-                        )
+                        ) && serviceData.filter((serviceItem) => serviceItem.user_id === JSON.parse(user_id))
                         .map((serviceItem, index) => (
                           <Draggable
                             key={serviceItem.service_id.toString()}
@@ -255,7 +257,7 @@ function ContractorServiceList() {
                                       src={image.editIcon}
                                       onClick={() =>
                                         navigate(
-                                          `/admin-service-edit/${serviceItem.service_id}`
+                                          `/contractor-service-edit/${serviceItem.service_id}`
                                         )
                                       }
                                     />

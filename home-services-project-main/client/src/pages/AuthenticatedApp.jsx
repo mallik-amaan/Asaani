@@ -27,6 +27,7 @@ import ContractorDashboardPage from "./ContractorDashboardPage.jsx";
 import ContractorDetails from "../components/Contractor/ContractorDetails.jsx";
 import ContractorCreateServicePage from "../components/Contractor/ContractorCreateServicePage.jsx";
 import ContractorServicePage from "../components/Contractor/ContractorServicePage.jsx";
+import ContractorServiceEdit from "../components/Contractor/ContractorServiceEditForm.jsx"
 
 
 function AuthenticatedApp() {
@@ -120,6 +121,7 @@ function AuthenticatedApp() {
             path="/contractor-service"
             element={<ContractorServicePage />}
           />
+          <Route path="/contractor-service-edit/:serviceId" element={<ContractorServiceEdit />} />
           <Route path="/chat" element={<ChatApp />} />
         </Routes>
       )}
