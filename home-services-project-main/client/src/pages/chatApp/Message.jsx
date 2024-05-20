@@ -12,7 +12,7 @@ const Message = ({ message, align }) => {
         padding: "5px",
         backgroundColor: "#336DF2",
         flexDirection: "row",
-        justifyContent: align === "end" ? "flex-end" : "flex-start",
+        justifyContent: "flex-start",
       }}
     >
       <div className="message-content">
@@ -24,10 +24,14 @@ const Message = ({ message, align }) => {
           />
           <div>
             <p className="text-sm font-semibold">{message.sender}</p>
-            <p className="text-xs text-gray-500">{message.time}</p>
+            <p className="text-xs" style={{ color: "white" }}>
+              {message.time}
+            </p>
           </div>
         </div>
-        <p className="mt-2 ml-11 text-gray-700">{message.text}</p>
+        <p className="mt-2 ml-11 " style={{ color: "white" }}>
+          {message.text}
+        </p>
       </div>
     </div>
   );
