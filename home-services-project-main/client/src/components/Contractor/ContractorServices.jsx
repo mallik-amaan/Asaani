@@ -10,7 +10,7 @@ import {
   getMaxPrice,
   getMinPrice,
 } from "../../utils/serviceList.js";
-
+var user_id = localStorage.getItem("user_id");
 function TopServices() {
   const navigate = useNavigate();
 
@@ -51,9 +51,7 @@ function TopServices() {
   return (
     <div className="flex flex-col justify-center items-center top-20 h-full bg-[#f0f0f0]">
       <div className="pt-20">
-        <h1 className="text-[#001C59] font-bold text-[32px]">
-          My Services
-        </h1>
+        <h1 className="text-[#001C59] font-bold text-[32px]">My Services</h1>
       </div>
 
       <section>
@@ -62,12 +60,7 @@ function TopServices() {
             services.data &&
             Array.isArray(services.data) &&
             services.data
-              .filter(
-                (service) =>
-                  service.service_name === "General cleaning" ||
-                  service.service_name === "Clean the air" ||
-                  service.service_name === "Repair washing machines"
-              )
+              .filter((service) => service.user_id === JSON.parse(user_id))
               .map((service) => (
                 <div
                   key={service.id}
@@ -153,9 +146,7 @@ function TopServices() {
         )}
       </section>
 
-      <div className="pt-12 pb-40">
-      
-      </div>
+      <div className="pt-12 pb-40"></div>
     </div>
   );
 }

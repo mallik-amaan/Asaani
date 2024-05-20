@@ -106,7 +106,7 @@ function AddService() {
       } else {
         message.error("Cannot create service");
       }
-      navigate("/admin-service");
+      navigate("/");
     } catch (error) {
       console.error(error);
       message.error("Please come and fill in the service.");
@@ -144,7 +144,7 @@ function AddService() {
     fontSize: "16px",
     fontStyle: "normal",
     fontWeight: 500,
-    lineHeight: "150%", 
+    lineHeight: "150%",
     width: "12.8125rem",
     textAlign: "left", // 24px
   };
@@ -246,19 +246,19 @@ function AddService() {
                 beforeUpload={(file) => {
                   const isImage = file.type.startsWith("image/");
                   const isLt5M = file.size / 1024 / 1024 < 5;
-              
+
                   if (!isImage) {
                     message.error("Please upload image files only.");
                   }
-              
+
                   if (!isLt5M) {
                     message.error("The image file size must not exceed. 5MB");
                   }
-              
+
                   if (isImage && isLt5M) {
                     handleFileChange(file);
                   }
-              
+
                   return false; // Prevent default upload behavior
                 }}
                 maxFileSize={5 * 1024 * 1024}
@@ -287,7 +287,8 @@ function AddService() {
                         or Drag and place here
                       </p>
                       <p className="ant-upload-hint">
-PNG, JPG size not more than 5MB                      </p>
+                        PNG, JPG size not more than 5MB{" "}
+                      </p>
                     </>
                   )}
                 </div>
@@ -311,150 +312,146 @@ PNG, JPG size not more than 5MB                      </p>
             </div>
             {/* <Row gutter={12}>
               <Col span={24}> */}
-                <Form.List
-                  name="items"
-                  initialValue={[{ name: "", cost: "", unit: "" }]}            
+            <Form.List
+              name="items"
+              initialValue={[{ name: "", cost: "", unit: "" }]}
+            >
+              {(fields, { add, remove }) => (
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "16px",
+                  }}
                 >
-                  {(fields, { add, remove }) => (
+                  {fields.map((field, index) => (
                     <div
+                      key={field.key}
                       style={{
                         display: "flex",
-                        flexDirection: "column",
+                        alignItems: "center",
                         gap: "16px",
+                        width: "100%",
                       }}
                     >
-                      {fields.map((field, index) => (
-                        <div
-                          key={field.key}
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            gap: "16px",
-                            width: "100%"
-                          }}
+                      <span>
+                        {" "}
+                        <img src={Frame} />
+                      </span>
+
+                      <div style={{ width: "50%" }}>
+                        <Form.Item
+                          colon={false}
+                          label="Program name"
+                          name={[field.name, "name"]}
+                          labelAlign="top"
+                          labelCol={{ span: 24 }}
+                          rules={[
+                            {
+                              required: true, // Only the first one is required
+                              message: "Please fill in the list.",
+                            },
+                          ]}
                         >
-                          <span>
-                            {" "}
-                            <img src={Frame} />
-                          </span>
+                          <Input name="sub_service_name" />
+                        </Form.Item>
+                      </div>
 
-                          <div style={{ width: "50%",}}
-                          >
-                            <Form.Item
-                              colon={false}
-                              label="Program name" 
-                              name={[field.name, "name"]}
-                              labelAlign="top"
-                              labelCol={{ span: 24 }}
-                              rules={[
-                                {
-                                  required: true, // Only the first one is required
-                                  message: "Please fill in the list.",
-                                },
-                              ]}    
-                                            
-                            >
-                              <Input name="sub_service_name" />
-                            </Form.Item>
-                          </div>
-
-                          <div   style={{ width: "25%", }}>
-                            <Form.Item
-                              colon={false}
-                              label="Service fee / 1 unit"
-                              name={[field.name, "cost"]}
-                              labelAlign="top"
-                              labelCol={{ span: 24 }}
-                              rules={[
-                                {
-                                  message: "Please fill out the service fee.",
-                                },
-                                {
-                                  validator(_, value) {
-                                    if (value <= 20000) {
-                                      return Promise.resolve();
-                                    }
-                                    return Promise.reject(
-                                      "The service fee must not exceed. 20000"
-                                    );
-                                  },
-                                },
-                              ]}
-                            >
-                              <Input
-                                type="number"
-                                min={0}
-                                name="price_per_unit"
-                                suffix="฿"
-                              />
-                            </Form.Item>
-                          </div>
-                          <div 
-                          style={{ width: "25%", }}
-                          >
-                            <Form.Item
-                              colon={false}
-                              label="Service unit"
-                              name={[field.name, "unit"]}
-                              labelAlign="top"
-                              labelCol={{ span: 24 }}
-                              rules={[
-                                {
-                                  message: "Please fill out the service unit.",
-                                },
-                              ]}
-                            >
-                              <Input name="unit" />
-                            </Form.Item>
-                          </div>
-                          <div
-                            style={{
-                              width: "10%",
-                              display: "flex",
-                              alignItems: "flex-end",
-                            }}
-                          >
-                            {fields.length > 1 && (
-                              <Form.Item
-                                colon={false}
-                                label=""
-                                style={{ marginBottom: 0,}}
-                              >
-                                <div
-                                  style={{
-                                    display: "flex",
-                                    alignItems: "center",
-                                  }}
-                                >
-                                  <a
-                                    onClick={() => {
-                                      remove(field.name);
-                                    }}
-                                    style={{
-                                      textDecoration: "underline",
-                                      marginRight: "8px",
-                                    }}
-                                  >
-                                    Delete
-                                  </a>
-                                </div>
-                              </Form.Item>
-                            )}
-                          </div>
-                        </div>
-                      ))}
-
-                      <button
-                        className="btn-secondary flex items-center justify-center text-base font-medium w-56 h-11"
-                        type="button"
-                        onClick={() => add()}
+                      <div style={{ width: "25%" }}>
+                        <Form.Item
+                          colon={false}
+                          label="Service fee / 1 unit"
+                          name={[field.name, "cost"]}
+                          labelAlign="top"
+                          labelCol={{ span: 24 }}
+                          rules={[
+                            {
+                              message: "Please fill out the service fee.",
+                            },
+                            {
+                              validator(_, value) {
+                                if (value <= 20000) {
+                                  return Promise.resolve();
+                                }
+                                return Promise.reject(
+                                  "The service fee must not exceed. 20000"
+                                );
+                              },
+                            },
+                          ]}
+                        >
+                          <Input
+                            type="number"
+                            min={0}
+                            name="price_per_unit"
+                            suffix="฿"
+                          />
+                        </Form.Item>
+                      </div>
+                      <div style={{ width: "25%" }}>
+                        <Form.Item
+                          colon={false}
+                          label="Service unit"
+                          name={[field.name, "unit"]}
+                          labelAlign="top"
+                          labelCol={{ span: 24 }}
+                          rules={[
+                            {
+                              message: "Please fill out the service unit.",
+                            },
+                          ]}
+                        >
+                          <Input name="unit" />
+                        </Form.Item>
+                      </div>
+                      <div
+                        style={{
+                          width: "10%",
+                          display: "flex",
+                          alignItems: "flex-end",
+                        }}
                       >
-                        + Add items
-                      </button>
+                        {fields.length > 1 && (
+                          <Form.Item
+                            colon={false}
+                            label=""
+                            style={{ marginBottom: 0 }}
+                          >
+                            <div
+                              style={{
+                                display: "flex",
+                                alignItems: "center",
+                              }}
+                            >
+                              <a
+                                onClick={() => {
+                                  remove(field.name);
+                                }}
+                                style={{
+                                  textDecoration: "underline",
+                                  marginRight: "8px",
+                                }}
+                              >
+                                Delete
+                              </a>
+                            </div>
+                          </Form.Item>
+                        )}
+                      </div>
                     </div>
-                  )}
-                </Form.List>
-              {/* </Col>
+                  ))}
+
+                  <button
+                    className="btn-secondary flex items-center justify-center text-base font-medium w-56 h-11"
+                    type="button"
+                    onClick={() => add()}
+                  >
+                    + Add items
+                  </button>
+                </div>
+              )}
+            </Form.List>
+            {/* </Col>
             </Row> */}
           </div>
         </div>

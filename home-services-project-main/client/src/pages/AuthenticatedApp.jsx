@@ -27,6 +27,8 @@ import ContractorDashboardPage from "./ContractorDashboardPage.jsx";
 import ContractorDetails from "../components/Contractor/ContractorDetails.jsx";
 import ContractorCreateServicePage from "../components/Contractor/ContractorCreateServicePage.jsx";
 import ContractorServicePage from "../components/Contractor/ContractorServicePage.jsx";
+
+
 function AuthenticatedApp() {
   var loginRole = localStorage.getItem("role");
   loginRole.length == 0 ? (loginRole = "contractor") : loginRole;
@@ -118,6 +120,7 @@ function AuthenticatedApp() {
             path="/contractor-service"
             element={<ContractorServicePage />}
           />
+          <Route path="/chat" element={<ChatApp />} />
         </Routes>
       )}
     </div>

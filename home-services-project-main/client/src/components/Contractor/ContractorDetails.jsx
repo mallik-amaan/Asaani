@@ -156,7 +156,7 @@ function ContractorDetails() {
             labelCol={{ span: 24 }}
             rules={[
               {
-                type: "email",
+                type: "text",
                 message: "Please enter your expertise in the field",
               },
               {
