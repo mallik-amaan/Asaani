@@ -1,7 +1,8 @@
 import React from "react";
 
-const Message = ({ message, align }) => {
+const Message = ({ message }) => {
   return (
+    
     <div
       className="message-container"
       style={{

@@ -109,7 +109,8 @@ function AuthenticatedApp() {
             element={<CustomerOrderHistoryPage />}
           />
           <Route path="/customer-promotion" element={<PromotionMockUpPage />} />
-          <Route path="/chat" element={<ChatApp />} />
+          <Route path="/chat" element={<AllChats />} />
+          <Route path="/chatscreen" element={<ChatApp />} />
         </Routes>
       ) : (
         <Routes>
@@ -128,7 +129,6 @@ function AuthenticatedApp() {
             path="/contractor-service-edit/:serviceId"
             element={<ContractorServiceEdit />}
           />
-          <Route path="/chat" element={<ChatApp />} />
         </Routes>
       )}
     </div>

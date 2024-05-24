@@ -2,6 +2,7 @@ import React from "react";
 import Message from "./Message";
 
 const ChatWindow = ({ messages, sender_id, receiver_id }) => {
+ 
   return (
     <div
       className="overflow-y-scroll mb-4"
@@ -21,15 +22,19 @@ const ChatWindow = ({ messages, sender_id, receiver_id }) => {
               message.sender_id == receiver_id)
         )
         .map((message) => (
-          <Message
+          <div
             style={{
+              display:"flex",
               flexDirection: "row",
-              justifyContent: message.sender_id === sender_id ? "flex-end" : "flex-start",
+              justifyContent:
+                message.sender_id === (sender_id) ? "flex-end" : "flex-start",
             }}
-            align={message.sender_id == sender_id ? "end" : ""} // or "start" depending on your requirement
-            key={message.id}
-            message={message}
-          />
+          >
+            <Message
+              key={message.id}
+              message={message}
+            />
+          </div>
         ))}
     </div>
   );
