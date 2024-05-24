@@ -59,9 +59,6 @@ function OrderHistory() {
                             <p className="text-grey600">
                                 Checkout ID: {item.checkout_id}
                             </p>
-                            <p className="text-grey600">
-                                Order Date: {dateFormat(item.order_date)}
-                            </p>
                         </div>
                     ))}
                 </div>

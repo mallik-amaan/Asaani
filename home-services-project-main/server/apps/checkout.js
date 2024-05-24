@@ -112,19 +112,19 @@ checkoutRouter.post("/", async (req, res) => {
     const order_number = generateOrderNumber();
 
     // Insert into order_history
-    const { data: orderHistoryData, error: orderHistoryError } = await supabase
+    const orderHistoryData = await supabase
       .from("order_history")
       .insert([
         {
           order_number,
-          serviceman_detail_id: 1,
+          serviceman_detail_id: null,
           status: "Waiting for action",
           checkout_id,
           user_id,
           service_id: req.body.service_id,
         },
-      ]);
-
+      ]).select();
+    console.log("orderHistoryData", orderHistoryData);
     res.json({ message: "build Order succeed" });
   } catch (error) {
     res.status(500).json({ message: "An error in the system" });
@@ -194,7 +194,7 @@ checkoutRouter.post("/", async (req, res) => {
 // });
 
 // checkoutRouter.post("/", async (req, res) => {
-//   //req.body Acquired ใช้ insert 3 table
+//   //req.body Acquired insert 3 table
 //   try {
 //     console.log('req.body', req.body);
 
